@@ -1,6 +1,7 @@
+import React from 'react'
 import Layout from "@/components/Layout";
 
-const Blog = () => {
+const Blog:React.FC = () => {
     return  <Layout><div>Blog</div></Layout>
 }
 

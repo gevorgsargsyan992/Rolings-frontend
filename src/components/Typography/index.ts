@@ -1,3 +1,3 @@
-import Text from './Text'
-
-export const {Text};
+// import Text from './Text'
+//
+// export const {Text};
