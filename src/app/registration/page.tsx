@@ -1,8 +1,7 @@
-import React from 'react'
-import Layout from "@/components/Layout";
+import { FC } from "react";
 
-const Registration:React.FC = () => {
-    return <Layout><div>Registration</div></Layout>
-}
+const Registration: FC = () => {
+  return <div>Registration</div>;
+};
 
 export default Registration;

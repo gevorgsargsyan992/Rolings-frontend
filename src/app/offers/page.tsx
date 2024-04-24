@@ -1,8 +1,7 @@
-import React from 'react'
-import Layout from "@/components/Layout";
+import { FC } from "react";
 
-const Offers:React.FC = () => {
-    return <Layout><div>Offers</div></Layout>
-}
+const Offers: FC = () => {
+  return <div>Offers</div>;
+};
 
 export default Offers;

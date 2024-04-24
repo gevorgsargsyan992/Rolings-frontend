@@ -1,9 +1,9 @@
+import { FC } from "react";
 
-import React from 'react'
-import Layout from "@/components/Layout";
-
-const SignIn:React.FC = () => {
-    return <Layout><div>Sign In</div></Layout>
-}
+const SignIn: FC = () => {
+  return (
+      <div>Sign In</div>
+  );
+};
 
 export default SignIn;
