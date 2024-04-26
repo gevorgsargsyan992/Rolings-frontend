@@ -1,7 +1,8 @@
 import { FC } from "react";
+import CurrentlyWorking from "@/components/CurrentlyWorking";
 
 const Offers: FC = () => {
-  return <div>Offers</div>;
+  return <CurrentlyWorking />;
 };
 
 export default Offers;

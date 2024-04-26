@@ -1,3 +1,7 @@
-// import Text from './Text'
-//
-// export const {Text};
+import Text from "./Text";
+import Title from "./Title";
+
+export default {
+  Text,
+  Title,
+};

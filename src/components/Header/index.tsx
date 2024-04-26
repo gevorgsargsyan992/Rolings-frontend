@@ -2,10 +2,12 @@
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../Button";
+import Typography from "@/components/Typography";
 import Select from "../Select";
-import logo from "../../../public/logo.svg";
+import logo from "../../../public/logo.webp";
 import { LANGUAGE_OPTIONS } from "../constants";
+
+const { Text } = Typography;
 
 const Header: FC = () => {
   return (
@@ -54,28 +56,29 @@ const Header: FC = () => {
           >
             Sign In
           </Link>
-          <Button
-            iconRight={
-              <svg
-                className="w-4 h-4 text-white"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 18 16"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
-                />
-              </svg>
-            }
-            onClick={() => {}}
+          <Link
+            className="bg-blue-500 rounded-full flex items-center justify-center py-2 px-3"
+            href="/registration"
           >
-            Registration
-          </Button>
+            <Text className="pr-2" color="text-white" level={6}>
+              Registration
+            </Text>
+            <svg
+              className="w-4 h-4 text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 18 16"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
+              />
+            </svg>
+          </Link>
           <div className="border-l h-8" />
           <Select options={LANGUAGE_OPTIONS} />
         </div>

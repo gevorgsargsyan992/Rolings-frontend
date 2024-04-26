@@ -1,7 +1,8 @@
 import { FC } from "react";
+import CurrentlyWorking from "@/components/CurrentlyWorking";
 
 const Blog: FC = () => {
-  return <div>Blog</div>;
+  return <CurrentlyWorking />;
 };
 
 export default Blog;
