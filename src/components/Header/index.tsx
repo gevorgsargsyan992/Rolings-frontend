@@ -16,7 +16,7 @@ const Header: FC = () => {
         className="mx-auto flex justify-between p-6 lg:px-8 items-center"
         aria-label="Global"
       >
-        <div className="flex lg:gap-x-12 items-center">
+        <div className="flex gap-x-12 md:gap-x-6 items-center">
           <Link href="/" passHref>
             <Image
               className=""
@@ -48,7 +48,7 @@ const Header: FC = () => {
             Blog
           </Link>
         </div>
-        <div className="hidden lg:flex lg:gap-x-4 items-center">
+        <div className="flex gap-x-4 items-center">
           <Link
             href="/signin"
             passHref
@@ -57,7 +57,7 @@ const Header: FC = () => {
             Sign In
           </Link>
           <Link
-            className="bg-blue-500 rounded-full flex items-center justify-center py-2 px-3"
+            className="bg-blue-500 rounded-full flex items-center justify-center lg:py-2  md:py-1 lg:px-3 md:px-2"
             href="/registration"
           >
             <Text className="pr-2" color="text-white" level={6}>
