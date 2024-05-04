@@ -2,14 +2,16 @@
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 import Typography from "@/components/Typography";
-import Select from "../Select";
 import logo from "../../../public/logo.webp";
-import { LANGUAGE_OPTIONS } from "../constants";
+import SelectLanguage from "./components/SlelectLanguage";
 
 const { Text } = Typography;
 
 const Header: FC = () => {
+const { t } = useTranslation();
+
   return (
     <header className="bg-gray-100 w-full">
       <nav
@@ -31,21 +33,21 @@ const Header: FC = () => {
             passHref
             className="text-sm font-semibold leading-6 text-gray-900"
           >
-            Home
+            {t('home')}
           </Link>
           <Link
             href="/offers"
             passHref
             className="text-sm font-semibold leading-6 text-gray-900"
           >
-            Offers
+            {t('offers')}
           </Link>
           <Link
             href="/blog"
             passHref
             className="text-sm font-semibold leading-6 text-gray-900"
           >
-            Blog
+            {t('blog')}
           </Link>
         </div>
         <div className="flex gap-x-4 items-center">
@@ -54,14 +56,14 @@ const Header: FC = () => {
             passHref
             className="text-sm font-semibold leading-6 text-gray-900 mr-2"
           >
-            Sign In
+            {t('sign_in')}
           </Link>
           <Link
             className="bg-blue-500 rounded-full flex items-center justify-center lg:py-2  md:py-1 lg:px-3 md:px-2"
             href="/registration"
           >
             <Text className="pr-2" color="text-white" level={6}>
-              Registration
+              {t('registration')}
             </Text>
             <svg
               className="w-4 h-4 text-white"
@@ -80,7 +82,7 @@ const Header: FC = () => {
             </svg>
           </Link>
           <div className="border-l h-8" />
-          <Select options={LANGUAGE_OPTIONS} />
+          <SelectLanguage />
         </div>
       </nav>
     </header>

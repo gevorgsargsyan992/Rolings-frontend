@@ -1,8 +1,7 @@
-"use client";
-import  { FC,useState } from "react";
-import { SelectDropdownProps, Option } from "./types";
+import { FC, useState } from "react";
+import { SelectProps, Option } from "./types";
 
-const SelectDropdown:FC<SelectDropdownProps> = ({
+const Select: FC<SelectProps> = ({
   options,
   defaultValue,
   onSelect,
@@ -21,6 +20,8 @@ const SelectDropdown:FC<SelectDropdownProps> = ({
     setIsOpen(false);
     onSelect(option);
   };
+
+  const filteredOptions = options.filter(option => option.value !== selectedOption.value);
 
   return (
     <div className="relative inline-block">
@@ -46,7 +47,7 @@ const SelectDropdown:FC<SelectDropdownProps> = ({
 
       {isOpen && (
         <div className="absolute top-10 right-0 w-48 bg-white border border-gray-200 rounded-md shadow-md z-10">
-          {options.map((option) => (
+          {filteredOptions.map((option) => (
             <button
               key={option.value}
               onClick={() => handleOptionClick(option)}
@@ -61,4 +62,4 @@ const SelectDropdown:FC<SelectDropdownProps> = ({
   );
 };
 
-export default SelectDropdown;
+export default Select;

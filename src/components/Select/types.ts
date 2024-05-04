@@ -3,7 +3,7 @@ export interface Option {
   label: string;
 }
 
-export interface SelectDropdownProps {
+export interface SelectProps {
   options: Option[];
   defaultValue?: Option;
   onSelect?: (option: Option) => void;
