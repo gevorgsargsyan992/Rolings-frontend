@@ -29,14 +29,14 @@ const Button: React.FC<ButtonProps> = ({
   const buttonTypeClass = useMemo(() => {
     switch (type) {
       case GHOST:
-        return "border bg-transparent border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white";
+        return "border bg-transparent border-blue-royal text-black hover:bg-blue-royal hover:text-white";
       case SECONDARY:
-        return "bg-gray-500 text-white focus:ring-gray-500";
+        return "bg-gray-500  border-gray-500 text-white focus:ring-gray-500";
       case PRIMARY:
-        return "bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500";
+        return "bg-blue-royal hover:bg-blue-600 text-white focus:ring-blue-royal";
 
       default:
-        return "bg-blue-500 hover:bg-blue-600 text-white focus:ring-blue-500";
+        return "bg-blue-royal border-blue-royal hover:bg-blue-600 text-white focus:ring-blue-royal";
     }
   }, [type]);
 

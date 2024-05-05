@@ -2,7 +2,7 @@ import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Typography from "../../components/Typography";
-import rolingsImg from "../../../public/rolings-big.webp";
+import rolingsImg from "../../../public/rolings.svg";
 import logo from "../../../public/logo.webp";
 import LoginForm from "./components/form";
 
@@ -12,7 +12,7 @@ const SignIn: FC = () => {
   return (
     <div className="flex">
       <div className="flex flex-4">
-        <Image objectFit="contain" src={rolingsImg} alt="nice image" />
+        <Image objectFit="contain" src={rolingsImg} alt="roling image" />
       </div>
       <div className="flex flex-1 flex-col align-middle justify-center text-center pl-12">
         <Image
