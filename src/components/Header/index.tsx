@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import Typography from "@/components/Typography";
 import logo from "../../../public/logo.webp";
-import SelectLanguage from "./components/SlelectLanguage";
+import SelectLanguage from "./components/SelectLanguage";
 
 const { Text } = Typography;
 
