@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import {TextProps} from './types'
+import { TextProps } from "./types";
 
 const textStyles: { [key: number]: string } = {
   1: "text-4xl",
@@ -13,9 +13,9 @@ const textStyles: { [key: number]: string } = {
 const Text: React.FC<TextProps> = ({
   level = 4,
   bold = false,
-  color = "text-gray-500",
+  color = "gray-500",
   children,
-    className
+  className,
 }) => {
   const textStyle = textStyles[level] || textStyles[4]; // Default to level 4 if out of range
   return (

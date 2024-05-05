@@ -4,10 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import Typography from "@/components/Typography";
 import Select from "../Select";
-import logo from "../../../public/logo.webp";
+import logo from "../../../public/rolings-logo.svg";
 import { LANGUAGE_OPTIONS } from "../constants";
+import {DATA} from './constants';
 
 const { Text } = Typography;
+
 
 const Header: FC = () => {
   return (
@@ -16,48 +18,37 @@ const Header: FC = () => {
         className="mx-auto flex justify-between p-6 lg:px-8 items-center"
         aria-label="Global"
       >
-        <div className="flex gap-x-12 md:gap-x-6 items-center">
+        <div className="flex gap-x-12 md:gap-x-4 items-center">
           <Link href="/" passHref>
             <Image
-              className=""
+              className="lg:mr-6"
               objectFit="contain"
               width={100}
               src={logo}
               alt="logo image"
             />
           </Link>
-          <Link
-            href="/"
-            passHref
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Home
-          </Link>
-          <Link
-            href="/offers"
-            passHref
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Offers
-          </Link>
-          <Link
-            href="/blog"
-            passHref
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Blog
-          </Link>
+          {DATA.map((elem) => (
+            <Link
+              key={elem.id}
+              href={`${elem.link}`}
+              passHref
+              className="text-sm lg:mr-6 font-semibold text-charcoal"
+            >
+              {elem.name}
+            </Link>
+          ))}
         </div>
         <div className="flex gap-x-4 items-center">
           <Link
             href="/signin"
             passHref
-            className="text-sm font-semibold leading-6 text-gray-900 mr-2"
+            className="text-sm font-semibold leading-6 text-black mr-2"
           >
             Sign In
           </Link>
           <Link
-            className="bg-blue-500 rounded-full flex items-center justify-center lg:py-2  md:py-1 lg:px-3 md:px-2"
+            className="bg-blue-royal rounded-full flex items-center justify-center lg:py-2  md:py-1 lg:px-3 md:px-2"
             href="/registration"
           >
             <Text className="pr-2" color="text-white" level={6}>
