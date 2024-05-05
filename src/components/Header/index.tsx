@@ -18,10 +18,10 @@ const Header: FC = () => {
         className="mx-auto flex justify-between p-6 lg:px-8 items-center"
         aria-label="Global"
       >
-        <div className="flex gap-x-12 md:gap-x-6 items-center">
+        <div className="flex gap-x-12 md:gap-x-4 items-center">
           <Link href="/" passHref>
             <Image
-              className=""
+              className="lg:mr-6"
               objectFit="contain"
               width={100}
               src={logo}
@@ -33,7 +33,7 @@ const Header: FC = () => {
               key={elem.id}
               href={`${elem.link}`}
               passHref
-              className="text-sm font-semibold text-charcoal"
+              className="text-sm lg:mr-6 font-semibold text-charcoal"
             >
               {elem.name}
             </Link>
