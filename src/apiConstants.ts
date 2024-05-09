@@ -1,2 +1,2 @@
-export const LOGIN = '/login';
+export const LOGIN = '/auth/login';
 export const REGISTER = '/register';

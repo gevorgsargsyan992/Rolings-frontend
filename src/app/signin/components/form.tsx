@@ -16,7 +16,7 @@ const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
     async (e: any) => {
       e.preventDefault();
       try {
-        const token = await api.post(LOGIN, { email, password });
+        const token = await api.post(LOGIN, { email, remember: true, password });
         // api.setAuthToken(token);
       } catch (error) {
         console.error("Login failed:", error);
