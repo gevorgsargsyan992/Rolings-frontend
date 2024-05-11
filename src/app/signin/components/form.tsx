@@ -3,26 +3,26 @@ import { FC, useState, useCallback } from "react";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import { LoginFormProps } from "./types";
-import {LOGIN} from '../../../apiConstants';
 import useApi from "../../../hooks/useApi";
+import { useAuth } from "@/contexts/Auth";
 
 const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const api = useApi();
+  const { login } = useAuth();
 
   const handleSubmit = useCallback(
     async (e: any) => {
       e.preventDefault();
       try {
-        const token = await api.post(LOGIN, { email, remember: true, password });
-        // api.setAuthToken(token);
+        login(email, password);
       } catch (error) {
         console.error("Login failed:", error);
       }
     },
-    [api, email, password]
+    [login, email, password]
   );
 
   return (
