@@ -1,7 +1,15 @@
 "use client";
 import React, { useMemo } from "react";
 import { ButtonProps } from "./types";
-import {SMALL, MEDIUM, LARGE, PRIMARY,SECONDARY, GHOST} from './consts'
+import {
+  SMALL,
+  MEDIUM,
+  LARGE,
+  PRIMARY,
+  SECONDARY,
+  GHOST,
+  TEXT,
+} from "./consts";
 
 const Button: React.FC<ButtonProps> = ({
   type = PRIMARY,
@@ -34,6 +42,8 @@ const Button: React.FC<ButtonProps> = ({
         return "bg-gray-500  border-gray-500 text-white focus:ring-gray-500";
       case PRIMARY:
         return "bg-blue-royal hover:bg-blue-600 text-white focus:ring-blue-royal";
+      case TEXT:
+        return "hover:bg-blue-600 text-blue-500 py-0 px-0";
 
       default:
         return "bg-blue-royal border-blue-royal hover:bg-blue-600 text-white focus:ring-blue-royal";
