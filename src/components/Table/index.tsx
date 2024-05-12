@@ -1,9 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import { FC, useState } from "react";
 import { TableProps } from "./types";
 import Button from "../Button";
 
-const Table: React.FC<TableProps> = ({ data, columns }) => {
+const Table: FC<TableProps> = ({ data, columns }) => {
   const [isEditAccess, setIsEditAccess] = useState(true);
 
   const handleEditRow = (id: number) => {
