@@ -1,9 +1,9 @@
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Typography from "../../components/Typography";
-import rolingsImg from "../../../public/rolings.svg";
-import logo from "../../../public/logo.webp";
+import Typography from "../../../components/Typography";
+import rolingsImg from "../../../../public/rolings.svg";
+import logo from "../../../../public/logo.webp";
 import LoginForm from "./components/form";
 
 const { Text } = Typography;
