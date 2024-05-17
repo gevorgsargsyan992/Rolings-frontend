@@ -1,7 +1,9 @@
 import Text from "./Text";
 import Title from "./Title";
 
-export default {
+const Typography = {
   Text,
   Title,
-};
+}
+
+export default Typography;
