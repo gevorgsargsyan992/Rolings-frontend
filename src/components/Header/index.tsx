@@ -6,11 +6,10 @@ import Typography from "@/components/Typography";
 import Select from "../Select";
 import logo from "../../../public/rolings-logo.svg";
 import { LANGUAGE_OPTIONS } from "../constants";
-import {DATA} from './constants';
+import { DATA } from "./constants";
 import SelectLanguage from "@/components/Select/SelectLanguage";
 
 const { Text } = Typography;
-
 
 const Header: FC = () => {
   return (
@@ -73,7 +72,6 @@ const Header: FC = () => {
           </Link>
           <div className="border-l h-8" />
           <SelectLanguage />
-          {/*<Select options={LANGUAGE_OPTIONS} />*/}
         </div>
       </nav>
     </header>

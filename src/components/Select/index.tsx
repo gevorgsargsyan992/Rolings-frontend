@@ -1,11 +1,11 @@
 "use client";
-import  { FC,useState } from "react";
+import { FC, useState } from "react";
 import { SelectDropdownProps, Option } from "./types";
 import Typography from "../Typography";
 
-const {Text} = Typography;
+const { Text } = Typography;
 
-const SelectDropdown:FC<SelectDropdownProps> = ({
+const SelectDropdown: FC<SelectDropdownProps> = ({
   options,
   defaultValue,
   onSelect,
@@ -31,7 +31,9 @@ const SelectDropdown:FC<SelectDropdownProps> = ({
         onClick={toggleDropdown}
         className="py-2 flex items-center text-gray-800"
       >
-      <Text level={6}  className='font-semibold' color='text-black'>{selectedOption.label}</Text>
+        <Text level={6} className="font-semibold" color="text-black">
+          {selectedOption.label}
+        </Text>
         <svg
           className={`w-4 h-4 ml-2 transition-transform ${
             isOpen ? "transform rotate-180" : ""
@@ -55,7 +57,9 @@ const SelectDropdown:FC<SelectDropdownProps> = ({
               onClick={() => handleOptionClick(option)}
               className="block w-full px-2 py-2 text-gray-800 hover:bg-gray-100"
             >
-              <Text level={6} color='text-black'>{option.label}</Text>
+              <Text level={6} color="text-black">
+                {option.label}
+              </Text>
             </button>
           ))}
         </div>
