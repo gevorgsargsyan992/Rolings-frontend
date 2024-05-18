@@ -4,7 +4,13 @@ import TranslationsProvider from "@/TranslationsProvider";
 
 const i18nNameSpaces = ["blog, offers"];
 
-export default async function Home({ params: { locale } }) {
+export interface HomeProps {
+  params: {
+    locale: string;
+  };
+}
+
+export default async function Home({ params: { locale } }: HomeProps) {
   const { t, resources } = await initTranslations(locale, ["blog"]);
   return (
     <TranslationsProvider

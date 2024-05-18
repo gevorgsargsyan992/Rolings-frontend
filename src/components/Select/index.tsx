@@ -22,7 +22,7 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
   const handleOptionClick = (option: Option) => {
     setSelectedOption(option);
     setIsOpen(false);
-    onSelect(option);
+    onSelect && onSelect(option);
   };
 
   return (

@@ -50,6 +50,7 @@ export default function LanguageChanger() {
         <div className="absolute top-10 right-0 w-48 bg-white border border-gray-200 rounded-md shadow-md z-10">
           {i18nConfig.locales.map((localeCode) => (
             <Link
+              key={localeCode}
               scroll={false}
               href={`/${localeCode}`}
               onClick={() => localStorage.setItem("language", localeCode)}
