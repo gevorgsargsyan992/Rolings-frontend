@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
-import rolingsImg from "../../../public/rolings-big.webp";
-import logo from "../../../public/logo.webp";
+import rolingsImg from "../../../../public/rolings-big.webp";
+import logo from "../../../../public/logo.webp";
 import LoginForm from "./components/form";
 
 const SignIn: FC = () => {
