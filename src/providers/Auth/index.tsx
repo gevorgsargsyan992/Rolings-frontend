@@ -44,6 +44,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const logout = () => {
     const data = dispatch({ type: "LOGOUT" });
+    //TODO: finalize logout functionality
   };
 
   return (
