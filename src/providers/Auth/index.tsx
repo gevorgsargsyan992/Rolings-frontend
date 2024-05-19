@@ -26,9 +26,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           remember: true,
           password,
         })) as LoginResponse) || {};
-      api.setAuthToken(token);
-      const data = await api.get(`${USER}/${id}`);
-      // dispatch({ type: "LOGIN_SUCCESS", payload: data });
+
+      localStorage.setItem("token", token);
+      await setUser(id);
     } catch (error: any) {
       dispatch({
         type: "SET_ERROR",
@@ -37,8 +37,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
+  const setUser = async (id: number) => {
+    const data = await api.get(`${USER}/${id}`);
+    dispatch({ type: "LOGIN_SUCCESS", payload: data as any });
+  };
+
   const logout = () => {
-    dispatch({ type: "LOGOUT" });
+    const data = dispatch({ type: "LOGOUT" });
   };
 
   return (

@@ -11,7 +11,7 @@ const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
   const [password, setPassword] = useState("");
 
   const api = useApi();
-  const { login } = useAuth();
+  const { login } = useAuth() as any;
 
   const handleSubmit = useCallback(
     async (e: any) => {
