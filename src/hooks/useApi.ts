@@ -1,46 +1,66 @@
-// import { useState } from 'react';
-// import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from 'axios';
+import { useState } from "react";
+import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from "axios";
 
-// interface ApiResponse<T> {
-//   loading: boolean;
-//   error: AxiosError | null;
-//   get: (url: string) => Promise<T>;
-//   post: (url: string, data: any) => Promise<T>;
-// }
+interface ApiResponse<T> {
+  loading: boolean;
+  error: AxiosError | null;
+  get: (url: string) => Promise<T>;
+  post: (url: string, data: any) => Promise<T>;
+}
 
-// const useApi = <T>() : ApiResponse<T> => {
-//   const [loading, setLoading] = useState<boolean>(false);
-//   const [error, setError] = useState<AxiosError | null>(null);
+const api = axios.create({
+  baseURL: "http://localhost:3000",
+});
 
-//   const makeRequest = async (method: AxiosRequestConfig['method'], url: string, data: any = null) => {
-//     setLoading(true);
-//     setError(null);
+const useApi = <T>(): ApiResponse<T> => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<AxiosError | null>(null);
 
-//     try {
-//       const response: AxiosResponse<T> = await axios.request({
-//         method,
-//         url,
-//         data,
-//       });
-//       return response.data;
-//     } catch (error) {
-//       setError(error as AxiosError);
-//       throw error; 
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
+  api.interceptors.request.use(
+    (config) => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
 
-//   const get = async (url: string) => {
-//     return makeRequest('GET', url);
-//   };
+  const makeRequest = async (
+    method: AxiosRequestConfig["method"],
+    url: string,
+    data: any = null
+  ) => {
+    setLoading(true);
+    setError(null);
 
-//   const post = async (url: string, data: any) => {
-//     return makeRequest('POST', url, data);
-//   };
+    try {
+      const response: AxiosResponse<T> = await api.request({
+        method,
+        url,
+        data,
+      });
+      return response.data;
+    } catch (error) {
+      setError(error as AxiosError);
+      throw error;
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  const get = async (url: string) => {
+    return makeRequest("GET", url);
+  };
 
-//   return { loading, error, get, post };
-// };
+  const post = async (url: string, data: any) => {
+    return makeRequest("POST", url, data);
+  };
 
-// export default useApi;
+  return { loading, error, get, post };
+};
+
+export default useApi;

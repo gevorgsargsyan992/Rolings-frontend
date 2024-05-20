@@ -3,7 +3,7 @@
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import i18nConfig from "../../../i18nConfig";
-import { localeNameMap } from "../../constants/locales";
+import { localeNameMap } from "@/constants/locales";
 import Typography from "../Typography";
 
 const { Text } = Typography;
