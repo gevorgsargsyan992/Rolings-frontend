@@ -3,7 +3,7 @@ import { FC, useState, useCallback } from "react";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import { LoginFormProps } from "./types";
-import useApi from "../../../hooks/useApi";
+import useApi from "@/hooks/useApi";
 import { useAuth } from "@/contexts/Auth";
 
 const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
