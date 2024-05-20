@@ -7,3 +7,4 @@ export const LARGE = 'large';
 export const PRIMARY = 'primary';
 export const SECONDARY = 'secondary';
 export const GHOST = 'ghost';
+export const TEXT = 'text';

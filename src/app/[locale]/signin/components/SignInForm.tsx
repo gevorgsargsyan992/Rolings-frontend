@@ -1,17 +1,27 @@
 "use client";
-import { FC, useState } from "react";
+import { FC, useState, useCallback } from "react";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
-import {LoginFormProps} from './types'
+import { LoginFormProps } from "./types";
+import { useAuth } from "@/contexts/Auth";
 
-const LoginForm:FC<LoginFormProps> = ({ ...props }) => {
+const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    //TODO: Add login logic here
-  };
+  const { login } = useAuth() as any;
+
+  const handleSubmit = useCallback(
+    async (e: any) => {
+      e.preventDefault();
+      try {
+        login(email, password);
+      } catch (error) {
+        console.error("Login failed:", error);
+      }
+    },
+    [login, email, password]
+  );
 
   return (
     <form onSubmit={handleSubmit} {...props}>
@@ -31,10 +41,7 @@ const LoginForm:FC<LoginFormProps> = ({ ...props }) => {
         className="w-full mt-4 bg-transparent"
         placeholder="Password"
       />
-      <Button
-        type="ghost"
-        className="w-full mt-6"
-      >
+      <Button type="ghost" className="w-full mt-6">
         Sign In
       </Button>
     </form>

@@ -5,7 +5,13 @@ import { ModalProps } from "./types";
 
 const { Title, Text } = Typography;
 
-const Modal: FC<ModalProps> = ({ title, subtitle, isOpen, onConfirm }) => {
+const Modal: FC<ModalProps> = ({
+  title,
+  subtitle,
+  isOpen,
+  onConfirm,
+  children,
+}) => {
   const [isOpenModal, setIsOpenModal] = useState(isOpen);
 
   const handleConfirm = useCallback(() => {
@@ -21,18 +27,22 @@ const Modal: FC<ModalProps> = ({ title, subtitle, isOpen, onConfirm }) => {
     isOpenModal && (
       <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
         <div className="relative flex flex-col bg-white border-1 border-gray-300 shadow-md rounded-lg outline-none">
-          <div className="flex flex-col items-center justify-center p-5">
-            {title && (
-              <Title bold level={4}>
-                {title}
-              </Title>
-            )}
-            {subtitle && (
-              <Text level={5} className="pt-4">
-                {subtitle}
-              </Text>
-            )}
-          </div>
+          {!!children ? (
+            children
+          ) : (
+            <div className="flex flex-col items-center justify-center p-5">
+              {title && (
+                <Title bold level={4}>
+                  {title}
+                </Title>
+              )}
+              {subtitle && (
+                <Text level={5} className="pt-4">
+                  {subtitle}
+                </Text>
+              )}
+            </div>
+          )}
           <div className="flex items-center gap-4 justify-between px-5 py-4 border-t border-gray-300 bg-gray-100 rounded-bl-lg rounded-br-lg">
             <Button className="flex-1" type="ghost" onClick={handleClose}>
               Cancel

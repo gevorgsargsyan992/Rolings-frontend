@@ -7,6 +7,7 @@ import Button from "@/components/Button";
 const SignUpForm:FC<any> = ({ ...props }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [userName, setUserName] = useState("");
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
@@ -15,12 +16,19 @@ const SignUpForm:FC<any> = ({ ...props }) => {
 
     return (
         <form onSubmit={handleSubmit} {...props}>
+             <Input
+                required
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                className="w-full bg-transparent"
+                placeholder="UserName"
+            />
             <Input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-transparent"
+                className="w-full bg-transparent mt-4"
                 placeholder="Email address"
             />
             <Input
