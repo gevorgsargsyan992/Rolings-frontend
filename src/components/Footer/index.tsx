@@ -27,26 +27,63 @@ const Footer = () => {
         <div className="max-w-5xl mx-auto gap-6">
           <div className="flex w-full justify-between gap-2">
             <div className="flex flex-col gap-y-4">
-              <div>
+              <div className="flex">
                 <svg
-                  className="w-6 h-6 text-gray-500"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-gray-dark self-center mr-1.5"
                   fill="none"
-                  viewBox="0 0 18 16"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
                 >
                   <path
-                    stroke="currentColor"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
+                    d="M12 11c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zM12 3c-3.178 0-6 2.822-6 6 0 5.25 6 12 6 12s6-6.75 6-12c0-3.178-2.822-6-6-6z"
                   />
                 </svg>
                 <Text level={5}>Armenia / Yerevan, Abovyan 20</Text>
               </div>
-
-              <Text level={5}>info@rolings.am</Text>
-              <Text level={5}>+374 44 410 002</Text>
+              <div className="flex">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-gray-dark self-center mr-1.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M16 12h4a2 2 0 002-2V8a2 2 0 00-2-2H4a2 2 0 00-2 2v2a2 2 0 002 2h4m-6 0v6a2 2 0 002 2h16a2 2 0 002-2v-6m-8 6l-6-6"
+                  />
+                </svg>
+                <Text level={5}>info@rolings.am</Text>
+              </div>
+              <div className="flex">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 text-gray-dark self-center mr-1.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5.75A4.75 4.75 0 017.75 1h8.5A4.75 4.75 0 0121 5.75v12.5A4.75 4.75 0 0116.25 23h-8.5A4.75 4.75 0 013 18.25V5.75z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 10c0 1.11-.895 2-2 2s-2-.89-2-2 .895-2 2-2 2 .89 2 2zM17 13v3"
+                  />
+                </svg>
+                <Text level={5}>+374 44 410 002</Text>
+              </div>
             </div>
             {DATA.map((elem, idx) => (
               <div className="flex flex-col" key={idx}>
