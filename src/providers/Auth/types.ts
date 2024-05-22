@@ -1,3 +1,5 @@
+import {UserType} from "@/types/UserTypes";
+
 export interface AuthState {
   isAuthenticated: boolean;
   user: User | null;
@@ -6,11 +8,11 @@ export interface AuthState {
 
 export interface User {
   id: number;
-  type: number;
-  firstName: string;
-  lastName: string;
-  avatarImage: null;
-  phoneNumber: string;
+  type: UserType;
+  firstName: string | null;
+  lastName: string | null;
+  avatarImage: string | null;
+  phoneNumber: string | null;
   verificationCode: number;
 }
 
