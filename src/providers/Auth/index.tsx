@@ -2,9 +2,10 @@
 import { useReducer, ReactNode } from "react";
 import AuthContext from "@/contexts/Auth/index";
 import { authReducer } from "@/reducers/Auth";
-import { AuthState, LoginResponse, Action } from "./types";
+import {AuthState, LoginResponse, Action, User} from "./types";
 import { LOGIN, USER } from "@/apiConstants";
 import useApi from "@/hooks/useApi";
+import {UserType} from "@/types/UserTypes";
 
 const initialState: AuthState = {
   isAuthenticated: false,
@@ -28,7 +29,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         })) as LoginResponse) || {};
 
       localStorage.setItem("token", token);
-      await setUser(id);
+      await getUser(id);
     } catch (error: any) {
       dispatch({
         type: "SET_ERROR",
@@ -37,18 +38,30 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const setUser = async (id: number) => {
-    const data = await api.get(`${USER}/${id}`);
-    dispatch({ type: "LOGIN_SUCCESS", payload: data as any });
+  const getUser = async (id: number) => {
+    try {
+      const data = await api.get(`${USER}/${id}`) as User;
+      if (!Object.values(UserType).includes(data?.type)) {
+        throw new Error("Invalid user type");
+      }
+
+      // @ts-ignore
+      dispatch({ type: "LOGIN_SUCCESS", payload: data });
+    } catch (error) {
+      dispatch({
+        type: "SET_ERROR",
+        payload: "Failed to fetch user data",
+      });
+    }
   };
 
   const logout = () => {
-    const data = dispatch({ type: "LOGOUT" });
-    //TODO: finalize logout functionality
+    localStorage.removeItem("token");
+    dispatch({ type: "LOGOUT" });
   };
 
   return (
-    <AuthContext.Provider value={{ ...state, login, logout } as any}>
+    <AuthContext.Provider value={{ state, login, logout } as any}>
       {children}
     </AuthContext.Provider>
   );

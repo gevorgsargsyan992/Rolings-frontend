@@ -3,14 +3,12 @@ import { FC, useState, useCallback } from "react";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import { LoginFormProps } from "./types";
-import useApi from "@/hooks/useApi";
 import { useAuth } from "@/contexts/Auth";
 
 const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const api = useApi();
   const { login } = useAuth() as any;
 
   const handleSubmit = useCallback(
