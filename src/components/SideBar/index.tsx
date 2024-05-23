@@ -1,11 +1,13 @@
 "use client";
+
+import { FC } from 'react';
 import Link from "next/link";
 import Typography from "../Typography";
 import {DATA} from './constants'
 
 const { Text } = Typography;
 
-const LeftSidebar: React.FC = () => {
+const LeftSidebar: FC = () => {
   return (
     <div
       className={`fixed left-0 top-0 bg-gray-800 text-white h-full mt-20 w-48`}
