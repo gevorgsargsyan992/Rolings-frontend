@@ -1,8 +1,10 @@
+import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Layout from "@/components/Layout";
 import LeftSidebar from "@/components/SideBar";
+import { AuthProvider } from "@/providers/Auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,13 +16,16 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LeftSidebar />
+      <AuthProvider>
+
+      <LeftSidebar />
         <Layout>{children}</Layout>
+      </AuthProvider>
       </body>
     </html>
   );
