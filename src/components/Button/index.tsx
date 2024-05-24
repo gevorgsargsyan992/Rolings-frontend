@@ -43,7 +43,7 @@ const Button: React.FC<ButtonProps> = ({
       case PRIMARY:
         return "bg-blue-royal hover:bg-blue-600 text-white focus:ring-blue-royal";
       case TEXT:
-        return "hover:bg-blue-600 text-blue-500 py-0 px-0";
+        return "bg-transparent focus:ring-0 border-none text-blue-500 hover:text-blue-700";
 
       default:
         return "bg-blue-royal border-blue-royal hover:bg-blue-600 text-white focus:ring-blue-royal";
