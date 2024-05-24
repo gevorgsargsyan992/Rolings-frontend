@@ -36,7 +36,7 @@ const SignIn: FC = () => {
           </Link>
         </div>
         <LoginForm />
-        <Link className="mt-8" href="forgot">
+        <Link className="mt-8" href="/forgot">
           Forgot password ?
         </Link>
       </div>

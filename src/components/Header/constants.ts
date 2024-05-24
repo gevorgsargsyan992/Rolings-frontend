@@ -13,7 +13,7 @@ export const DATA = [
   {
     id: 3,
     name: "About us",
-    link: "/aboutus",
+    link: "/about",
   },
   {
     id: 4,

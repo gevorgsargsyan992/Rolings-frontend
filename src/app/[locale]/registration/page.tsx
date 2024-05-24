@@ -5,7 +5,6 @@ import Typography from "@/components/Typography";
 import rolingsImg from "../../../../public/rolings.svg";
 import logo from "../../../../public/rolings-logo.svg";
 import SignUpForm from "./components/RegistrationForm";
-import ActivationCode from "./components/ActivationCodeForm";
 
 const { Text } = Typography;
 
