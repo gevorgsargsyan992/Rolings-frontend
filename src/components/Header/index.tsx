@@ -3,9 +3,7 @@ import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Typography from "@/components/Typography";
-import Select from "../Select";
 import logo from "../../../public/rolings-logo.svg";
-import { LANGUAGE_OPTIONS } from "../constants";
 import { DATA } from "./constants";
 import SelectLanguage from "@/components/Select/SelectLanguage";
 
