@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+// import Image from "next/image";
 import logo from "../../../public/rolings-logo.svg";
 import Typography from "@/components/Typography";
 import Link from "next/link";
@@ -13,7 +13,8 @@ const Footer = () => {
 
   return (
     <>
-      <div className="max-w-5xl w-full py-8 bg-blue-grayish">
+      {/* TODO: uncomment this when homepage will be ready */}
+      {/* <div className="max-w-5xl w-full py-8 bg-blue-grayish">
         <Image
           className="lg:mr-6"
           objectFit="contain"
@@ -21,7 +22,7 @@ const Footer = () => {
           src={logo}
           alt="logo image"
         />
-      </div>
+      </div> */}
 
       <footer className="w-full bg-white p-8">
         <div className="max-w-5xl mx-auto gap-6">
