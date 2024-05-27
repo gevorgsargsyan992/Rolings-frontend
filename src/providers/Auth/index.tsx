@@ -2,10 +2,10 @@
 import { useReducer, ReactNode } from "react";
 import AuthContext from "@/contexts/Auth/index";
 import { authReducer } from "@/reducers/Auth";
-import {AuthState, LoginResponse, Action, User} from "./types";
+import { AuthState, LoginResponse, Action, User } from "./types";
 import { LOGIN, USER } from "@/apiConstants";
 import useApi from "@/hooks/useApi";
-import {UserType} from "@/types/UserTypes";
+import { UserType } from "@/types/UserTypes";
 
 const initialState: AuthState = {
   isAuthenticated: false,
@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         })) as LoginResponse) || {};
 
       localStorage.setItem("token", token);
-      await getUser(id);
+      await setUser(id);
     } catch (error: any) {
       dispatch({
         type: "SET_ERROR",
@@ -38,9 +38,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   };
 
-  const getUser = async (id: number) => {
+  const setUser = async (id: number) => {
     try {
-      const data = await api.get(`${USER}/${id}`) as User;
+      const data = (await api.get(`${USER}/${id}`)) as User;
       if (!Object.values(UserType).includes(data?.type)) {
         throw new Error("Invalid user type");
       }
