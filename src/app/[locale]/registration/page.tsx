@@ -1,3 +1,4 @@
+"use client";
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,39 +6,76 @@ import Typography from "@/components/Typography";
 import rolingsImg from "../../../../public/rolings.svg";
 import logo from "../../../../public/rolings-logo.svg";
 import SignUpForm from "./components/RegistrationForm";
+import { useRouter } from "next/navigation";
 
 const { Text } = Typography;
 
-const SignIn: FC = () => {
+const Registration: FC = () => {
+  const router = useRouter();
+  const handleCloseModal = () => {
+    router.back();
+  };
+
   return (
-      <div className="flex">
-        <div className="flex flex-4">
-          <Image src={rolingsImg} alt="roling image"/>
-        </div>
-        <div className="flex flex-1 py-8 h-full flex-col align-middle justify-center text-center pl-12">
-          <Image
+    <div className="fixed inset-0 bg-gray-800 bg-opacity-50">
+      <div className="absolute inset-0 flex justify-center items-center">
+        <div className="max-w-6xl flex max-h-900 mx-auto bg-gray-100 rounded-lg overflow-hidden relative">
+          <button
+            onClick={handleCloseModal}
+            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <div className="p-3">
+            <Image
+              src={rolingsImg}
+              alt="roling image"
+              width={400}
+              height={500}
+            />
+          </div>
+          <div className="flex flex-1 py-12 px-12 h-full flex-col align-middle justify-center text-center">
+            <Image
               className="self-center mb-6"
               width={140}
               src={logo}
               alt="logo image"
-          />
-          <div className="py-4">
-            <Text level={3} color="black" bold>
-              Start earning with us!
-            </Text>
+            />
+            <div className="py-4">
+              <Text level={3} color="black" bold>
+                Start earning with us!
+              </Text>
+            </div>
+            <div className="flex justify-center mb-8">
+              <Text level={5} bold>
+                Do you have an account?
+              </Text>
+              <Link
+                href="/signin"
+                className="text-blue-500 text-bold pl-2 pt-0.5"
+              >
+                Log in
+              </Link>
+            </div>
+            <SignUpForm />
           </div>
-          <div className="flex justify-center mb-8">
-            <Text level={5} bold>
-              Do you have an account?
-            </Text>
-            <Link href="/signin" className="text-blue-500 text-bold pl-2 pt-0.5">
-              Log in
-            </Link>
-          </div>
-          <SignUpForm/>
         </div>
       </div>
+    </div>
   );
 };
 
-export default SignIn;
+export default Registration;
