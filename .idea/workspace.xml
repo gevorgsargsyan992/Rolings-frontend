@@ -5,27 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="some changes">
-      <change afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apiConstants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apiConstants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/email-stats/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/email-stats/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/monitoring/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/monitoring/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/questionnaire/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/questionnaire/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/tablets/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablets/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/users/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/users/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/videos/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/videos/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Table/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Table/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Table/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/providers/Auth/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/providers/Auth/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="rl-left-sidebar" />
+        <entry key="$PROJECT_DIR$" value="staging" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,10 +40,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2guPmOF7NO0hRxlVUMYGI8GNO8u" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -71,7 +54,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "rl-tablets-tabel",
+    "git-widget-placeholder": "design-fixes",
     "js.linters.configure.manually.selectedeslint": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
