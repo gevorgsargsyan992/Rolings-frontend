@@ -13,7 +13,7 @@ const { Text } = Typography;
 const SignIn: FC = () => {
   const router = useRouter();
   const handleCloseModal = () => {
-    router.back();
+    router.replace("/");
   };
 
   return (

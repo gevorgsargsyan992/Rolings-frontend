@@ -13,7 +13,7 @@ const { Text } = Typography;
 const Registration: FC = () => {
   const router = useRouter();
   const handleCloseModal = () => {
-    router.back();
+    router.replace("/");
   };
 
   return (
@@ -39,7 +39,7 @@ const Registration: FC = () => {
               />
             </svg>
           </button>
-          <div className="p-3">
+          <div className="p-3 flex justify-center">
             <Image
               src={rolingsImg}
               alt="roling image"

@@ -7,4 +7,5 @@ export interface InputFieldProps {
   onChange: (event: any) => void;
   className?: string;
   required?: boolean;
+  errorText?: string;
 }

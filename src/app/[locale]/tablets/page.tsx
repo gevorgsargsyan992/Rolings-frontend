@@ -6,6 +6,7 @@ import { COLUMNS, TabletStatus } from "./constants";
 import { TabletData, TabletStatusKey } from "./types";
 import { TABLET } from "@/apiConstants";
 import { formattedDate } from "@/utils";
+import NoData from "@/components/NoData";
 
 const Tablets: FC = () => {
   const [tablets, setTablets] = useState<any>([]);
@@ -31,7 +32,11 @@ const Tablets: FC = () => {
     fetchTablets();
   }, []);
 
-  return <Table columns={COLUMNS} data={tablets || []} />;
+  return tablets.length > 0 ? (
+    <Table columns={COLUMNS} data={tablets || []} />
+  ) : (
+    <NoData />
+  );
 };
 
 export default Tablets;
