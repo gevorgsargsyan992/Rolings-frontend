@@ -34,8 +34,7 @@ const Footer = () => {
                   className="h-5 w-5 text-gray-dark self-center mr-1.5"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+                  stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -51,8 +50,7 @@ const Footer = () => {
                   className="h-5 w-5 text-gray-dark self-center mr-1.5"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+                  stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -68,18 +66,17 @@ const Footer = () => {
                   className="h-5 w-5 text-gray-dark self-center mr-1.5"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+                  stroke="currentColor">
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M3 5.75A4.75 4.75 0 017.75 1h8.5A4.75 4.75 0 0121 5.75v12.5A4.75 4.75 0 0116.25 23h-8.5A4.75 4.75 0 013 18.25V5.75z"
                   />
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M15 10c0 1.11-.895 2-2 2s-2-.89-2-2 .895-2 2-2 2 .89 2 2zM17 13v3"
                   />
                 </svg>
@@ -97,8 +94,7 @@ const Footer = () => {
                       key={idx}
                       className="align-baseline text-gray-dim"
                       href={`${data?.link}`}
-                      passHref
-                    >
+                      passHref>
                       {data?.text}
                     </Link>
                   ))}
@@ -117,8 +113,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-md"
-                >
+                  className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-md">
                   Subscribe
                 </button>
               </form>
