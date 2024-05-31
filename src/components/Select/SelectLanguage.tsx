@@ -1,0 +1,66 @@
+"use client";
+
+import React, { useState, useMemo } from "react";
+import Link from "next/link";
+import i18nConfig from "../../../i18nConfig";
+import { localeNameMap } from "@/constants/locales";
+import Typography from "../Typography";
+
+const { Text } = Typography;
+
+export default function LanguageChanger() {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
+  const savedLanguage = localStorage.getItem("language");
+  const languageToShow = useMemo(() => {
+    if (!!savedLanguage) return localeNameMap[savedLanguage];
+    return localeNameMap[i18nConfig?.defaultLocale];
+  }, [savedLanguage]);
+
+  return (
+    <div className="relative inline-block text-left">
+      <div>
+        <button
+          onClick={toggleDropdown}
+          className="py-2 flex items-center text-gray-800"
+        >
+          <Text level={6} className="font-semibold" color="text-black">
+            {languageToShow}
+          </Text>
+          <svg
+            className={`w-4 h-4 ml-2 transition-transform ${
+              dropdownOpen ? "transform rotate-180" : ""
+            }`}
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path
+              fillRule="evenodd"
+              d="M6.293 7.707a1 1 0 011.414 0L10 10.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {dropdownOpen && (
+        <div className="absolute top-10 right-0 w-48 bg-white border border-gray-200 rounded-md shadow-md z-10">
+          {i18nConfig.locales.map((localeCode) => (
+            <Link
+              key={localeCode}
+              scroll={false}
+              href={`/${localeCode}`}
+              onClick={() => localStorage.setItem("language", localeCode)}
+              className="block w-full px-2 py-2 text-gray-800 hover:bg-gray-100"
+            >
+              {localeNameMap[localeCode]}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
