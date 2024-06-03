@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="make sign in and registration modals">
+    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="add no data component">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apiConstants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apiConstants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/components/ActivationCodeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/components/ActivationCodeForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/components/RegistrationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/components/RegistrationForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablets/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablets/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Input/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SideBar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/providers/Auth/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/providers/Auth/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="staging" />
+        <entry key="$PROJECT_DIR$" value="rl-homepage" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -111,6 +114,8 @@
       <updated>1716544655322</updated>
       <workItem from="1716544660941" duration="7082000" />
       <workItem from="1716993710484" duration="2040000" />
+      <workItem from="1717406791946" duration="4794000" />
+      <workItem from="1717414104469" duration="178000" />
     </task>
     <option name="localTasksCounter" value="2" />
     <servers />

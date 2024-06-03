@@ -8,4 +8,5 @@ export interface InputFieldProps {
   className?: string;
   required?: boolean;
   errorText?: string;
+  showEyeIcon?: boolean;
 }

@@ -3,17 +3,19 @@ import { FC, useState } from "react";
 import Input from "@/components/Input";
 import Button from "@/components/Button";
 import { USER } from "@/apiConstants";
-import { LoginResponse } from "@/providers/Auth/types";
 import useApi from "@/hooks/useApi";
 // import {SignUpFormProps} from './types'
 
-const SignUpForm: FC<any> = ({ ...props }) => {
-  const [email, setEmail] = useState<string>("");
+const SignUpForm: FC<any> = ({
+  email,
+  setEmail,
+  setShowCodeFragment,
+  ...props
+}) => {
   const [password, setPassword] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
-  const [showCodeFragment, setShowCodeFragment] = useState<boolean>(false);
 
   const api = useApi();
 
@@ -79,7 +81,9 @@ const SignUpForm: FC<any> = ({ ...props }) => {
         type="password"
         required
         value={password}
+        showEyeIcon
         onChange={(e) => setPassword(e.target.value)}
+        errorText={passwordError}
         className="w-full mt-4 bg-transparent"
         placeholder="Password"
       />
