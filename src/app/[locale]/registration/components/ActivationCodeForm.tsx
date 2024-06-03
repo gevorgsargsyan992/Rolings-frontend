@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 import Input from "@/components/Input";
 import Typography from "@/components/Typography";
 import Button from "@/components/Button";
-import { VERIFICATION } from "@/apiConstants";
+import {VERIFICATION, VERIFICATION_RESEND} from "@/apiConstants";
 import useApi from "@/hooks/useApi";
 import { useRouter } from "next/navigation";
 import {useAuth} from "@/contexts/Auth";
@@ -18,10 +18,6 @@ const ActivationCode: FC<any> = ({ email, ...props }) => {
   const api = useApi();
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    await onSend();
-  };
-
-  const onSend = async () => {
     try {
       // @ts-ignore
       const { id, access_token: token } = await api.patch(VERIFICATION, {
@@ -34,6 +30,18 @@ const ActivationCode: FC<any> = ({ email, ...props }) => {
         await setUser(id);
         router.replace("/");
       }
+    } catch (err) {
+      throw new Error("Failed code send");
+    }
+  };
+
+  const onReSend = async () => {
+    try {
+      // @ts-ignore
+      await api.patch(VERIFICATION_RESEND, {
+        verificationCode: +verificationCode,
+        email,
+      });
     } catch (err) {
       throw new Error("Failed code resend");
     }
@@ -58,7 +66,7 @@ const ActivationCode: FC<any> = ({ email, ...props }) => {
         <Text level={6} className="mt-2">
           Did not get the code ?
         </Text>
-        <Button onClick={onSend} type="text">
+        <Button onClick={onReSend} type="text">
           Resend
         </Button>
       </div>

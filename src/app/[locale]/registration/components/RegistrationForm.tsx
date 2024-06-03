@@ -13,9 +13,11 @@ const SignUpForm: FC<any> = ({
   ...props
 }) => {
   const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState<string>("");
 
   const api = useApi();
 
@@ -35,6 +37,11 @@ const SignUpForm: FC<any> = ({
     e.preventDefault();
 
     if (!validatePassword(password)) {
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setConfirmPasswordError(`Passwords don't match`);
       return;
     }
 
@@ -81,11 +88,19 @@ const SignUpForm: FC<any> = ({
         type="password"
         required
         value={password}
-        showEyeIcon
         onChange={(e) => setPassword(e.target.value)}
         errorText={passwordError}
         className="w-full mt-4 bg-transparent"
         placeholder="Password"
+      />
+      <Input
+        type="confirmPassword"
+        required
+        value={confirmPassword}
+        onChange={(e) => setConfirmPassword(e.target.value)}
+        errorText={confirmPasswordError}
+        className="w-full mt-4 bg-transparent"
+        placeholder="Confirm Password"
       />
       <Button type="ghost" className="w-full mt-6">
         Sign In
