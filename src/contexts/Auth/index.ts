@@ -1,4 +1,5 @@
-import { createContext, useContext } from 'react';
+"use client";
+import { createContext, useContext } from "react";
 
 const AuthContext = createContext(null);
 

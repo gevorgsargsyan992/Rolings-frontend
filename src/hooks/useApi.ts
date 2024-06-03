@@ -18,7 +18,7 @@ const useApi = <T>(): ApiResponse<T> => {
 
   api.interceptors.request.use(
     (config) => {
-      const token = localStorage.getItem("token");
+      const token = window.localStorage.getItem("token");
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }

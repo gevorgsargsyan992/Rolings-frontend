@@ -13,13 +13,16 @@ const textStyles: { [key: number]: string } = {
 const Text: React.FC<TextProps> = ({
   level = 4,
   bold = false,
-  color = "gray-500",
+  color = "text-gray-500",
   children,
   className,
 }) => {
   const textStyle = textStyles[level] || textStyles[4]; // Default to level 4 if out of range
   return (
-    <p className={`${textStyle} ${bold ? "font-bold" : ""} ${color} ${className}`}>
+    <p
+      className={`${textStyle} ${
+        bold ? "font-bold" : ""
+      } ${color} ${className}`}>
       {children}
     </p>
   );

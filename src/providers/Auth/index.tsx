@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           password,
         })) as LoginResponse) || {};
 
-      localStorage.setItem("token", token);
+      window.localStorage.setItem("token", token);
       await setUser(id);
     } catch (error: any) {
       dispatch({
@@ -56,7 +56,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
+    window.localStorage.removeItem("token");
     dispatch({ type: "LOGOUT" });
   };
 
