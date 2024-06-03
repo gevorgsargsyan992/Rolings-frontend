@@ -3,10 +3,10 @@ import { FC, useState } from "react";
 import Input from "@/components/Input";
 import Typography from "@/components/Typography";
 import Button from "@/components/Button";
-import {VERIFICATION, VERIFICATION_RESEND} from "@/apiConstants";
+import { VERIFICATION, VERIFICATION_RESEND } from "@/apiConstants";
 import useApi from "@/hooks/useApi";
 import { useRouter } from "next/navigation";
-import {useAuth} from "@/contexts/Auth";
+import { useAuth } from "@/contexts/Auth";
 
 const { Text } = Typography;
 
@@ -25,7 +25,7 @@ const ActivationCode: FC<any> = ({ email, ...props }) => {
         email,
       });
 
-      if(token && id) {
+      if (token && id) {
         window.localStorage.setItem("token", token);
         await setUser(id);
         router.replace("/");
