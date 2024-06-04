@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="some changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/contact/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/contact/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hero/components/Advantages/Advantages.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/components/Advantages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hero/components/Advantages/Advatage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/components/Advantages/Advatage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hero/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +55,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "design-fixes",
+    "git-widget-placeholder": "rl-homepage",
     "js.linters.configure.manually.selectedeslint": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",

@@ -1,6 +1,6 @@
 import React from "react";
 import Text from "@/components/Typography/Text";
-import './index.css'
+import "./index.css";
 
 type PropTypes = {
   text: string;
@@ -12,7 +12,7 @@ const Advantage = ({ text, className }: PropTypes) => {
     <div
       className={`px-6 bg-white container flex justify-center align-middle rounded ${className}`}
     >
-      <Text className="self-center" level={6} color="text-black">
+      <Text className="self-center text-center" level={6} color="text-black">
         {text}
       </Text>
     </div>

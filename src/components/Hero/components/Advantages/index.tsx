@@ -1,9 +1,8 @@
 import { FC } from "react";
 import Advantage from "./Advatage";
 
-const DATA1 = ["Advatange 1", "Advatange 2", "Advatange 3"];
-
-const DATA2 = ["Advatange 4", "Advatange 5", "Advatange 6"];
+const DATA1 = ["andznakan ej", "manitoring", "yntrutyan hnaravorutyun"];
+const DATA2 = ["harcasharer", "Data base", "24/7 suport "];
 
 const Advantages: FC = () => {
   return (
@@ -15,7 +14,7 @@ const Advantages: FC = () => {
       </div>
       <div className="flex mr-3 mt-3">
         {DATA2.map((el, idx) => (
-          <Advantage  className="mr-3" text={el} key={idx} />
+          <Advantage className="mr-3" text={el} key={idx} />
         ))}
       </div>
     </div>
