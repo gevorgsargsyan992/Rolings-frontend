@@ -23,10 +23,10 @@ const Registration: FC = () => {
   return (
     <div className="fixed z-10 inset-0 bg-gray-800 bg-opacity-50">
       <div className="absolute inset-0 flex justify-center items-center">
-        <div className="max-w-6xl flex max-h-900 mx-auto bg-gray-100 rounded-lg overflow-hidden relative">
+        <div className="max-w-[838px] max-h-[608px] flex mx-auto bg-gray-100 rounded-lg overflow-hidden relative">
           <button
             onClick={handleCloseModal}
-            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+            className="absolute top-2 right-4 text-gray-500 hover:text-gray-700 focus:outline-none"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -43,17 +43,17 @@ const Registration: FC = () => {
               />
             </svg>
           </button>
-          <div className="p-3 flex flex-1 justify-center">
+          <div className="p-1 flex flex-3 justify-center">
             <Image
+              className="w-full"
               src={rolingsImg}
               alt="roling image"
-              width={500}
-              height={500}
+              objectFit="cover"
             />
           </div>
-          <div className="flex flex-1 p-8 h-full flex-col align-middle justify-center text-center">
+          <div className="flex flex-1 p-8 h-full flex-col align-middle justify-center text-center max-h-[608px] overflow-y-auto">
             <Image
-              className="self-center mb-6"
+              className="self-center mb-6 pt-40"
               width={140}
               src={logo}
               alt="logo image"

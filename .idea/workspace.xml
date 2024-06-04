@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="registration final steps">
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/components/ActivationCodeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/components/ActivationCodeForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/components/RegistrationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/components/RegistrationForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Button/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Select/SelectLanguage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Select/SelectLanguage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

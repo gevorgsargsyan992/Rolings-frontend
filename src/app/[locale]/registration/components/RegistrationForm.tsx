@@ -1,10 +1,13 @@
 "use client";
 import { FC, useState } from "react";
+import Link from "next/link";
 import Input from "@/components/Input";
+import Typography from "@/components/Typography";
 import Button from "@/components/Button";
 import { USER } from "@/apiConstants";
 import useApi from "@/hooks/useApi";
-// import {SignUpFormProps} from './types'
+
+const { Text } = Typography;
 
 const SignUpForm: FC<any> = ({
   email,
@@ -13,11 +16,14 @@ const SignUpForm: FC<any> = ({
   ...props
 }) => {
   const [password, setPassword] = useState<string>("");
+  const [companyName, setCompanyName] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
   const [confirmPasswordError, setConfirmPasswordError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [checked, setChecked] = useState<boolean>(false);
 
   const api = useApi();
 
@@ -35,13 +41,16 @@ const SignUpForm: FC<any> = ({
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    setLoading(true);
 
     if (!validatePassword(password)) {
+      setLoading(false);
       return;
     }
 
     if (password !== confirmPassword) {
       setConfirmPasswordError(`Passwords don't match`);
+      setLoading(false);
       return;
     }
 
@@ -51,61 +60,104 @@ const SignUpForm: FC<any> = ({
         name,
         phoneNumber,
         password,
+        companyName,
         email,
       })) || {};
 
     if (success) {
+      setLoading(false);
       setShowCodeFragment(true);
     }
   };
 
+  const onRestorePassword = () => {
+    //TODO: make server request
+  };
+
+  const handleRadioClick = () => {
+    setChecked(!checked);
+  };
+
   return (
-    <form onSubmit={handleSubmit} {...props}>
-      <Input
-        required
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="w-full bg-transparent"
-        placeholder="UserName"
-      />
-      <Input
-        type="number"
-        required
-        value={phoneNumber}
-        onChange={(e) => setPhoneNumber(e.target.value)}
-        className="w-full bg-transparent mt-4"
-        placeholder="Phone"
-      />
-      <Input
-        type="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="w-full bg-transparent mt-4"
-        placeholder="Email address"
-      />
-      <Input
-        type="password"
-        required
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        errorText={passwordError}
-        className="w-full mt-4 bg-transparent"
-        placeholder="Password"
-      />
-      <Input
-        type="confirmPassword"
-        required
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-        errorText={confirmPasswordError}
-        className="w-full mt-4 bg-transparent"
-        placeholder="Confirm Password"
-      />
-      <Button type="ghost" className="w-full mt-6">
-        Sign In
+    <>
+      <form onSubmit={handleSubmit} {...props}>
+        <Input
+          required
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="w-full bg-transparent"
+          placeholder="UserName"
+        />
+        <Input
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full bg-transparent mt-4"
+          placeholder="Email"
+        />
+        <Input
+          type="email"
+          required
+          value={companyName}
+          onChange={(e) => setCompanyName(e.target.value)}
+          className="w-full bg-transparent mt-4"
+          placeholder="Company Name"
+        />
+        <Input
+          type="number"
+          required
+          value={phoneNumber}
+          onChange={(e) => setPhoneNumber(e.target.value)}
+          className="w-full bg-transparent mt-4"
+          placeholder="Phone Number"
+        />
+        <Input
+          type="password"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          errorText={passwordError}
+          className="w-full mt-4 bg-transparent"
+          placeholder="Password"
+        />
+        <Input
+          type="confirmPassword"
+          required
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          errorText={confirmPasswordError}
+          className="w-full mt-4 bg-transparent"
+          placeholder="Confirm Password"
+        />
+        <label className="flex items-center mt-4">
+          <input
+            type="radio"
+            checked={checked}
+            onChange={handleRadioClick}
+            required
+            className="form-radio text-indigo-600"
+          />
+          <Text color="text-gray-dark" className="text-xs  pl-2">
+            I have read and agree to the{" "}
+            <Link className="underline text-xs" href="/">
+              Terms of Service
+            </Link>
+          </Text>
+        </label>
+        <Button
+          loading={loading}
+          disable={loading}
+          type="ghost"
+          className="w-full mt-6"
+        >
+          Register now
+        </Button>
+      </form>
+      <Button type="text" className="mt-4" onClick={onRestorePassword}>
+        Restore password
       </Button>
-    </form>
+    </>
   );
 };
 
