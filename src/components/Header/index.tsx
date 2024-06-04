@@ -14,8 +14,9 @@ const { Text } = Typography;
 
 const Header: FC = () => {
   const router = useRouter();
-  const { state, logout } = useAuth() as any;
-  const { isAuthenticated } = state || {};
+  const { logout } = useAuth() as any;
+
+  const isAuthenticated = localStorage.getItem("token");
 
   const onLogout = useCallback(async () => {
     await logout();

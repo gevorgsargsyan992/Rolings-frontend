@@ -1,12 +1,10 @@
 "use client";
 import Header from "../Header";
 import Footer from "../Footer";
-import { useAuth } from "@/contexts/Auth";
 import LeftSidebar from "@/components/SideBar";
 
 const Layout = ({ children }) => {
-  const { state } = useAuth();
-  const { isAuthenticated } = state || {};
+  const isAuthenticated = localStorage.getItem("token");
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
