@@ -8,6 +8,7 @@ export interface Column {
 export type TabletStatusKey = keyof typeof TabletStatus; // 1 | 2 | 3 | 4
 
 export interface TabletData {
+    id: string;
     createdAt: string;
     tabletStatus: TabletStatusKey;
     tb_uuid: string;

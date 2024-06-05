@@ -1,7 +1,6 @@
 import {UserType} from "@/types/UserTypes";
 
 export interface AuthState {
-  isAuthenticated: boolean;
   user: User | null;
   error: string | null;
 }

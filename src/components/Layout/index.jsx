@@ -2,9 +2,10 @@
 import Header from "../Header";
 import Footer from "../Footer";
 import LeftSidebar from "@/components/SideBar";
+import { useAuth } from "@/contexts/Auth";
 
 const Layout = ({ children }) => {
-  const isAuthenticated = localStorage.getItem("token");
+  const { isAuthenticated } = useAuth();
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
