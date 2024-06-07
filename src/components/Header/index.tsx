@@ -14,8 +14,7 @@ const { Text } = Typography;
 
 const Header: FC = () => {
   const router = useRouter();
-  const { state, logout } = useAuth() as any;
-  const { isAuthenticated } = state || {};
+  const { logout, isAuthenticated } = useAuth() as any;
 
   const onLogout = useCallback(async () => {
     await logout();

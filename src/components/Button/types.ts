@@ -8,4 +8,6 @@ export interface ButtonProps {
   children?: ReactNode;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   className?: string;
+  loading?: boolean;
+  disable?: boolean;
 }

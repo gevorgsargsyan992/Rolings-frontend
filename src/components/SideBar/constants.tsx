@@ -2,7 +2,7 @@ import { SidebarItem } from "./types";
 
 export const DATA: SidebarItem[] = [
   {
-    link: "/tablets",
+    link: "/tablet",
     title: "Tablets",
     iconPath: (
       <>
