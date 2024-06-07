@@ -21,6 +21,7 @@ const SignUpForm: FC<any> = ({
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [passwordError, setPasswordError] = useState<string>("");
+  const [error, setError] = useState<string>("");
   const [confirmPasswordError, setConfirmPasswordError] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [checked, setChecked] = useState<boolean>(false);
@@ -31,7 +32,7 @@ const SignUpForm: FC<any> = ({
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/;
     if (!regex.test(password)) {
       setPasswordError(
-        "Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter, and one symbol."
+        "Password must be at least 6 characters, with one uppercase letter, one lowercase letter, and one symbol."
       );
       return false;
     }
@@ -52,22 +53,32 @@ const SignUpForm: FC<any> = ({
       setConfirmPasswordError(`Passwords don't match`);
       setLoading(false);
       return;
+    } else {
+      setConfirmPasswordError("");
     }
 
-    // @ts-ignore
-    const { success } =
-      (await api.post(USER, {
-        name,
-        phoneNumber,
-        password,
-        companyName,
-        email,
-      })) || {};
+    try {
+      // @ts-ignore
+      const { success } =
+        (await api.post(USER, {
+          name,
+          phoneNumber,
+          password,
+          companyName,
+          email,
+        })) || {};
 
-    if (success) {
+      if (success) {
+        setShowCodeFragment(true);
+      }
+    } catch (err) {
       setLoading(false);
-      setShowCodeFragment(true);
+      // @ts-ignore
+      setError(err?.response?.data?.message || "Something went wrong");
+      throw new Error("Failed code resend");
     }
+
+    setLoading(false);
   };
 
   const onRestorePassword = () => {
@@ -75,11 +86,24 @@ const SignUpForm: FC<any> = ({
   };
 
   const handleRadioClick = () => {
-    setChecked(!checked);
+    setChecked(true);
   };
 
   return (
     <>
+      {error && (
+        <Text level={6} color="text-red-500 mb-2">
+          {error}
+        </Text>
+      )}
+      {passwordError && (
+        <Text level={6} color="text-red-500 mb-2">
+          {passwordError}
+        </Text>
+      )}
+      {confirmPasswordError && (
+        <Text color="text-red-500 text-xs mb-2">{confirmPasswordError}</Text>
+      )}
       <form onSubmit={handleSubmit} {...props}>
         <Input
           required
@@ -117,7 +141,7 @@ const SignUpForm: FC<any> = ({
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          errorText={passwordError}
+          errorText={passwordError || confirmPasswordError}
           className="w-full mt-4 bg-transparent"
           placeholder="Password"
         />
@@ -147,7 +171,16 @@ const SignUpForm: FC<any> = ({
         </label>
         <Button
           loading={loading}
-          disable={loading}
+          disable={
+            loading ||
+            !checked ||
+            !name ||
+            !email ||
+            !phoneNumber ||
+            !password ||
+            !confirmPassword ||
+            !companyName
+          }
           type="ghost"
           className="w-full mt-6"
         >

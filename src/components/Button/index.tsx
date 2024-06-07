@@ -54,7 +54,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`rounded-full flex items-center focus:outline-none focus:ring-2 py-2 px-4 justify-center ${buttonSizeClass} ${buttonTypeClass} ${className}`}
+      className={`rounded-full flex items-center focus:outline-none focus:ring-2 py-2 px-4 justify-center disabled:opacity-50 disabled:cursor-not-allowed ${buttonSizeClass} ${buttonTypeClass} ${className}`}
       onClick={onClick}
       disabled={disable}
       {...props}

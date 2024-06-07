@@ -1,16 +1,46 @@
 "use client";
 import { FC, useState } from "react";
 import { TableProps } from "./types";
-// import Button from "../Button";
+import Button from "../Button";
 import Typography from "@/components/Typography";
+import { useRouter } from "next/navigation";
 
 const { Text } = Typography;
 
-const Table: FC<TableProps> = ({ data, columns, className }) => {
-  //const [isEditAccess, setIsEditAccess] = useState(true); //TODO: handle is edit access case
+const Table: FC<TableProps> = ({
+  data,
+  columns,
+  className,
+  isRowEdit,
+}) => {
+  const router = useRouter();
+  const [editRowId, setEditRowId] = useState<number | null>(null);
+  const [editedData, setEditedData] = useState<any>({});
 
-  const handleEditRow = (id: number) => {
-    // TODO: handle edit row
+  const handleRowClick = (row: any) => {
+    if (editRowId !== null) return; // Prevent navigation while editing
+    router.push(`/tablet/${row.id}`);
+  };
+
+  const handleEditRow = (row: any) => {
+    setEditRowId(row.id);
+    setEditedData(row);
+  };
+
+  const handleCancelEdit = () => {
+    setEditRowId(null);
+    setEditedData({});
+  };
+
+  const handleSaveEdit = (id: number) => {
+    setEditRowId(null);
+  };
+
+  const handleChange = (key: string, value: string) => {
+    setEditedData((prev: any) => ({
+      ...prev,
+      [key]: value,
+    }));
   };
 
   return (
@@ -27,23 +57,50 @@ const Table: FC<TableProps> = ({ data, columns, className }) => {
         </thead>
         <tbody>
           {data.map((row, index) => (
-            <tr key={index}>
+            <tr
+              key={index}
+              onClick={() => handleRowClick(row)}
+              className="cursor-pointer hover:bg-gray-100"
+            >
               {columns.map((column) => (
                 <td className="border-b px-4 py-2" key={column.key}>
-                  <Text level={6}>
-                    {column.render
-                      ? column.render(row[column.key])
-                      : row[column.key]}
-                  </Text>
+                  {editRowId === row.id ? (
+                    <input
+                      type="text"
+                      value={editedData[column.key]}
+                      onChange={(e) => handleChange(column.key, e.target.value)}
+                      className="w-full"
+                    />
+                  ) : (
+                    <Text level={6}>
+                      {column.render
+                        ? column.render(row[column.key])
+                        : row[column.key]}
+                    </Text>
+                  )}
                 </td>
               ))}
-              {/*{isEditAccess && (*/}
-              {/*  <td className="border-b order-t px-4 py-2">*/}
-              {/*    <Button type="text" onClick={() => handleEditRow(row.id)}>*/}
-              {/*      Edit*/}
-              {/*    </Button>*/}
-              {/*  </td>*/}
-              {/*)}*/}
+              {isRowEdit && (
+                <td className="border-b px-4 py-2">
+                  {editRowId === row.id ? (
+                    <>
+                      <Button
+                        type="text"
+                        onClick={() => handleSaveEdit(row.id)}
+                      >
+                        Save
+                      </Button>
+                      <Button type="text" onClick={handleCancelEdit}>
+                        Cancel
+                      </Button>
+                    </>
+                  ) : (
+                    <Button type="text" onClick={() => handleEditRow(row)}>
+                      Edit
+                    </Button>
+                  )}
+                </td>
+              )}
             </tr>
           ))}
         </tbody>

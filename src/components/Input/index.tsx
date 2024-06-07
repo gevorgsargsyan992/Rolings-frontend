@@ -83,7 +83,7 @@ const InputField: React.FC<InputFieldProps> = ({
           </button>
         )}
       </div>
-      {errorText && <p className="text-red-500 text-sm mt-1">{errorText}</p>}
+      {/*{errorText && <p className="text-red-500 text-sm mt-1">{errorText}</p>}*/}
     </div>
   );
 };

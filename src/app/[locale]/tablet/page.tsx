@@ -16,7 +16,7 @@ const Tablets: FC = () => {
     const fetchTablets = async () => {
       try {
         const data = await get(`${TABLET}`);
-        if (!!data?.length) {
+        if (data?.length) {
           const tabletsToShow = data.map((tablet: TabletData) => ({
             ...tablet,
             createdAt: formattedDate(tablet?.createdAt),

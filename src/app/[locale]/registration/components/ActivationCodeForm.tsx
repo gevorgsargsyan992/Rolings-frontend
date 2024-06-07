@@ -28,7 +28,7 @@ const ActivationCode: FC<any> = ({ email, ...props }) => {
       if (token && id) {
         window.localStorage.setItem("token", token);
         await setUser(id);
-        router.replace("/");
+        router.replace("/tablet");
       }
     } catch (err) {
       throw new Error("Failed code send");
@@ -48,7 +48,7 @@ const ActivationCode: FC<any> = ({ email, ...props }) => {
   };
 
   return (
-    <div className="pt-20">
+    <div className="pt-18">
       <form onSubmit={handleSubmit} {...props}>
         <Input
           required

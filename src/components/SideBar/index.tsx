@@ -2,34 +2,26 @@
 
 import { FC, useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import Typography from "../Typography";
 import { DATA } from "./constants";
 
 const { Text } = Typography;
 
 const LeftSidebar: FC = () => {
-  const router = useRouter();
   const [activeIndex, setActiveIndex] = useState(0);
+
   const handleClick = (index: number) => {
     setActiveIndex(index);
   };
 
-  useEffect(() => {
-    router.push(DATA[0].link);
-    setActiveIndex(0);
-  }, []);
-
   return (
-    <div
-      className={`fixed left-0 top-0 bg-gray-800 text-white h-full mt-20 w-48`}
-    >
+    <div className="fixed left-0 top-0 bg-gray-800 text-white h-full mt-20 w-48">
       <div className="mt-4">
         {DATA.map((item, index) => (
           <Link
             key={index}
-            onClick={() => handleClick(index)}
             href={item.link}
+            onClick={() => handleClick(index)}
             className={`flex items-center mt-3 px-4 py-2 cursor-pointer hover:bg-gray-700 ${
               index === activeIndex ? "bg-gray-700" : ""
             }`}
