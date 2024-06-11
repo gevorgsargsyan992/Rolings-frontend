@@ -1,6 +1,7 @@
 import CurrentlyWorking from "@/components/CurrentlyWorking";
 import initTranslations from "../../../i18n";
 import TranslationsProvider from "@/TranslationsProvider";
+import Hero from '../../components/Hero'
 
 const i18nNameSpaces = ["blog, offers"];
 
@@ -19,7 +20,7 @@ export default async function Home({ params: { locale } }: HomeProps) {
       locale={locale}
     >
       <div className="flex flex-col items-center justify-center bg-gray-100">
-        <CurrentlyWorking />
+        <Hero />
       </div>
     </TranslationsProvider>
   );
