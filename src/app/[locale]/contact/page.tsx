@@ -1,10 +1,10 @@
 import { FC } from "react";
 import CurrentlyWorking from "@/components/CurrentlyWorking";
 
-const AboutUs: FC = () => {
+const Contact: FC = () => {
     return <CurrentlyWorking />;
 };
 
-export default AboutUs;
+export default Contact;
 
 
