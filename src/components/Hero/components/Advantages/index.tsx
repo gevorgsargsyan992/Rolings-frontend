@@ -1,8 +1,8 @@
 import { FC } from "react";
 import Advantage from "./Advatage";
 
-const DATA1 = ["andznakan ej", "manitoring", "yntrutyan hnaravorutyun"];
-const DATA2 = ["harcasharer", "Data base", "24/7 suport "];
+const DATA1 = ["անձնական էջ", "մոնիտորինգ", "ընտրության հնարավորություն"];
+const DATA2 = ["հարցաշարեր", "Տվյալների բազա", "24/7 հասանելիություն"];
 
 const Advantages: FC = () => {
   return (
