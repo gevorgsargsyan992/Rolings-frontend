@@ -6,7 +6,7 @@ import Typography from "../Typography";
 import rolingsImg from "../../../public/rolings-hero.png";
 import Advantages from "./components/Advantages";
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 const Hero: FC = () => {
   return (
