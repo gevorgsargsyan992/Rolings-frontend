@@ -8,7 +8,6 @@ import useApi from "@/hooks/useApi";
 import { UserType } from "@/types/UserTypes";
 
 const initialState: AuthState = {
-  isAuthenticated: false,
   user: null,
   error: null,
 };
@@ -60,8 +59,12 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     dispatch({ type: "LOGOUT" });
   };
 
+  const isAuthenticated = window.localStorage.getItem("token");
+
   return (
-    <AuthContext.Provider value={{ state, login, logout } as any}>
+    <AuthContext.Provider
+      value={{ state, login, logout, setUser, isAuthenticated } as any}
+    >
       {children}
     </AuthContext.Provider>
   );

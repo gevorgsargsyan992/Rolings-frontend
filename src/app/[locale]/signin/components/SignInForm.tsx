@@ -40,6 +40,7 @@ const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
       <Input
         type="password"
         required
+        showEyeIcon
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         className="w-full mt-4 bg-transparent"

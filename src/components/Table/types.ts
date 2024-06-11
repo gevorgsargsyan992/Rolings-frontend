@@ -10,4 +10,5 @@ export interface TableProps {
   data: any[];
   columns: TableColumn[];
   className?: string;
+  isRowEdit?: boolean;
 }

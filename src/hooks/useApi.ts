@@ -6,6 +6,7 @@ interface ApiResponse<T> {
   error: AxiosError | null;
   get: (url: string) => Promise<T>;
   post: (url: string, data: any) => Promise<T>;
+  patch: (url: string, data: any) => Promise<T>;
 }
 
 const api = axios.create({
@@ -59,8 +60,12 @@ const useApi = <T>(): ApiResponse<T> => {
   const post = async (url: string, data: any) => {
     return makeRequest("POST", url, data);
   };
+  const patch = async (url: string, data: any) => {
+    return makeRequest("PATCH", url, data);
+  };
 
-  return { loading, error, get, post };
+
+  return { loading, error, get, post, patch };
 };
 
 export default useApi;
