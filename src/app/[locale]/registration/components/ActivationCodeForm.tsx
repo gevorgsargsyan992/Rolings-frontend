@@ -10,13 +10,16 @@ import { useAuth } from "@/contexts/Auth";
 
 const { Text } = Typography;
 
-const ActivationCode: FC<any> = ({ email, ...props }) => {
-  const [verificationCode, setVerificationCode] = useState("");
-  const { setUser } = useAuth() as any;
+const ActivationCode: FC<any> = ({ email, password, ...props }) => {
+  const [verificationCode, setVerificationCode] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+  const { login } = useAuth() as any;
   const router = useRouter();
 
   const api = useApi();
   const handleSubmit = async (e: any) => {
+    setLoading(true)
     e.preventDefault();
     try {
       // @ts-ignore
@@ -26,29 +29,33 @@ const ActivationCode: FC<any> = ({ email, ...props }) => {
       });
 
       if (token && id) {
-        window.localStorage.setItem("token", token);
-        await setUser(id);
-        router.replace("/tablet");
+        login(email, password);
+        router.replace("/");
       }
     } catch (err) {
+      setError("Failed code send")
       throw new Error("Failed code send");
     }
+    setLoading(false)
   };
 
   const onReSend = async () => {
     try {
       // @ts-ignore
       await api.patch(VERIFICATION_RESEND, {
-        verificationCode: +verificationCode,
         email,
       });
     } catch (err) {
+      setError("Failed code resend")
       throw new Error("Failed code resend");
     }
   };
 
   return (
     <div className="pt-18">
+      {error && (
+          <Text color="text-red-500 text-xs mb-2">{error}</Text>
+      )}
       <form onSubmit={handleSubmit} {...props}>
         <Input
           required
@@ -58,7 +65,7 @@ const ActivationCode: FC<any> = ({ email, ...props }) => {
           className="w-full bg-transparent"
           placeholder="Enter Code"
         />
-        <Button type="ghost" className="w-full mt-6">
+        <Button loading={loading} type="ghost" className="w-full mt-6">
           Send
         </Button>
       </form>

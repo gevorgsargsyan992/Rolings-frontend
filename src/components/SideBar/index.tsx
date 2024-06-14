@@ -1,6 +1,7 @@
 "use client";
 
 import { FC, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Typography from "../Typography";
 import { DATA } from "./constants";
@@ -8,11 +9,20 @@ import { DATA } from "./constants";
 const { Text } = Typography;
 
 const LeftSidebar: FC = () => {
+  const router = useRouter();
+
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleClick = (index: number) => {
+  const handleClick = (index: number, link: string) => {
     setActiveIndex(index);
+    router.push(link);
   };
+
+  useEffect(() => {
+    if (DATA.length > 0) {
+      handleClick(0, DATA[0].link);
+    }
+  }, []);
 
   return (
     <div className="fixed left-0 top-0 bg-gray-800 text-white h-full mt-20 w-48">
@@ -21,7 +31,7 @@ const LeftSidebar: FC = () => {
           <Link
             key={index}
             href={item.link}
-            onClick={() => handleClick(index)}
+            onClick={() => handleClick(index, item.link)}
             className={`flex items-center mt-3 px-4 py-2 cursor-pointer hover:bg-gray-700 ${
               index === activeIndex ? "bg-gray-700" : ""
             }`}

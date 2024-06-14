@@ -13,6 +13,8 @@ const { Text } = Typography;
 
 const Registration: FC = () => {
   const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
   const [showCodeFragment, setShowCodeFragment] = useState<boolean>(false);
   const router = useRouter();
   const handleCloseModal = () => {
@@ -23,10 +25,10 @@ const Registration: FC = () => {
   return (
     <div className="fixed z-10 inset-0 bg-gray-800 bg-opacity-50">
       <div className="absolute inset-0 flex justify-center items-center">
-        <div className="max-w-[838px] max-h-[608px] flex mx-auto bg-gray-100 rounded-lg overflow-hidden relative">
+        <div className="2xl:w-[900px] xl:w-[860px] md:w-[720px] 2xl:h-[608px] md:h-[500px] flex mx-auto bg-gray-100 rounded-lg overflow-hidden relative">
           <button
             onClick={handleCloseModal}
-            className="absolute top-2 right-4 text-gray-500 hover:text-gray-700 focus:outline-none"
+            className="absolute z-50 focus:outline-none top-1.5 2xl:top-2 2xl:right-4 right-1.5 text-gray-500 hover:text-gray-700"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +45,7 @@ const Registration: FC = () => {
               />
             </svg>
           </button>
-          <div className="p-1 flex flex-3 justify-center">
+          <div className="flex flex-2 p-3">
             <Image
               className="w-full"
               src={rolingsImg}
@@ -51,9 +53,9 @@ const Registration: FC = () => {
               objectFit="cover"
             />
           </div>
-          <div className="flex flex-1 p-8 h-full flex-col align-middle justify-center text-center max-h-[608px] overflow-y-auto">
+          <div className="flex flex-1 py-4 px-3 2xl:pt-4 md:pt-16 h-full flex-col align-middle justify-center text-center max-h-[608px] overflow-y-auto">
             <Image
-              className="self-center mb-6 pt-40"
+              className="self-center mb-4 pt-20"
               width={140}
               src={logo}
               alt="logo image"
@@ -79,12 +81,14 @@ const Registration: FC = () => {
               </>
             )}
             {showCodeFragment ? (
-              <ActivationCodeForm email={email} />
+              <ActivationCodeForm email={email} password={password} />
             ) : (
               <SignUpForm
                 setShowCodeFragment={setShowCodeFragment}
                 setEmail={setEmail}
                 email={email}
+                password={password}
+                setPassword={setPassword}
               />
             )}
           </div>
