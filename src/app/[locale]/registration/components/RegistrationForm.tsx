@@ -13,9 +13,10 @@ const SignUpForm: FC<any> = ({
   email,
   setEmail,
   setShowCodeFragment,
+  password,
+  setPassword,
   ...props
 }) => {
-  const [password, setPassword] = useState<string>("");
   const [companyName, setCompanyName] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [phoneNumber, setPhoneNumber] = useState<string>("");
@@ -121,7 +122,6 @@ const SignUpForm: FC<any> = ({
           placeholder="Email"
         />
         <Input
-          type="email"
           required
           value={companyName}
           onChange={(e) => setCompanyName(e.target.value)}

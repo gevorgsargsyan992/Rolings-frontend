@@ -1,5 +1,4 @@
-"use client";
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 import { TableProps } from "./types";
 import Button from "../Button";
 import Typography from "@/components/Typography";
@@ -7,15 +6,11 @@ import { useRouter } from "next/navigation";
 
 const { Text } = Typography;
 
-const Table: FC<TableProps> = ({
-  data,
-  columns,
-  className,
-  isRowEdit,
-}) => {
+const Table: FC<TableProps> = ({ data, columns, className, isRowEdit }) => {
   const router = useRouter();
   const [editRowId, setEditRowId] = useState<number | null>(null);
   const [editedData, setEditedData] = useState<any>({});
+  const [editedStatus, setEditedStatus] = useState<string>("");
 
   const handleRowClick = (row: any) => {
     if (editRowId !== null) return; // Prevent navigation while editing
@@ -25,14 +20,17 @@ const Table: FC<TableProps> = ({
   const handleEditRow = (row: any) => {
     setEditRowId(row.id);
     setEditedData(row);
+    setEditedStatus(row.status); // Assuming "status" is the key for status data
   };
 
   const handleCancelEdit = () => {
     setEditRowId(null);
     setEditedData({});
+    setEditedStatus("");
   };
 
   const handleSaveEdit = (id: number) => {
+    // Handle saving the edited data here
     setEditRowId(null);
   };
 
@@ -41,6 +39,10 @@ const Table: FC<TableProps> = ({
       ...prev,
       [key]: value,
     }));
+  };
+
+  const handleStatusChange = (value: string) => {
+    setEditedStatus(value);
   };
 
   return (
@@ -64,13 +66,15 @@ const Table: FC<TableProps> = ({
             >
               {columns.map((column) => (
                 <td className="border-b px-4 py-2" key={column.key}>
-                  {editRowId === row.id ? (
-                    <input
-                      type="text"
-                      value={editedData[column.key]}
-                      onChange={(e) => handleChange(column.key, e.target.value)}
+                  {editRowId === row.id && column.key === "status" ? (
+                    <select
+                      value={editedStatus}
+                      onChange={(e) => handleStatusChange(e.target.value)}
                       className="w-full"
-                    />
+                    >
+                      <option value="Active">Active</option>
+                      <option value="Not Active">Not Active</option>
+                    </select>
                   ) : (
                     <Text level={6}>
                       {column.render

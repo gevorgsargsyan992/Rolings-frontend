@@ -3,6 +3,7 @@ import Header from "../Header";
 import Footer from "../Footer";
 import LeftSidebar from "@/components/SideBar";
 import { useAuth } from "@/contexts/Auth";
+import { SIDEBAR_SIZE } from "@/constants";
 
 const Layout = ({ children }) => {
   const { isAuthenticated } = useAuth();
@@ -12,7 +13,11 @@ const Layout = ({ children }) => {
       <Header />
       <div className="flex flex-1 w-full px-12 mx-auto mt-20">
         {isAuthenticated && <LeftSidebar />}
-        <main className={`flex-grow p-4 ${isAuthenticated ? "pl-48" : ""}`}>
+        <main
+          className={`flex-grow p-4 ${
+            isAuthenticated ? `pl-${SIDEBAR_SIZE}` : ""
+          }`}
+        >
           {children}
         </main>
       </div>
