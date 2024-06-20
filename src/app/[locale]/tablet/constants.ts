@@ -14,3 +14,8 @@ export const COLUMNS: Column[] = [
   { key: "videoCount", label: "Video Count" },
   { key: "createdAt", label: "Time" },
 ];
+
+export const COLUMNS_VIDEO: Column[] = [
+  { key: "videoId", label: "ID" },
+  { key: "videoName", label: "Video Name" },
+];

@@ -4,21 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="some fixes">
-      <change afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/page.tsx" afterDir="false" />
+    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="fix registration issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/components/ActivationCodeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/components/ActivationCodeForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/components/RegistrationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/components/RegistrationForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablets/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablets/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablets/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Button/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hero/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SideBar/constants.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar/constants.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SideBar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Table/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Table/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Table/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useApi.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="rl-homepage" />
+        <entry key="$PROJECT_DIR$" value="rl-registration" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -59,26 +56,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;rl-registration&quot;,
-    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/anahitalaverdyan/Other/Rolings-frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/anahitalaverdyan/Other/Rolings-frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "rl-tablet-status-edit",
+    "js.linters.configure.manually.selectedeslint": "true",
+    "last_opened_file_path": "/home/anahitalaverdyan/Other/Rolings-frontend/public",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "/home/anahitalaverdyan/Other/Rolings-frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/[locale]" />
     </key>
@@ -96,6 +96,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.lint" />
         <item itemvalue="npm.lint" />
       </list>
     </recent_temporary>
@@ -123,6 +127,15 @@
       <workItem from="1717571241721" duration="417000" />
       <workItem from="1717576191912" duration="19736000" />
       <workItem from="1717745955016" duration="12424000" />
+      <workItem from="1718178665523" duration="8011000" />
+      <workItem from="1718284832715" duration="15000" />
+      <workItem from="1718354966411" duration="8478000" />
+      <workItem from="1718372914407" duration="4160000" />
+      <workItem from="1718608218334" duration="22559000" />
+      <workItem from="1718714678367" duration="6105000" />
+      <workItem from="1718781052689" duration="599000" />
+      <workItem from="1718794053239" duration="17206000" />
+      <workItem from="1718881632781" duration="4558000" />
     </task>
     <task id="LOCAL-00002" summary="registration final steps">
       <option name="closed" value="true" />
@@ -156,7 +169,39 @@
       <option name="project" value="LOCAL" />
       <updated>1717591421886</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add translations for homepage texts in the component">
+      <option name="closed" value="true" />
+      <created>1718110541690</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718110541690</updated>
+    </task>
+    <task id="LOCAL-00007" summary="removed unused code">
+      <option name="closed" value="true" />
+      <created>1718110577358</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1718110577358</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix component name">
+      <option name="closed" value="true" />
+      <created>1718110646837</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718110646837</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix registration issue">
+      <option name="closed" value="true" />
+      <created>1718366874599</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1718366874599</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,6 +213,10 @@
     <MESSAGE value="fix registration error" />
     <MESSAGE value="fix data persisting case after login" />
     <MESSAGE value="some fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="some fixes" />
+    <MESSAGE value="add translations for homepage texts in the component" />
+    <MESSAGE value="removed unused code" />
+    <MESSAGE value="fix component name" />
+    <MESSAGE value="fix registration issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix registration issue" />
   </component>
 </project>

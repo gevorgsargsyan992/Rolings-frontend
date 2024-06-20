@@ -33,7 +33,7 @@ const Tablets: FC = () => {
   }, []);
 
   return tablets.length > 0 ? (
-    <Table columns={COLUMNS} data={tablets || []} />
+    <Table columns={COLUMNS} data={tablets || []} url="tablet" />
   ) : (
     <NoData />
   );

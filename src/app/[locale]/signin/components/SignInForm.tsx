@@ -18,6 +18,7 @@ const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
     async (e: any) => {
       e.preventDefault();
       try {
+        console.log("calledddd");
         await login(email, password);
         router.replace("/");
       } catch (error) {
