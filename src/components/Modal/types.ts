@@ -4,6 +4,6 @@ export interface ModalProps {
   title?: string;
   subtitle?: string;
   isOpen?: boolean;
-  onConfirm: () => void;
+  onConfirm: (props: any) => void;
   children?: ReactNode;
 }
