@@ -107,21 +107,21 @@ const TabletDetail: FC = () => {
   return (
     <div className="flex flex-col relative h-full">
       <div className="mb-10">
-        {tablet?.id && <InfoElement name="ID" value={` - ${tablet?.id}`} />}
+        {tablet?.id && <InfoElement name="ID" value={tablet?.id} />}
         {tablet?.tb_uuid && (
-          <InfoElement name="UUID" value={` - ${tablet?.tb_uuid}`} />
+          <InfoElement name="UUID" value={tablet?.tb_uuid} />
         )}
         {tablet?.createdAt && (
-          <InfoElement name="Creation Time" value={` - ${tablet?.createdAt}`} />
+          <InfoElement name="Creation Time" value={tablet?.createdAt} />
         )}
         {tablet?.lastActive && (
-          <InfoElement name="Last Active" value={` - ${tablet?.lastActive}`} />
+          <InfoElement name="Last Active" value={tablet?.lastActive} />
         )}
         {tablet?.latitude && (
-          <InfoElement name="LAT" value={` - ${tablet?.latitude}`} />
+          <InfoElement name="LAT" value={tablet?.latitude} />
         )}
-        {tablet?.latitude && (
-          <InfoElement name="LONG" value={` - ${tablet?.longitude}`} />
+        {tablet?.longitude && (
+          <InfoElement name="LONG" value={tablet?.longitude} />
         )}
         {tablet?.tabletStatus && (
           <div className="flex items-center gap-1">
