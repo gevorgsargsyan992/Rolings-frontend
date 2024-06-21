@@ -15,19 +15,15 @@ const Modal: FC<ModalProps> = ({
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
   useEffect(() => {
-    if (isOpen) {
-      setIsOpenModal(isOpen);
+    if(isOpen){
+    setIsOpenModal(isOpen)
     }
   }, [isOpen]);
 
-  const handleConfirm = useCallback(
-    (prop: any) => {
-      onConfirm(prop);
-      setIsOpenModal(false);
-    },
-    [onConfirm]
-  );
-
+  const handleConfirm = useCallback((prop) => {
+    onConfirm(prop);
+    setIsOpenModal(false);
+  }, [onConfirm]);
   const handleClose = useCallback(() => {
     setIsOpenModal(false);
   }, []);
