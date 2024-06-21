@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="fix registration issue">
+    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="tablet changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Hero/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Table/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Table/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Table/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useApi.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +128,7 @@
       <workItem from="1718714678367" duration="6105000" />
       <workItem from="1718781052689" duration="599000" />
       <workItem from="1718794053239" duration="17206000" />
-      <workItem from="1718881632781" duration="4558000" />
+      <workItem from="1718881632781" duration="15735000" />
     </task>
     <task id="LOCAL-00002" summary="registration final steps">
       <option name="closed" value="true" />
@@ -201,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718366874599</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="tablet changes">
+      <option name="closed" value="true" />
+      <created>1718895648148</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1718895648148</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +218,7 @@
     <MESSAGE value="removed unused code" />
     <MESSAGE value="fix component name" />
     <MESSAGE value="fix registration issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix registration issue" />
+    <MESSAGE value="tablet changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="tablet changes" />
   </component>
 </project>
