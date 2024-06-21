@@ -11,7 +11,7 @@ interface ApiResponse<T> {
 }
 
 const api = axios.create({
-  baseURL: process.env.PUBLIC_APP_AUTH_URL, //TODO: do not commit this
+  baseURL: "https://rolings-backend.onrender.com",
 });
 
 const useApi = <T>(): ApiResponse<T> => {

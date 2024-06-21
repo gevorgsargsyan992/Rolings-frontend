@@ -6,7 +6,6 @@ import { TABLET } from "@/apiConstants";
 import { TabletStatusKey } from "@/app/[locale]/tablet/types";
 import { formattedDate } from "@/utils";
 import { TabletStatus, COLUMNS_VIDEO } from "@/app/[locale]/tablet/constants";
-import { TabletProps } from "./types";
 import useApi from "@/hooks/useApi";
 import Table from "@/components/Table";
 import NoData from "@/components/NoData";
@@ -17,7 +16,7 @@ import InfoElement from "@/app/[locale]/tablet/[id]/components/InfoElement";
 
 const { Text } = Typography;
 
-const TabletDetail: FC<TabletProps> = () => {
+const TabletDetail: FC = () => {
   const [tablet, setTablet] = useState<any>({});
   const [isEditingStatus, setIsEditingStatus] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -50,7 +49,6 @@ const TabletDetail: FC<TabletProps> = () => {
           longitude: tabletData?.lastActive?.longitude,
         };
         setTablet({ ...tabletsToShow });
-        console.log("tabletsToShow", tabletsToShow);
         setEditedStatus(
           TabletStatus[tabletData.tabletStatus as TabletStatusKey]
         );
