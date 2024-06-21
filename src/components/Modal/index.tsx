@@ -1,4 +1,4 @@
-import { FC, useState, useCallback } from "react";
+import {FC, useState, useCallback, useEffect} from "react";
 import Button from "../Button";
 import Typography from "../Typography";
 import { ModalProps } from "./types";
@@ -12,10 +12,16 @@ const Modal: FC<ModalProps> = ({
   onConfirm,
   children,
 }) => {
-  const [isOpenModal, setIsOpenModal] = useState(isOpen);
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
-  const handleConfirm = useCallback(() => {
-    onConfirm();
+  useEffect(() => {
+    if(isOpen){
+    setIsOpenModal(isOpen)
+    }
+  }, [isOpen]);
+
+  const handleConfirm = useCallback((prop) => {
+    onConfirm(prop);
     setIsOpenModal(false);
   }, [onConfirm]);
 
@@ -25,8 +31,8 @@ const Modal: FC<ModalProps> = ({
 
   return (
     isOpenModal && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center overflow-x-hidden overflow-y-auto outline-none focus:outline-none">
-        <div className="relative flex flex-col bg-white border-1 border-gray-300 shadow-md rounded-lg outline-none">
+      <div className="fixed inset-0 z-9000 flex items-center justify-center overflow-x-hidden overflow-y-hidden outline-none focus:outline-none bg-gray-400 bg-opacity-60">
+        <div className="relative flex flex-col bg-white border-1 border-gray-300 shadow-md rounded-lg outline-none px-12 py-4">
           {!!children ? (
             children
           ) : (
@@ -43,7 +49,7 @@ const Modal: FC<ModalProps> = ({
               )}
             </div>
           )}
-          <div className="flex items-center gap-4 justify-between px-5 py-4 border-t border-gray-300 bg-gray-100 rounded-bl-lg rounded-br-lg">
+          <div className="flex items-center gap-4 justify-between px-5 py-4 border-t border-gray-300 rounded-bl-lg rounded-br-lg">
             <Button className="flex-1" type="ghost" onClick={handleClose}>
               Cancel
             </Button>

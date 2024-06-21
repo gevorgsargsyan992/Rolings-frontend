@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       <Header />
-      <div className="flex flex-1 w-full px-96 2xl:px-40 xl:px-20 lg:px-10 md:px-4 mx-auto mt-20">
+      <div className={`flex flex-1 w-full px-60 ${isAuthenticated ? '2xl:px-80' : ''} mx-auto mt-20`}>
         {isAuthenticated && <LeftSidebar />}
         <main
           className={`flex-grow p-4 ${

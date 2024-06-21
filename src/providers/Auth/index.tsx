@@ -59,7 +59,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     dispatch({ type: "LOGOUT" });
   };
 
-  const isAuthenticated = window.localStorage.getItem("token");
+  const isAuthenticated =
+    typeof window !== "undefined" ? window.localStorage.getItem("token") : "";
 
   return (
     <AuthContext.Provider
