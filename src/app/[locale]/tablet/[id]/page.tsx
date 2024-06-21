@@ -13,6 +13,7 @@ import NoData from "@/components/NoData";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import { TableSkeleton } from "@/components/Skeleton";
+import InfoElement from "@/app/[locale]/tablet/[id]/components/InfoElement";
 
 const { Text } = Typography;
 
@@ -37,14 +38,16 @@ const TabletDetail: FC<TabletProps> = () => {
 
   const fetchTablets = useCallback(async () => {
     try {
-      const data = await get(`${TABLET}/${id}`);
-      if (data?.length) {
-        const [tabletData] = data;
+      const tabletData = await get(`${TABLET}/${id}`);
+      if (tabletData) {
         const tabletsToShow = {
           ...tabletData,
           createdAt: formattedDate(tabletData?.createdAt),
           tabletStatus:
             TabletStatus[tabletData.tabletStatus as TabletStatusKey],
+          lastActive: formattedDate(tabletData?.lastActive?.createdAt),
+          latitude: tabletData?.lastActive?.latitude,
+          longitude: tabletData?.lastActive?.longitude,
         };
         setTablet({ ...tabletsToShow });
         console.log("tabletsToShow", tabletsToShow);
@@ -102,35 +105,25 @@ const TabletDetail: FC<TabletProps> = () => {
     setIsModalOpen(true);
   }, []);
 
-  console.log("tablet", tablet);
 
   return (
     <div className="flex flex-col relative h-full">
       <div className="mb-10">
-        {tablet?.id && (
-          <div className="flex mb-2 gap-1">
-            <Text level={6} color="text-black" className="bold">
-              ID
-            </Text>
-            <Text level={6}>{` - ${tablet?.id}`}</Text>
-          </div>
-        )}
-
+        {tablet?.id && <InfoElement name="ID" value={` - ${tablet?.id}`} />}
         {tablet?.tb_uuid && (
-          <div className="flex mb-2 gap-1">
-            <Text level={6} color="text-black" className="bold">
-              UUID
-            </Text>
-            <Text level={6}>{` - ${tablet?.tb_uuid}`}</Text>
-          </div>
+          <InfoElement name="UUID" value={` - ${tablet?.tb_uuid}`} />
         )}
         {tablet?.createdAt && (
-          <div className="flex mb-2 gap-1">
-            <Text level={6} color="text-black" className="bold">
-              Creation Time
-            </Text>
-            <Text level={6}> - {formattedDate(tablet?.createdAt)}</Text>
-          </div>
+          <InfoElement name="Creation Time" value={` - ${tablet?.createdAt}`} />
+        )}
+        {tablet?.lastActive && (
+          <InfoElement name="Last Active" value={` - ${tablet?.lastActive}`} />
+        )}
+        {tablet?.latitude && (
+          <InfoElement name="LAT" value={` - ${tablet?.latitude}`} />
+        )}
+        {tablet?.latitude && (
+          <InfoElement name="LONG" value={` - ${tablet?.longitude}`} />
         )}
         {tablet?.tabletStatus && (
           <div className="flex items-center gap-1">
