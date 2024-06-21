@@ -1,13 +1,22 @@
 import { ReactNode } from "react";
 
-interface TableColumn {
-  key: string;
-  label: string;
-  render?: (data: any) => ReactNode;
+export interface TableProps<T> {
+  data: T[];
+  columns: Column<T>[];
+  className?: string;
+  url?: string;
+  isRowClickable?: boolean;
+  rowActions?: TableAction<T>[];
 }
 
-export interface TableProps {
-  data: any[];
-  columns: TableColumn[];
-  className?: string;
+interface Column<T> {
+  key: keyof T;
+  label: string;
+  editable?: boolean;
+  render?: (value: T[keyof T]) => ReactNode;
+}
+
+interface TableAction<T> {
+  label: string;
+  onClick: (row: T) => void;
 }

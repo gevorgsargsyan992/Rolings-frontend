@@ -6,6 +6,8 @@ interface ApiResponse<T> {
   error: AxiosError | null;
   get: (url: string) => Promise<T>;
   post: (url: string, data: any) => Promise<T>;
+  patch: (url: string, data: any) => Promise<T>;
+  _delete: (url: string) => Promise<T>;
 }
 
 const api = axios.create({
@@ -17,22 +19,22 @@ const useApi = <T>(): ApiResponse<T> => {
   const [error, setError] = useState<AxiosError | null>(null);
 
   api.interceptors.request.use(
-    (config) => {
-      const token = window.localStorage.getItem("token");
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+      (config) => {
+        const token = window.localStorage.getItem("token");
+        if (token) {
+          config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+      },
+      (error) => {
+        return Promise.reject(error);
       }
-      return config;
-    },
-    (error) => {
-      return Promise.reject(error);
-    }
   );
 
   const makeRequest = async (
-    method: AxiosRequestConfig["method"],
-    url: string,
-    data: any = null
+      method: AxiosRequestConfig["method"],
+      url: string,
+      data: any = null
   ) => {
     setLoading(true);
     setError(null);
@@ -60,7 +62,15 @@ const useApi = <T>(): ApiResponse<T> => {
     return makeRequest("POST", url, data);
   };
 
-  return { loading, error, get, post };
+  const patch = async (url: string, data: any) => {
+    return makeRequest("PATCH", url, data);
+  };
+
+  const _delete = async (url: string) => {
+    return makeRequest("DELETE", url);
+  };
+
+  return { loading, error, get, post, patch, _delete };
 };
 
 export default useApi;

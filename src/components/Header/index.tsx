@@ -14,8 +14,7 @@ const { Text } = Typography;
 
 const Header: FC = () => {
   const router = useRouter();
-  const { state, logout } = useAuth() as any;
-  const { isAuthenticated } = state || {};
+  const { logout, isAuthenticated } = useAuth() as any;
 
   const onLogout = useCallback(async () => {
     await logout();
@@ -23,7 +22,7 @@ const Header: FC = () => {
   }, [logout, router]);
 
   return (
-    <header className="bg-gray-100 w-full fixed">
+    <header className="bg-gray-100 z-10 w-full fixed">
       <nav
         className="mx-auto flex justify-between p-6 lg:px-8 items-center"
         aria-label="Global"

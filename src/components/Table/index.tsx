@@ -1,25 +1,37 @@
-"use client";
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 import { TableProps } from "./types";
-// import Button from "../Button";
+import Button from "../Button";
 import Typography from "@/components/Typography";
+import { useRouter } from "next/navigation";
 
 const { Text } = Typography;
 
-const Table: FC<TableProps> = ({ data, columns, className }) => {
-  //const [isEditAccess, setIsEditAccess] = useState(true); //TODO: handle is edit access case
+const Table: FC<TableProps<any>> = ({
+  data,
+  columns,
+  className = "",
+  isRowClickable = true,
+  url = "",
+  rowActions = [],
+}) => {
+  const router = useRouter();
+  const [editRowId, setEditRowId] = useState<number | null>(null);
 
-  const handleEditRow = (id: number) => {
-    // TODO: handle edit row
+  const handleRowClick = (row: any) => {
+    if (editRowId !== null) return;
+    router.push(`/${url}/${row.id}`);
   };
 
   return (
-    <div className={`w-full py-4 ${className}`}>
+    <div className={`flex flex-col w-full py-4 ${className}`}>
       <table className="table-auto w-full">
         <thead>
           <tr>
             {columns.map((column) => (
-              <th className="border-b-2 text-left px-4 py-2" key={column.key}>
+              <th
+                className="border-b-2 text-left px-4 py-2"
+                key={column.key as string}
+              >
                 <Text level={5}>{column.label}</Text>
               </th>
             ))}
@@ -27,9 +39,15 @@ const Table: FC<TableProps> = ({ data, columns, className }) => {
         </thead>
         <tbody>
           {data.map((row, index) => (
-            <tr key={index}>
+            <tr
+              key={index}
+              onClick={() => isRowClickable && handleRowClick(row)}
+              className={`cursor-pointer ${
+                editRowId === row.id ? "bg-gray-100" : "hover:bg-gray-100"
+              }`}
+            >
               {columns.map((column) => (
-                <td className="border-b px-4 py-2" key={column.key}>
+                <td className="border-b px-4 py-2" key={column.key as string}>
                   <Text level={6}>
                     {column.render
                       ? column.render(row[column.key])
@@ -37,13 +55,24 @@ const Table: FC<TableProps> = ({ data, columns, className }) => {
                   </Text>
                 </td>
               ))}
-              {/*{isEditAccess && (*/}
-              {/*  <td className="border-b order-t px-4 py-2">*/}
-              {/*    <Button type="text" onClick={() => handleEditRow(row.id)}>*/}
-              {/*      Edit*/}
-              {/*    </Button>*/}
-              {/*  </td>*/}
-              {/*)}*/}
+              {rowActions.length > 0 && (
+                <td className="border-b px-4 py-2">
+                  <div className="flex gap-1">
+                    {rowActions.map((action, idx) => (
+                      <Button
+                        key={idx}
+                        type="text"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          action.onClick(row);
+                        }}
+                      >
+                        {action.label}
+                      </Button>
+                    ))}
+                  </div>
+                </td>
+              )}
             </tr>
           ))}
         </tbody>

@@ -3,36 +3,81 @@ import { FC, useState } from "react";
 import Input from "@/components/Input";
 import Typography from "@/components/Typography";
 import Button from "@/components/Button";
+import { VERIFICATION, VERIFICATION_RESEND } from "@/apiConstants";
+import useApi from "@/hooks/useApi";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/Auth";
 
 const { Text } = Typography;
 
-const ActivationCode: FC<any> = ({ ...props }) => {
-  const [code, setCode] = useState("");
+const ActivationCode: FC<any> = ({ email, password, ...props }) => {
+  const [verificationCode, setVerificationCode] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+  const { login } = useAuth() as any;
+  const router = useRouter();
 
-  const handleSubmit = (e: any) => {
+  const api = useApi();
+  const handleSubmit = async (e: any) => {
+    setLoading(true)
     e.preventDefault();
-    //TODO: Add logic here
+    try {
+      // @ts-ignore
+      const { id, access_token: token } = await api.patch(VERIFICATION, {
+        verificationCode: +verificationCode,
+        email,
+      });
+
+      if (token && id) {
+        login(email, password);
+        router.replace("/");
+      }
+    } catch (err) {
+      setError("Failed code send")
+      throw new Error("Failed code send");
+    }
+    setLoading(false)
+  };
+
+  const onReSend = async () => {
+    try {
+      // @ts-ignore
+      await api.patch(VERIFICATION_RESEND, {
+        email,
+      });
+    } catch (err) {
+      setError("Failed code resend")
+      throw new Error("Failed code resend");
+    }
   };
 
   return (
-    <>
+    <div className="pt-18">
+      {error && (
+          <Text color="text-red-500 text-xs mb-2">{error}</Text>
+      )}
       <form onSubmit={handleSubmit} {...props}>
         <Input
           required
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
+          value={verificationCode}
+          onChange={(e) => setVerificationCode(e.target.value)}
+          type="number"
           className="w-full bg-transparent"
           placeholder="Enter Code"
         />
-        <Button type="ghost" className="w-full mt-6">
+        <Button loading={loading} type="ghost" className="w-full mt-6">
           Send
         </Button>
       </form>
       <div className="flex mt-10 justify-center align-middle">
-        <Text level={6} className="mr-2">Did not get the code ?</Text>
-        <Button type="text">Resend</Button>
+        <Text level={6} className="mt-2">
+          Did not get the code ?
+        </Text>
+        <Button onClick={onReSend} type="text">
+          Resend
+        </Button>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -6,6 +6,7 @@ import { COLUMNS, TabletStatus } from "./constants";
 import { TabletData, TabletStatusKey } from "./types";
 import { TABLET } from "@/apiConstants";
 import { formattedDate } from "@/utils";
+import NoData from "@/components/NoData";
 
 const Tablets: FC = () => {
   const [tablets, setTablets] = useState<any>([]);
@@ -15,7 +16,7 @@ const Tablets: FC = () => {
     const fetchTablets = async () => {
       try {
         const data = await get(`${TABLET}`);
-        if (!!data?.length) {
+        if (data?.length) {
           const tabletsToShow = data.map((tablet: TabletData) => ({
             ...tablet,
             createdAt: formattedDate(tablet?.createdAt),
@@ -31,7 +32,11 @@ const Tablets: FC = () => {
     fetchTablets();
   }, []);
 
-  return <Table columns={COLUMNS} data={tablets || []} />;
+  return tablets.length > 0 ? (
+    <Table columns={COLUMNS} data={tablets || []} url="tablet" />
+  ) : (
+    <NoData />
+  );
 };
 
 export default Tablets;
