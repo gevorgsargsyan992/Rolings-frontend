@@ -12,7 +12,8 @@ import NoData from "@/components/NoData";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import { TableSkeleton } from "@/components/Skeleton";
-import InfoElement from "@/app/[locale]/tablet/[id]/components/InfoElement";
+import InfoElement from "@/app/[locale]/tablet/[id]/components/TabletInfo";
+import ModalContent from "@/app/[locale]/tablet/[id]/components/ModalContent";
 
 const { Text } = Typography;
 
@@ -20,6 +21,7 @@ const TabletDetail: FC = () => {
   const [tablet, setTablet] = useState<any>({});
   const [isEditingStatus, setIsEditingStatus] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isVideosModalOpen, setIsVideosModalOpen] = useState(false);
   const [editedStatus, setEditedStatus] = useState<string>(
     tablet?.tablet || ""
   );
@@ -184,12 +186,17 @@ const TabletDetail: FC = () => {
       <Button
         className="w-[160px] self-end mr-24 absolute bottom-0"
         size="small"
-        onClick={() => {
-          //TODO: open modal width videos data
-        }}
+        onClick={() => setIsVideosModalOpen(true)}
       >
         Add New
       </Button>
+      <Modal
+          isOpen={isVideosModalOpen}
+          subtitle="Do you want to delete?"
+          showButtons={false}
+      >
+      <ModalContent />
+      </Modal>
       <Modal
         isOpen={isModalOpen}
         subtitle="Do you want to delete?"

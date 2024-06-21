@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="add tablet skeleton">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apiConstants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apiConstants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/InfoElement.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Modal/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useApi.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="rl-registration" />
+        <entry key="$PROJECT_DIR$" value="staging" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,7 +57,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "rl-tablet-status-edit",
+    "git-widget-placeholder": "rl-video-modal",
     "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "/home/anahitalaverdyan/Other/Rolings-frontend/public",
     "node.js.detected.package.eslint": "true",
@@ -73,6 +76,8 @@
       <recent name="$PROJECT_DIR$/public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/ModalContent/component" />
+      <recent name="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/VideoData" />
       <recent name="$PROJECT_DIR$/src/app/[locale]" />
     </key>
   </component>

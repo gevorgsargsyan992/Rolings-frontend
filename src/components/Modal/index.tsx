@@ -11,6 +11,7 @@ const Modal: FC<ModalProps> = ({
   isOpen,
   onConfirm,
   children,
+  showButtons = true,
 }) => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
@@ -22,7 +23,7 @@ const Modal: FC<ModalProps> = ({
 
   const handleConfirm = useCallback(
     (prop: any) => {
-      onConfirm(prop);
+      onConfirm && onConfirm(prop);
       setIsOpenModal(false);
     },
     [onConfirm]
@@ -51,14 +52,16 @@ const Modal: FC<ModalProps> = ({
               )}
             </div>
           )}
-          <div className="flex items-center gap-4 justify-between px-5 py-4 border-t border-gray-300 rounded-bl-lg rounded-br-lg">
-            <Button className="flex-1" type="ghost" onClick={handleClose}>
-              Cancel
-            </Button>
-            <Button className="flex-1 min-w-20" onClick={handleConfirm}>
-              Ok
-            </Button>
-          </div>
+          {showButtons && (
+            <div className="flex items-center gap-4 justify-between px-5 py-4 border-t border-gray-300 rounded-bl-lg rounded-br-lg">
+              <Button className="flex-1" type="ghost" onClick={handleClose}>
+                Cancel
+              </Button>
+              <Button className="flex-1 min-w-20" onClick={handleConfirm}>
+                Ok
+              </Button>
+            </div>
+          )}
         </div>
         <div className="fixed z-40 opacity-20"></div>
       </div>
