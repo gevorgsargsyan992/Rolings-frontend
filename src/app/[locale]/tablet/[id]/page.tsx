@@ -5,14 +5,14 @@ import Typography from "@/components/Typography";
 import { TABLET } from "@/apiConstants";
 import { TabletStatusKey } from "@/app/[locale]/tablet/types";
 import { formattedDate } from "@/utils";
-import { TabletStatus, COLUMNS_VIDEO } from "@/app/[locale]/tablet/constants";
+import { TabletStatus, COLUMNS_VIDEO } from "../constants";
 import useApi from "@/hooks/useApi";
 import Table from "@/components/Table";
 import NoData from "@/components/NoData";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import { TableSkeleton } from "@/components/Skeleton";
-import InfoElement from "@/app/[locale]/tablet/[id]/components/InfoElement";
+import InfoElement from "./components/InfoElement";
 
 const { Text } = Typography;
 
@@ -103,14 +103,11 @@ const TabletDetail: FC = () => {
     setIsModalOpen(true);
   }, []);
 
-
   return (
     <div className="flex flex-col relative h-full">
       <div className="mb-10">
         {tablet?.id && <InfoElement name="ID" value={tablet?.id} />}
-        {tablet?.tb_uuid && (
-          <InfoElement name="UUID" value={tablet?.tb_uuid} />
-        )}
+        {tablet?.tb_uuid && <InfoElement name="UUID" value={tablet?.tb_uuid} />}
         {tablet?.createdAt && (
           <InfoElement name="Creation Time" value={tablet?.createdAt} />
         )}

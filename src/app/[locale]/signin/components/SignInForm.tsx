@@ -12,7 +12,7 @@ const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  const { login } = useAuth() as any;
+  const { login, loading } = useAuth() as any;
 
   const handleSubmit = useCallback(
     async (e: any) => {
@@ -46,7 +46,7 @@ const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
         className="w-full mt-4 bg-transparent"
         placeholder="Password"
       />
-      <Button type="ghost" className="w-full mt-6">
+      <Button type="ghost" className="w-full mt-6" loading={loading}>
         Sign In
       </Button>
     </form>
