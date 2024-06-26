@@ -93,12 +93,12 @@ const SignUpForm: FC<any> = ({
   return (
     <>
       {error && (
-        <Text level={6} color="text-red-500 mb-2">
+        <Text color="text-red-500 mb-2">
           {error}
         </Text>
       )}
       {passwordError && (
-        <Text level={6} color="text-red-500 mb-2">
+        <Text color="text-red-500 mb-2">
           {passwordError}
         </Text>
       )}

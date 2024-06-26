@@ -46,7 +46,7 @@ const Modal: FC<ModalProps> = ({
                 </Title>
               )}
               {subtitle && (
-                <Text level={5} className="pt-4">
+                <Text className="pt-4 text-lg">
                   {subtitle}
                 </Text>
               )}

@@ -1,5 +1,5 @@
 "use client";
-// import Image from "next/image";
+import Image from "next/image";
 import logo from "../../../public/rolings-logo.svg";
 import Typography from "@/components/Typography";
 import Link from "next/link";
@@ -13,25 +13,25 @@ const Footer = () => {
 
   return (
     <>
-      {/* TODO: uncomment this when homepage will be ready */}
-      {/* <div className="max-w-5xl w-full py-8 bg-blue-grayish">
-        <Image
-          className="lg:mr-6"
-          objectFit="contain"
-          width={100}
-          src={logo}
-          alt="logo image"
-        />
-      </div> */}
+       {/*TODO: uncomment this when homepage will be ready */}
+      {/*<div className="max-w-5xl w-full py-8 pl-80 bg-blue-grayish">*/}
+      {/*  <Image*/}
+      {/*    className="lg:mr-6"*/}
+      {/*    objectFit="contain"*/}
+      {/*    width={100}*/}
+      {/*    src={logo}*/}
+      {/*    alt="logo image"*/}
+      {/*  />*/}
+      {/*</div>*/}
 
-      <footer className="w-full bg-white p-8">
-        <div className="max-w-5xl mx-auto gap-6">
-          <div className="flex w-full justify-between gap-2">
+      <footer className="w-full bg-white 2xl:py-8 py-6 lg:px-40 md:px-40">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex w-full justify-between lg:gap-6">
             <div className="flex flex-col gap-y-4">
               <div className="flex">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-dark self-center mr-1.5"
+                  className="h-4 w-4 text-gray-dark self-center mr-1.5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -42,12 +42,12 @@ const Footer = () => {
                     d="M12 11c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zM12 3c-3.178 0-6 2.822-6 6 0 5.25 6 12 6 12s6-6.75 6-12c0-3.178-2.822-6-6-6z"
                   />
                 </svg>
-                <Text level={5}>Armenia / Yerevan, Abovyan 20</Text>
+                <Text>Armenia / Yerevan, Abovyan 20</Text>
               </div>
               <div className="flex">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-dark self-center mr-1.5"
+                  className="h-4 w-4 text-gray-dark self-center mr-1.5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -58,12 +58,12 @@ const Footer = () => {
                     d="M16 12h4a2 2 0 002-2V8a2 2 0 00-2-2H4a2 2 0 00-2 2v2a2 2 0 002 2h4m-6 0v6a2 2 0 002 2h16a2 2 0 002-2v-6m-8 6l-6-6"
                   />
                 </svg>
-                <Text level={5}>info@rolings.am</Text>
+                <Text>info@rolings.am</Text>
               </div>
               <div className="flex">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 text-gray-dark self-center mr-1.5"
+                  className="h-4 w-4 text-gray-dark self-center mr-1.5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -80,7 +80,7 @@ const Footer = () => {
                     d="M15 10c0 1.11-.895 2-2 2s-2-.89-2-2 .895-2 2-2 2 .89 2 2zM17 13v3"
                   />
                 </svg>
-                <Text level={5}>+374 44 410 002</Text>
+                <Text>+374 44 410 002</Text>
               </div>
             </div>
             {DATA.map((elem, idx) => (
@@ -88,11 +88,11 @@ const Footer = () => {
                 {elem?.title && (
                   <Text className="font-bold mb-4">{elem?.title}</Text>
                 )}
-                <div className="flex flex-col gap-y-1">
+                <div className="flex flex-col gap-y-2">
                   {elem?.data.map((data, idx) => (
                     <Link
                       key={idx}
-                      className="align-baseline text-gray-dim"
+                      className="align-baseline text-gray-dim text-sm"
                       href={`${data?.link}`}
                       passHref>
                       {data?.text}

@@ -1,5 +1,5 @@
 "use client";
-import { FC, useCallback } from "react";
+import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Typography from "@/components/Typography";
@@ -9,17 +9,24 @@ import SelectLanguage from "@/components/Select/SelectLanguage";
 import { useAuth } from "@/contexts/Auth";
 import Button from "@/components/Button";
 import { useRouter } from "next/navigation";
+import { useSidebar } from "@/contexts/SideBar";
 
 const { Text } = Typography;
 
 const Header: FC = () => {
   const router = useRouter();
   const { logout, isAuthenticated } = useAuth() as any;
+  const { resetSidebar } = useSidebar();
 
-  const onLogout = useCallback(async () => {
+  const onLogout = async () => {
     await logout();
     router.replace("/");
-  }, [logout, router]);
+  };
+
+  const handleLinkClick = (link: string) => {
+    resetSidebar();
+    router.push(link);
+  };
 
   return (
     <header className="bg-gray-100 z-10 w-full fixed">
@@ -38,14 +45,13 @@ const Header: FC = () => {
             />
           </Link>
           {DATA.map((elem) => (
-            <Link
+            <button
               key={elem.id}
-              href={`${elem.link}`}
-              passHref
+              onClick={() => handleLinkClick(elem.link)}
               className="text-sm lg:mr-6 font-semibold text-charcoal"
             >
               {elem.name}
-            </Link>
+            </button>
           ))}
         </div>
         <div className="flex gap-x-4 items-center">
@@ -62,7 +68,7 @@ const Header: FC = () => {
                 className="bg-blue-royal rounded-full flex items-center justify-center lg:py-2  md:py-1 lg:px-3 md:px-2"
                 href="/registration"
               >
-                <Text className="pr-2" color="text-white" level={6}>
+                <Text className="pr-2" color="text-white">
                   Registration
                 </Text>
                 <svg

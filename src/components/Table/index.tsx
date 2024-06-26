@@ -32,7 +32,7 @@ const Table: FC<TableProps<any>> = ({
                 className="border-b-2 text-left px-4 py-2"
                 key={column.key as string}
               >
-                <Text level={5}>{column.label}</Text>
+                <Text className="text-lg">{column.label}</Text>
               </th>
             ))}
           </tr>
@@ -48,7 +48,7 @@ const Table: FC<TableProps<any>> = ({
             >
               {columns.map((column) => (
                 <td className="border-b px-4 py-2" key={column.key as string}>
-                  <Text level={6}>
+                  <Text>
                     {column.render
                       ? column.render(row[column.key])
                       : row[column.key]}

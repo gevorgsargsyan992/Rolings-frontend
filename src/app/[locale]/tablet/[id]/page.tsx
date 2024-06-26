@@ -5,14 +5,14 @@ import Typography from "@/components/Typography";
 import { TABLET } from "@/apiConstants";
 import { TabletStatusKey } from "@/app/[locale]/tablet/types";
 import { formattedDate } from "@/utils";
-import { TabletStatus, COLUMNS_VIDEO } from "@/app/[locale]/tablet/constants";
+import { TabletStatus, COLUMNS_VIDEO } from "../constants";
 import useApi from "@/hooks/useApi";
 import Table from "@/components/Table";
 import NoData from "@/components/NoData";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import { TableSkeleton } from "@/components/Skeleton";
-import InfoElement from "@/app/[locale]/tablet/[id]/components/TabletInfo";
+import InfoElement from "./components/TabletInfo";
 import ModalContent from "@/app/[locale]/tablet/[id]/components/ModalContent";
 
 const { Text } = Typography;
@@ -110,9 +110,7 @@ const TabletDetail: FC = () => {
     <div className="flex flex-col relative h-full">
       <div className="mb-10">
         {tablet?.id && <InfoElement name="ID" value={tablet?.id} />}
-        {tablet?.tb_uuid && (
-          <InfoElement name="UUID" value={tablet?.tb_uuid} />
-        )}
+        {tablet?.tb_uuid && <InfoElement name="UUID" value={tablet?.tb_uuid} />}
         {tablet?.createdAt && (
           <InfoElement name="Creation Time" value={tablet?.createdAt} />
         )}
@@ -127,10 +125,10 @@ const TabletDetail: FC = () => {
         )}
         {tablet?.tabletStatus && (
           <div className="flex items-center gap-1">
-            <Text color="text-black" level={6} className="bold">
+            <Text color="text-black" className="bold">
               Tablet Status
             </Text>
-            <Text level={6}>- {!isEditingStatus && tablet?.tabletStatus}</Text>
+            <Text>- {!isEditingStatus && tablet?.tabletStatus}</Text>
             {isEditingStatus && (
               <select
                 value={editedStatus}
