@@ -25,7 +25,7 @@ const Registration: FC = () => {
   return (
     <div className="fixed z-10 inset-0 bg-gray-800 bg-opacity-50">
       <div className="absolute inset-0 flex justify-center items-center">
-        <div className="2xl:w-[900px] xl:w-[860px] md:w-[720px] 2xl:h-[608px] md:h-[500px] flex mx-auto bg-gray-100 rounded-lg overflow-hidden relative">
+        <div className="2xl:w-[900px] xl:w-[860px] md:w-[720px] 2xl:h-[608px] h-[500px] flex mx-auto bg-gray-100 rounded-lg overflow-hidden relative">
           <button
             onClick={handleCloseModal}
             className="absolute z-50 focus:outline-none top-1.5 2xl:top-2 2xl:right-4 right-1.5 text-gray-500 hover:text-gray-700"
@@ -55,7 +55,7 @@ const Registration: FC = () => {
           </div>
           <div className="flex flex-1 py-4 px-3 2xl:pt-4 md:pt-16 h-full flex-col align-middle justify-center text-center max-h-[608px] overflow-y-auto">
             <Image
-              className="self-center mb-4 pt-20"
+              className="self-center mb-4 pt-20 lg:pt-40 md:pt-44"
               width={140}
               src={logo}
               alt="logo image"
@@ -63,12 +63,12 @@ const Registration: FC = () => {
             {!showCodeFragment && (
               <>
                 <div className="py-4">
-                  <Text level={3} color="text-black" bold>
+                  <Text className="text-2xl" color="text-black" bold>
                     Start earning with us!
                   </Text>
                 </div>
                 <div className="flex justify-center mb-8">
-                  <Text level={5} bold>
+                  <Text className="text-lg" bold>
                     Do you have an account?
                   </Text>
                   <Link

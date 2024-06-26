@@ -53,7 +53,7 @@ export default function LanguageChanger() {
           onClick={toggleDropdown}
           className="py-2 flex items-center text-gray-800"
         >
-          <Text level={6} className="font-semibold" color="text-black">
+          <Text className="font-semibold" color="text-black">
             {languageToShow}
           </Text>
           <svg

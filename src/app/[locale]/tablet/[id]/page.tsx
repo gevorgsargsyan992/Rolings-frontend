@@ -5,14 +5,14 @@ import Typography from "@/components/Typography";
 import { TABLET } from "@/apiConstants";
 import { TabletStatusKey } from "@/app/[locale]/tablet/types";
 import { formattedDate } from "@/utils";
-import { TabletStatus, COLUMNS_VIDEO } from "@/app/[locale]/tablet/constants";
+import { TabletStatus, COLUMNS_VIDEO } from "../constants";
 import useApi from "@/hooks/useApi";
 import Table from "@/components/Table";
 import NoData from "@/components/NoData";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import { TableSkeleton } from "@/components/Skeleton";
-import InfoElement from "@/app/[locale]/tablet/[id]/components/InfoElement";
+import InfoElement from "./components/InfoElement";
 
 const { Text } = Typography;
 
@@ -103,32 +103,29 @@ const TabletDetail: FC = () => {
     setIsModalOpen(true);
   }, []);
 
-
   return (
     <div className="flex flex-col relative h-full">
       <div className="mb-10">
-        {tablet?.id && <InfoElement name="ID" value={` - ${tablet?.id}`} />}
-        {tablet?.tb_uuid && (
-          <InfoElement name="UUID" value={` - ${tablet?.tb_uuid}`} />
-        )}
+        {tablet?.id && <InfoElement name="ID" value={tablet?.id} />}
+        {tablet?.tb_uuid && <InfoElement name="UUID" value={tablet?.tb_uuid} />}
         {tablet?.createdAt && (
-          <InfoElement name="Creation Time" value={` - ${tablet?.createdAt}`} />
+          <InfoElement name="Creation Time" value={tablet?.createdAt} />
         )}
         {tablet?.lastActive && (
-          <InfoElement name="Last Active" value={` - ${tablet?.lastActive}`} />
+          <InfoElement name="Last Active" value={tablet?.lastActive} />
         )}
         {tablet?.latitude && (
-          <InfoElement name="LAT" value={` - ${tablet?.latitude}`} />
+          <InfoElement name="LAT" value={tablet?.latitude} />
         )}
-        {tablet?.latitude && (
-          <InfoElement name="LONG" value={` - ${tablet?.longitude}`} />
+        {tablet?.longitude && (
+          <InfoElement name="LONG" value={tablet?.longitude} />
         )}
         {tablet?.tabletStatus && (
           <div className="flex items-center gap-1">
-            <Text color="text-black" level={6} className="bold">
+            <Text color="text-black" className="bold">
               Tablet Status
             </Text>
-            <Text level={6}>- {!isEditingStatus && tablet?.tabletStatus}</Text>
+            <Text>- {!isEditingStatus && tablet?.tabletStatus}</Text>
             {isEditingStatus && (
               <select
                 value={editedStatus}

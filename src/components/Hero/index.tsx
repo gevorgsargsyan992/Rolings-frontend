@@ -18,22 +18,22 @@ const Hero: FC = () => {
           </div>
           <div className="flex flex-col h-full justify-between">
             <div className="flex flex-col pt-10 text-left">
-              <Text level={1} color="text-gray-900">
+              <Text className="2xl:text-4xl xl:text-4xl lg:text-2xl" color="text-gray-900">
                 Առաջին ինտերակտիվ
               </Text>
-              <Text level={1} color="text-gray-900">
+              <Text className="2xl:text-4xl xl:text-4xl lg:text-2xl" color="text-gray-900">
                 գովազդը
               </Text>
-              <Text level={1} className="uppercase mt-4" color="text-blue-500">
+              <Text className="uppercase mt-4 2xl:text-4xl xl:text-4xl lg:text-2xl" color="text-blue-500">
                 Հայաստանում
               </Text>
             </div>
-            <Text level={6} bold color="text-black">
+            <Text bold color="text-black" className='mt-2'>
               Մեր ցանցի առավելությունները
             </Text>
           </div>
         </div>
-        <div className="flex flex-1 w-full">
+        <div className="flex flex-1 w-full hidden md:block">
           <Image objectFit="contain" src={rolingsImg} alt="test image" />
         </div>
       </div>
