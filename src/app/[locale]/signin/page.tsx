@@ -55,15 +55,15 @@ const SignIn: FC = () => {
               alt="logo image"
             />
             <div className="py-4">
-              <Text level={3} color="text-black" bold>
+              <Text className="text-2xl" color="text-black" bold>
                 Welcome back to
               </Text>
-              <Text level={3} color="text-black" bold>
+              <Text className="text-2xl" color="text-black" bold>
                 ROLINGS
               </Text>
             </div>
             <div className="flex justify-center mb-8">
-              <Text level={5} bold>
+              <Text className="text-lg" bold>
                 New user ?
               </Text>
               <Link

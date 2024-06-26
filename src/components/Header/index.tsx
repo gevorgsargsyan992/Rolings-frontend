@@ -68,7 +68,7 @@ const Header: FC = () => {
                 className="bg-blue-royal rounded-full flex items-center justify-center lg:py-2  md:py-1 lg:px-3 md:px-2"
                 href="/registration"
               >
-                <Text className="pr-2" color="text-white" level={6}>
+                <Text className="pr-2" color="text-white">
                   Registration
                 </Text>
                 <svg
