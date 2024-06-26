@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <>
-       {/*TODO: uncomment this when homepage will be ready */}
+      {/*TODO: uncomment this when homepage will be ready */}
       {/*<div className="max-w-5xl w-full py-8 pl-80 bg-blue-grayish">*/}
       {/*  <Image*/}
       {/*    className="lg:mr-6"*/}
@@ -34,7 +34,8 @@ const Footer = () => {
                   className="h-4 w-4 text-gray-dark self-center mr-1.5"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor">
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -50,7 +51,8 @@ const Footer = () => {
                   className="h-4 w-4 text-gray-dark self-center mr-1.5"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor">
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -66,7 +68,8 @@ const Footer = () => {
                   className="h-4 w-4 text-gray-dark self-center mr-1.5"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor">
+                  stroke="currentColor"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -94,29 +97,29 @@ const Footer = () => {
                       key={idx}
                       className="align-baseline text-gray-dim text-sm"
                       href={`${data?.link}`}
-                      passHref>
+                      passHref
+                    >
                       {data?.text}
                     </Link>
                   ))}
                 </div>
               </div>
             ))}
-            <div>
+            <div className="flex flex-col space-y-4">
               <Text className="font-bold mb-4">Join Our Newsletter</Text>
-              <form className="flex flex-col space-y-4">
-                <Input
-                  value={email}
-                  onChange={setEmail}
-                  type="email"
-                  placeholder="Enter your email"
-                  className="px-4 py-2 rounded-md text-gray-800 border border-gray-5"
-                />
-                <button
-                  type="submit"
-                  className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-md">
-                  Subscribe
-                </button>
-              </form>
+              <Input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                placeholder="Enter your email"
+                className="px-4 py-2 rounded-md text-gray-800 border border-gray-5"
+              />
+              <button
+                type="submit"
+                className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-md"
+              >
+                Subscribe
+              </button>
             </div>
           </div>
         </div>
