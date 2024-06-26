@@ -10,9 +10,9 @@ type PropTypes = {
 const Advantage = ({ text, className }: PropTypes) => {
   return (
     <div
-      className={`px-6 bg-white container flex justify-center align-middle rounded ${className}`}
+      className={`bg-white container flex justify-center align-middle rounded w-[180px] h-[68px] ${className}`}
     >
-      <Text className="self-center text-center" level={6} color="text-black">
+      <Text className="self-center text-center 2xl:text-base xl:text-base lg:text-sm" color="text-black">
         {text}
       </Text>
     </div>

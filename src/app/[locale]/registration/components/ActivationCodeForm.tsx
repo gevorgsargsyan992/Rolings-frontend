@@ -70,7 +70,7 @@ const ActivationCode: FC<any> = ({ email, password, ...props }) => {
         </Button>
       </form>
       <div className="flex mt-10 justify-center align-middle">
-        <Text level={6} className="mt-2">
+        <Text className="mt-2">
           Did not get the code ?
         </Text>
         <Button onClick={onReSend} type="text">

@@ -71,7 +71,7 @@ const LeftSidebar: FC = () => {
               >
                 {item.iconPath}
               </svg>
-              <Text level={5} color="text-white">
+              <Text className="text-lg" color="text-white">
                 {item.title}
               </Text>
             </Link>

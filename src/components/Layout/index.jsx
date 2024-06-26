@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
     <SidebarProvider>
       <div className="min-h-screen flex flex-col bg-gray-100">
         <Header />
-        <div className={`flex flex-1 w-full px-60 mx-auto mt-20`}>
+        <div className={`flex flex-1 w-full 2xl:px-60 xl:px-60 lg:px-80 px-40 mx-auto mt-20`}>
           {isAuthenticated && <LeftSidebar />}
           <main
             className={`flex-grow p-4 ${

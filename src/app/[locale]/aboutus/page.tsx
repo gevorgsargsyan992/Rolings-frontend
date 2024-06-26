@@ -20,7 +20,7 @@ const VerticalTimeline: FC = () => (
       <Title color="text-black" className="font-semibold" level={3}>
         About us
       </Title>
-      <Text color="text-gray-800" level={6} className="mt-2 mb-10 font-normal">
+      <Text color="text-gray-800" className="mt-2 mb-10 font-normal">
         Rolings future for your business
       </Text>
       {items.map((item, index) => (

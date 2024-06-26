@@ -122,10 +122,10 @@ const TabletDetail: FC = () => {
         )}
         {tablet?.tabletStatus && (
           <div className="flex items-center gap-1">
-            <Text color="text-black" level={6} className="bold">
+            <Text color="text-black" className="bold">
               Tablet Status
             </Text>
-            <Text level={6}>- {!isEditingStatus && tablet?.tabletStatus}</Text>
+            <Text>- {!isEditingStatus && tablet?.tabletStatus}</Text>
             {isEditingStatus && (
               <select
                 value={editedStatus}

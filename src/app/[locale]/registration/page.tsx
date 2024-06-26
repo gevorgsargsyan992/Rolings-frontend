@@ -63,12 +63,12 @@ const Registration: FC = () => {
             {!showCodeFragment && (
               <>
                 <div className="py-4">
-                  <Text level={3} color="text-black" bold>
+                  <Text className="text-2xl" color="text-black" bold>
                     Start earning with us!
                   </Text>
                 </div>
                 <div className="flex justify-center mb-8">
-                  <Text level={5} bold>
+                  <Text className="text-lg" bold>
                     Do you have an account?
                   </Text>
                   <Link
