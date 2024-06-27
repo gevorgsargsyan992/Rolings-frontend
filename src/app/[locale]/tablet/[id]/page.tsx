@@ -190,13 +190,14 @@ const TabletDetail: FC = () => {
       </Button>
       <Modal
           isOpen={isVideosModalOpen}
-          subtitle="Do you want to delete?"
           showButtons={false}
+          onClose={() => setIsVideosModalOpen(false)}
       >
       <ModalContent />
       </Modal>
       <Modal
         isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
         subtitle="Do you want to delete?"
         onConfirm={onModalConfirm}
       />
