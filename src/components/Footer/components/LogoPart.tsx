@@ -8,7 +8,6 @@ const LogoPart: FC = () => (
     <div className="mx-auto max-w-5xl">
       <Image
         className="lg:mr-6"
-        objectFit="contain"
         width={100}
         src={logo}
         alt="logo image"

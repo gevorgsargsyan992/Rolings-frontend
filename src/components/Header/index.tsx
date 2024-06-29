@@ -38,7 +38,7 @@ const Header: FC = () => {
       <nav className="mx-auto flex justify-between py-6 items-center px-2" aria-label="Global">
         <div className="flex gap-x-12 md:gap-x-4 items-center">
           <Link href="/" passHref>
-            <Image className="lg:mr-6" objectFit="contain" width={100} src={logo} alt="logo image" />
+            <Image className="lg:mr-6" width={100} src={logo} alt="logo image" />
           </Link>
           {DATA.map((elem) => (
             <Link key={elem.id} href={elem.link} passHref onClick={() => handleLinkClick(elem.link)} className="text-sm lg:mr-6 font-semibold text-charcoal">
