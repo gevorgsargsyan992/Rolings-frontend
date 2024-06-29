@@ -1,5 +1,5 @@
 "use client";
-import { useReducer, ReactNode } from "react";
+import { useReducer, ReactNode, useState } from "react";
 import AuthContext from "@/contexts/Auth/index";
 import { authReducer } from "@/reducers/Auth";
 import { AuthState, LoginResponse, Action, User } from "./types";
@@ -14,12 +14,14 @@ const initialState: AuthState = {
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const api = useApi();
+  const [loading, setLoading] = useState<boolean>(false)
   const [state, dispatch] = useReducer<
     (state: AuthState, action: Action) => AuthState
   >(authReducer, initialState);
 
   const login = async (email: string, password: string) => {
     try {
+      setLoading(true)
       const { id, access_token: token } =
         ((await api.post(LOGIN, {
           email,
@@ -34,6 +36,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         type: "SET_ERROR",
         payload: error.response?.data || "An unknown error occurred",
       });
+    }finally{
+      setLoading(false);
     }
   };
 
@@ -64,7 +68,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <AuthContext.Provider
-      value={{ state, login, logout, setUser, isAuthenticated } as any}
+      value={{ state, login, logout, setUser, isAuthenticated, loading } as any}
     >
       {children}
     </AuthContext.Provider>

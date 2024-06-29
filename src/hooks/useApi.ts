@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from "axios";
+import { useRouter } from "next/navigation";
 
 interface ApiResponse<T> {
   loading: boolean;
@@ -11,12 +12,13 @@ interface ApiResponse<T> {
 }
 
 const api = axios.create({
-  baseURL: "https://rolings-backend.onrender.com",
+   baseURL: "https://rolings-backend.onrender.com",
 });
 
 const useApi = <T>(): ApiResponse<T> => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<AxiosError | null>(null);
+  const router = useRouter();
 
   api.interceptors.request.use(
     (config) => {
@@ -47,7 +49,13 @@ const useApi = <T>(): ApiResponse<T> => {
       });
       return response.data;
     } catch (error) {
-      setError(error as AxiosError);
+      const axiosError = error as AxiosError;
+      if (axiosError.response?.status === 401) {
+        console.log("called");
+        window.localStorage.removeItem("token");
+        router.replace("/"); //logout user
+      }
+      setError(axiosError);
       throw error;
     } finally {
       setLoading(false);

@@ -44,7 +44,6 @@ const SignIn: FC = () => {
                 className="w-full"
                 src={rolingsImg}
                 alt="roling image"
-                objectFit="cover"
             />
           </div>
           <div className="flex flex-1 p-8 h-full flex-col align-middle justify-center text-center">

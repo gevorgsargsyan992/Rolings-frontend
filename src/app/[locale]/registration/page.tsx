@@ -50,7 +50,6 @@ const Registration: FC = () => {
               className="w-full"
               src={rolingsImg}
               alt="roling image"
-              objectFit="cover"
             />
           </div>
           <div className="flex flex-1 py-4 px-3 2xl:pt-4 md:pt-16 h-full flex-col align-middle justify-center text-center max-h-[608px] overflow-y-auto">

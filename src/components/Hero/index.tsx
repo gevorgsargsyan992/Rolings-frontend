@@ -34,7 +34,7 @@ const Hero: FC = () => {
           </div>
         </div>
         <div className="flex flex-1 w-full hidden md:block">
-          <Image objectFit="contain" src={rolingsImg} alt="test image" />
+          <Image src={rolingsImg} alt="test image" />
         </div>
       </div>
       <div className="flex flex-col w-full pt-10">
