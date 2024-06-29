@@ -2,6 +2,7 @@ import { FC } from "react";
 import Image from "next/image";
 import Typography from "@/components/Typography";
 import imgRolings from "../../../../public/rolings-rectangle.svg";
+import PageContainer from "@/components/PageContainer";
 
 const { Text, Title } = Typography;
 
@@ -12,8 +13,8 @@ const items: string[] = [
 ];
 
 const VerticalTimeline: FC = () => (
-  <div className="flex gap-10 md:gap-4 2xl:px-40">
-    <div className="w-full flex-1 h-auto sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg mx-auto">
+  <PageContainer className="flex gap-10 bg-white pb-40 pt-10">
+    <div className="w-full flex-1 sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg mx-auto">
       <Image src={imgRolings} alt="rolings image" layout="responsive" />
     </div>
     <div className="flex flex-col flex-1 items-start pl-12">
@@ -43,7 +44,7 @@ const VerticalTimeline: FC = () => (
         </div>
       ))}
     </div>
-  </div>
+  </PageContainer>
 );
 
 export default VerticalTimeline;

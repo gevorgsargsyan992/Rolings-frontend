@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const isAuthenticated =
-    typeof window !== "undefined" ? window.localStorage.getItem("token") : "";
+    typeof window !== "undefined" ? !!window.localStorage.getItem("token") : false;
 
   return (
     <AuthContext.Provider

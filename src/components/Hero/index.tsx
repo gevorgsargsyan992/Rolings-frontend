@@ -10,7 +10,7 @@ const { Text } = Typography;
 
 const Hero: FC = () => {
   return (
-    <div className="flex flex-col w-full 2xl:px-36">
+    <div className="flex flex-col w-full px-4">
       <div className="flex w-full">
         <div className="flex flex-1 flex-col">
           <div className="flex justify-start">

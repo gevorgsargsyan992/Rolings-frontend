@@ -1,7 +1,6 @@
-import CurrentlyWorking from "@/components/CurrentlyWorking";
 import initTranslations from "../../../i18n";
 import TranslationsProvider from "@/TranslationsProvider";
-import Hero from '../../components/Hero'
+import HomePage from "./homepage";
 
 const i18nNameSpaces = ["blog, offers"];
 
@@ -19,9 +18,7 @@ export default async function Home({ params: { locale } }: HomeProps) {
       namespaces={i18nNameSpaces}
       locale={locale}
     >
-      <div className="flex flex-col items-center justify-center bg-gray-100">
-        <Hero />
-      </div>
+      <HomePage />
     </TranslationsProvider>
   );
 }
