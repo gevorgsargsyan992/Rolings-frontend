@@ -23,7 +23,7 @@ const Table: FC<TableProps<any>> = ({
   };
 
   return (
-    <div className={`flex flex-col w-full py-4 ${className}`}>
+    <div className={`flex flex-col w-full pt-4 ${className}`}>
       <table className="table-auto w-full">
         <thead>
           <tr>

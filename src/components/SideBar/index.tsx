@@ -24,12 +24,12 @@ const LeftSidebar: FC = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full z-10 mt-20 flex ${
+      className={`fixed top-0 left-0 h-full z-50 flex transition-width duration-300 ease-in-out ${
         isOpen ? "w-48" : "w-12"
       }`}
     >
       <div
-        className={`bg-gray-800 text-white transition-all transform ${
+        className={`bg-gray-800 text-white transition-all duration-300 ease-in-out transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } pt-6 h-full relative`}
       >
