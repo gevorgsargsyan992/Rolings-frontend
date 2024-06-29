@@ -193,7 +193,8 @@ const TabletDetail: FC = () => {
         <Button
           className="w-[160px] self-end mr-24 absolute bottom-0"
           size="small"
-          onClick={() => setIsVideosModalOpen(true)}
+          onClick={() => console.log('clicked')}
+          // onClick={() => setIsVideosModalOpen(true)} //TODO: open this whene finish the page
         >
           Add New
         </Button>
