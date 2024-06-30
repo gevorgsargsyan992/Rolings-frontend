@@ -16,7 +16,7 @@ const Footer = () => {
       <LogoPart />
       <footer className="w-full bg-white 2xl:py-8 py-4">
         <PageContainer>
-          <div className="flex w-full justify-between lg:gap-6 mx-auto max-w-5xl">
+          <div className="flex 2xl:flex-row xl:flex-row lg:flex-row w-full 2xl:justify-between xl:justify-between lg:justify-between lg:gap-6 mx-auto max-w-5xl sm:flex-col sm:justify-center">
             <div className="flex flex-col gap-y-4">
               <div className="flex">
                 <svg

@@ -17,7 +17,7 @@ const SignIn: FC = () => {
   };
 
   return (
-    <div className="fixed z-10 inset-0 bg-gray-800 bg-opacity-50">
+    <div className="fixed z-50 inset-0 bg-gray-800 bg-opacity-50">
       <div className="absolute inset-0 flex justify-center items-center">
         <div className="w-[838px] h-[608px] flex mx-auto bg-gray-100 rounded-lg overflow-hidden relative">
           <button
