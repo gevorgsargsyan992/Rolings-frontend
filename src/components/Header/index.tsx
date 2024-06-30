@@ -53,7 +53,7 @@ const Header: FC = () => {
                 Sign In
               </Link>
               <Link className="bg-blue-royal rounded-full flex items-center justify-center lg:py-2 md:py-1 lg:px-3 md:px-2" href="/registration">
-                <Text className="pr-2" color="text-white" level={6}>
+                <Text className="pr-2" color="text-white">
                   Registration
                 </Text>
                 <svg className="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">

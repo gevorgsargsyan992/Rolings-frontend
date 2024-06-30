@@ -6,10 +6,14 @@ import Button from "@/components/Button";
 import { LoginFormProps } from "./types";
 import { useAuth } from "@/contexts/Auth";
 import { useRouter } from "next/navigation";
+import Typography from "@/components/Typography";
+
+const { Text } = Typography;
 
 const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [error, setError] = useState<string>("");
   const router = useRouter();
 
   const { login, loading } = useAuth() as any;
@@ -18,9 +22,14 @@ const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
     async (e: any) => {
       e.preventDefault();
       try {
-        await login(email, password);
-        router.replace("/");
+        const isLoggedIn = await login(email, password);
+        if (isLoggedIn) {
+          router.replace("/");
+        } else {
+          setError("Something went wrong");
+        }
       } catch (error) {
+        setError("Something went wrong");
         console.error("Login failed:", error);
       }
     },
@@ -28,28 +37,31 @@ const LoginForm: FC<LoginFormProps> = ({ ...props }) => {
   );
 
   return (
-    <form onSubmit={handleSubmit} {...props}>
-      <Input
-        type="email"
-        required
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="w-full bg-transparent"
-        placeholder="Email address"
-      />
-      <Input
-        type="password"
-        required
-        showEyeIcon
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        className="w-full mt-4 bg-transparent"
-        placeholder="Password"
-      />
-      <Button type="ghost" className="w-full mt-6" loading={loading}>
-        Sign In
-      </Button>
-    </form>
+    <>
+      {error && <Text color="text-red-500 mb-2">{error}</Text>}
+      <form onSubmit={handleSubmit} {...props}>
+        <Input
+          type="email"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full bg-transparent"
+          placeholder="Email address"
+        />
+        <Input
+          type="password"
+          required
+          showEyeIcon
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full mt-4 bg-transparent"
+          placeholder="Password"
+        />
+        <Button type="ghost" className="w-full mt-6" loading={loading}>
+          Sign In
+        </Button>
+      </form>
+    </>
   );
 };
 

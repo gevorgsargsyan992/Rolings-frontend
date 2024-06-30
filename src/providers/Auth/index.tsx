@@ -14,14 +14,14 @@ const initialState: AuthState = {
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const api = useApi();
-  const [loading, setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false);
   const [state, dispatch] = useReducer<
     (state: AuthState, action: Action) => AuthState
   >(authReducer, initialState);
 
   const login = async (email: string, password: string) => {
     try {
-      setLoading(true)
+      setLoading(true);
       const { id, access_token: token } =
         ((await api.post(LOGIN, {
           email,
@@ -31,12 +31,16 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
       window.localStorage.setItem("token", token);
       await setUser(id);
+      setLoading(false);
+      return true;
     } catch (error: any) {
       dispatch({
         type: "SET_ERROR",
         payload: error.response?.data || "An unknown error occurred",
       });
-    }finally{
+      setLoading(false);
+      return false;
+    } finally {
       setLoading(false);
     }
   };
@@ -64,7 +68,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const isAuthenticated =
-    typeof window !== "undefined" ? !!window.localStorage.getItem("token") : false;
+    typeof window !== "undefined"
+      ? !!window.localStorage.getItem("token")
+      : false;
 
   return (
     <AuthContext.Provider

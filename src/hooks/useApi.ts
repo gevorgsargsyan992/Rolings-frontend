@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from "axios";
-import { useRouter } from "next/navigation";
 
 interface ApiResponse<T> {
   loading: boolean;
@@ -18,7 +17,6 @@ const api = axios.create({
 const useApi = <T>(): ApiResponse<T> => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<AxiosError | null>(null);
-  const router = useRouter();
 
   api.interceptors.request.use(
     (config) => {
@@ -49,13 +47,7 @@ const useApi = <T>(): ApiResponse<T> => {
       });
       return response.data;
     } catch (error) {
-      const axiosError = error as AxiosError;
-      if (axiosError.response?.status === 401) {
-        console.log("called");
-        window.localStorage.removeItem("token");
-        router.replace("/"); //logout user
-      }
-      setError(axiosError);
+      setError(error as AxiosError);
       throw error;
     } finally {
       setLoading(false);

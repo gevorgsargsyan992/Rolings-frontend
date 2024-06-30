@@ -65,8 +65,8 @@ const Modal: FC<ModalProps> = ({
           {children}
           {showButtons && (
             <>
-              <div className="border-t border-gray-300 my-4"></div>
-              <div className="flex items-center gap-4 justify-between px-5 py-4 border-t border-gray-300">
+              <div className="border-t border-gray-300 my-1"></div>
+              <div className="flex items-center gap-4 justify-between px-5 py-4">
                 <Button className="flex-1" type="ghost" onClick={onClose}>
                   Cancel
                 </Button>

@@ -56,7 +56,7 @@ const Table: FC<TableProps<any>> = ({
                 </td>
               ))}
               {rowActions.length > 0 && (
-                <td className="border-b px-4 py-2">
+                <td className="border-b border-t px-4 py-2">
                   <div className="flex gap-1">
                     {rowActions.map((action, idx) => (
                       <Button

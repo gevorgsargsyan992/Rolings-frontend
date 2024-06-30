@@ -21,7 +21,7 @@ const { Text } = Typography;
 const TabletDetail: FC = () => {
   const [tablet, setTablet] = useState<any>({});
   const [isEditingStatus, setIsEditingStatus] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isVideosModalOpen, setIsVideosModalOpen] = useState(false);
   const [editedStatus, setEditedStatus] = useState<string>(
     tablet?.tablet || ""
@@ -29,10 +29,6 @@ const TabletDetail: FC = () => {
   const [selectedRow, setSelectedRow] = useState<any>(null);
   const { id } = useParams();
   const { loading, error, patch, get, _delete } = useApi<any>();
-
-  useEffect(() => {
-    setIsModalOpen(false);
-  }, [isModalOpen]);
 
   useEffect(() => {
     fetchTablets();
@@ -106,7 +102,12 @@ const TabletDetail: FC = () => {
 
   const onClickDelete = useCallback((row: any) => {
     setSelectedRow(row);
-    setIsModalOpen(true);
+    setIsDeleteModalOpen(true);
+  }, []);
+
+  const onCloseVideosModal = useCallback(() => {
+    setIsVideosModalOpen(false);
+    fetchTablets();
   }, []);
 
   return (
@@ -193,21 +194,20 @@ const TabletDetail: FC = () => {
         <Button
           className="w-[160px] self-end mr-24 absolute bottom-0"
           size="small"
-          onClick={() => console.log('clicked')}
-          // onClick={() => setIsVideosModalOpen(true)} //TODO: open this whene finish the page
+          onClick={() => setIsVideosModalOpen(true)}
         >
           Add New
         </Button>
         <Modal
           isOpen={isVideosModalOpen}
           showButtons={false}
-          onClose={() => setIsVideosModalOpen(false)}
+          onClose={onCloseVideosModal}
         >
           <ModalContent />
         </Modal>
         <Modal
-          isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
+          isOpen={isDeleteModalOpen}
+          onClose={() => setIsDeleteModalOpen(false)}
           subtitle="Do you want to delete?"
           onConfirm={onModalConfirm}
         />
