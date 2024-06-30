@@ -1,17 +1,21 @@
 "use client";
 
-import { FC } from "react";
+import { FC,useContext } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Typography from "../Typography";
-import { DATA } from "./constants";
+import { getData } from "./content";
+import AuthContext from "@/contexts/Auth";
 import { useSidebar } from "@/contexts/SideBar";
+import { UserType } from "@/types/UserTypes";
 
 const { Text } = Typography;
 
 const LeftSidebar: FC = () => {
   const router = useRouter();
   const { activeIndex, setActiveIndex, isOpen, setIsOpen } = useSidebar();
+  const {state} = useContext(AuthContext) as any;
+  const isSuperAdmin = state?.user?.type === UserType.ADMIN;
 
   const handleClick = (index: number, link: string) => {
     setActiveIndex(index);
@@ -53,12 +57,12 @@ const LeftSidebar: FC = () => {
           </svg>
         </button>
         <div className="flex flex-col mt-4 w-full">
-          {DATA.map((item, index) => (
+          {getData(state?.user?.type)?.map((item, index) => (
             <Link
               key={index}
               href={item.link}
               onClick={() => handleClick(index, item.link)}
-              className={`flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700 ${
+              className={`flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700 ${item.isVisible? '' : 'hidden'} ${
                 index === activeIndex ? "bg-gray-700" : ""
               }`}
             >

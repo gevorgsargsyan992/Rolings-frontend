@@ -8,6 +8,8 @@ import { TABLET } from "@/apiConstants";
 import { formattedDate } from "@/utils";
 import NoData from "@/components/NoData";
 import PageContainer from "@/components/PageContainer";
+import ProtectedRoute from "@/components/ProtectedRoutes";
+import { UserType } from "@/types/UserTypes";
 
 const Tablets: FC = () => {
   const [tablets, setTablets] = useState<any>([]);
@@ -34,13 +36,15 @@ const Tablets: FC = () => {
   }, []);
 
   return (
-    <PageContainer className="bg-white pb-40 pt-10">
-      {tablets.length > 0 ? (
-        <Table columns={COLUMNS} data={tablets || []} url="tablet" />
-      ) : (
-        <NoData />
-      )}
-    </PageContainer>
+    <ProtectedRoute allowedRoles={[UserType.SUPER_ADMIN]}>
+      <PageContainer className="bg-white pb-40 pt-10">
+        {tablets.length > 0 ? (
+          <Table columns={COLUMNS} data={tablets || []} url="tablet" />
+        ) : (
+          <NoData />
+        )}
+      </PageContainer>
+    </ProtectedRoute>
   );
 };
 
