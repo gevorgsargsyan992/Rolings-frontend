@@ -19,22 +19,22 @@ const useApi = <T>(): ApiResponse<T> => {
   const [error, setError] = useState<AxiosError | null>(null);
 
   api.interceptors.request.use(
-      (config) => {
-        const token = window.localStorage.getItem("token");
-        if (token) {
-          config.headers.Authorization = `Bearer ${token}`;
-        }
-        return config;
-      },
-      (error) => {
-        return Promise.reject(error);
+    (config) => {
+      const token = window.localStorage.getItem("token");
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
       }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
   );
 
   const makeRequest = async (
-      method: AxiosRequestConfig["method"],
-      url: string,
-      data: any = null
+    method: AxiosRequestConfig["method"],
+    url: string,
+    data: any = null
   ) => {
     setLoading(true);
     setError(null);
