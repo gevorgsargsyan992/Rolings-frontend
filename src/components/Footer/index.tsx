@@ -16,7 +16,7 @@ const Footer = () => {
       <LogoPart />
       <footer className="w-full bg-white 2xl:py-8 py-4">
         <PageContainer>
-          <div className="flex 2xl:flex-row xl:flex-row lg:flex-row w-full 2xl:justify-between xl:justify-between lg:justify-between lg:gap-6 mx-auto max-w-5xl sm:flex-col sm:justify-center">
+          <div className="flex md:flex-row w-full md:justify-between lg:gap-6 mx-auto max-w-5xl sm:flex-col sm:justify-center">
             <div className="flex flex-col gap-y-4">
               <div className="flex">
                 <svg
@@ -33,7 +33,7 @@ const Footer = () => {
                     d="M12 11c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1zM12 3c-3.178 0-6 2.822-6 6 0 5.25 6 12 6 12s6-6.75 6-12c0-3.178-2.822-6-6-6z"
                   />
                 </svg>
-                <Text>Armenia / Yerevan, Abovyan 20</Text>
+                <Text className="lg:text-base sm:text-xs">Armenia / Yerevan, Abovyan 20</Text>
               </div>
               <div className="flex">
                 <svg
@@ -50,7 +50,7 @@ const Footer = () => {
                     d="M16 12h4a2 2 0 002-2V8a2 2 0 00-2-2H4a2 2 0 00-2 2v2a2 2 0 002 2h4m-6 0v6a2 2 0 002 2h16a2 2 0 002-2v-6m-8 6l-6-6"
                   />
                 </svg>
-                <Text>info@rolings.am</Text>
+                <Text className="lg:text-base sm:text-xs">info@rolings.am</Text>
               </div>
               <div className="flex">
                 <svg
@@ -73,19 +73,19 @@ const Footer = () => {
                     d="M15 10c0 1.11-.895 2-2 2s-2-.89-2-2 .895-2 2-2 2 .89 2 2zM17 13v3"
                   />
                 </svg>
-                <Text>+374 44 410 002</Text>
+                <Text className="lg:text-base sm:text-xs">+374 44 410 002</Text>
               </div>
             </div>
             {DATA.map((elem, idx) => (
               <div className="flex flex-col" key={idx}>
                 {elem?.title && (
-                  <Text className="font-bold mb-4">{elem?.title}</Text>
+                  <Text className="font-bold mb-4 lg:text-base sm:text-sm">{elem?.title}</Text>
                 )}
                 <div className="flex flex-col gap-y-2">
                   {elem?.data.map((data, idx) => (
                     <Link
                       key={idx}
-                      className="align-baseline text-gray-dim text-sm"
+                      className="align-baseline text-gray-dim lg:text-sm sm:text-xs"
                       href={`${data?.link}`}
                       passHref
                     >
@@ -96,7 +96,7 @@ const Footer = () => {
               </div>
             ))}
             <div className="flex flex-col space-y-4">
-              <Text className="font-bold mb-4">Join Our Newsletter</Text>
+              <Text className="font-bold mb-4 lg:text-base sm:text-sm">Join Our Newsletter</Text>
               <Input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
