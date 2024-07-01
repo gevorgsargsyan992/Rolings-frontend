@@ -23,7 +23,7 @@ const Table: FC<TableProps<any>> = ({
   };
 
   return (
-    <div className={`flex flex-col w-full py-4 ${className}`}>
+    <div className={`flex flex-col w-full pt-4 ${className}`}>
       <table className="table-auto w-full">
         <thead>
           <tr>
@@ -56,7 +56,7 @@ const Table: FC<TableProps<any>> = ({
                 </td>
               ))}
               {rowActions.length > 0 && (
-                <td className="border-b px-4 py-2">
+                <td className="border-b border-t px-4 py-2">
                   <div className="flex gap-1">
                     {rowActions.map((action, idx) => (
                       <Button

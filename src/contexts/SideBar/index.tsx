@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import { SidebarContextType } from "./types";
 
 const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
@@ -6,11 +6,20 @@ const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 export const SidebarProvider = ({ children }: { children: ReactNode }) => {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+  }, []);
 
   const resetSidebar = () => {
     setActiveIndex(-1);
     setIsOpen(false);
   };
+
+  if (!loading) {
+    return null; // Or a loading spinner
+  }
 
   return (
     <SidebarContext.Provider

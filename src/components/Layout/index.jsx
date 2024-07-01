@@ -1,32 +1,19 @@
 "use client";
 import Header from "../Header";
 import Footer from "../Footer";
-import LeftSidebar from "@/components/SideBar";
-import { useAuth } from "@/contexts/Auth";
-import { SIDEBAR_SIZE } from "@/constants";
+import MainContent from "./components/MainContent";
 import { SidebarProvider } from "@/contexts/SideBar";
 
-const Layout = ({ children }) => {
-  const { isAuthenticated } = useAuth();
-
-  return (
-    <SidebarProvider>
-      <div className="min-h-screen flex flex-col bg-gray-100">
+const Layout = ({ children }) => (
+  <SidebarProvider>
+    <div className="h-full min-h-screen flex flex-col bg-gray-100">
+      <MainContent className="flex-grow flex flex-col justify-between">
         <Header />
-        <div className={`flex flex-1 w-full 2xl:px-60 xl:px-60 lg:px-80 px-40 mx-auto mt-20`}>
-          {isAuthenticated && <LeftSidebar />}
-          <main
-            className={`flex-grow p-4 ${
-              isAuthenticated ? `pl-${SIDEBAR_SIZE}` : ""
-            }`}
-          >
-            {children}
-          </main>
-        </div>
+        {children}
         <Footer />
-      </div>
-    </SidebarProvider>
-  );
-};
+      </MainContent>
+    </div>
+  </SidebarProvider>
+);
 
 export default Layout;

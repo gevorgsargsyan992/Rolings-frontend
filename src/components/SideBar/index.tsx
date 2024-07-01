@@ -1,17 +1,21 @@
 "use client";
 
-import { FC } from "react";
+import { FC,useContext } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Typography from "../Typography";
-import { DATA } from "./constants";
+import { getData } from "./content";
+import AuthContext from "@/contexts/Auth";
 import { useSidebar } from "@/contexts/SideBar";
+import { UserType } from "@/types/UserTypes";
 
 const { Text } = Typography;
 
 const LeftSidebar: FC = () => {
   const router = useRouter();
   const { activeIndex, setActiveIndex, isOpen, setIsOpen } = useSidebar();
+  const {state} = useContext(AuthContext) as any;
+  const isSuperAdmin = state?.user?.type === UserType.ADMIN;
 
   const handleClick = (index: number, link: string) => {
     setActiveIndex(index);
@@ -24,12 +28,12 @@ const LeftSidebar: FC = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full z-10 mt-20 flex ${
+      className={`fixed top-0 left-0 h-full z-50 flex transition-width duration-300 ease-in-out ${
         isOpen ? "w-48" : "w-12"
       }`}
     >
       <div
-        className={`bg-gray-800 text-white transition-all transform ${
+        className={`bg-gray-800 text-white transition-all duration-300 ease-in-out transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } pt-6 h-full relative`}
       >
@@ -53,12 +57,12 @@ const LeftSidebar: FC = () => {
           </svg>
         </button>
         <div className="flex flex-col mt-4 w-full">
-          {DATA.map((item, index) => (
+          {getData(state?.user?.type)?.map((item, index) => (
             <Link
               key={index}
               href={item.link}
               onClick={() => handleClick(index, item.link)}
-              className={`flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700 ${
+              className={`flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700 ${item.isVisible? '' : 'hidden'} ${
                 index === activeIndex ? "bg-gray-700" : ""
               }`}
             >

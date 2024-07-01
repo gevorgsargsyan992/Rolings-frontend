@@ -1,11 +1,11 @@
 "use client";
-import Image from "next/image";
-import logo from "../../../public/rolings-logo.svg";
 import Typography from "@/components/Typography";
 import Link from "next/link";
 import Input from "@/components/Input";
-import { DATA } from "./contsnts";
+import { DATA } from "./constants";
 import { useState } from "react";
+import LogoPart from "./components/LogoPart";
+import PageContainer from "../PageContainer";
 const { Text } = Typography;
 
 const Footer = () => {
@@ -13,20 +13,10 @@ const Footer = () => {
 
   return (
     <>
-      {/*TODO: uncomment this when homepage will be ready */}
-      {/*<div className="max-w-5xl w-full py-8 pl-80 bg-blue-grayish">*/}
-      {/*  <Image*/}
-      {/*    className="lg:mr-6"*/}
-      {/*    objectFit="contain"*/}
-      {/*    width={100}*/}
-      {/*    src={logo}*/}
-      {/*    alt="logo image"*/}
-      {/*  />*/}
-      {/*</div>*/}
-
-      <footer className="w-full bg-white 2xl:py-8 py-6 lg:px-40 md:px-40">
-        <div className="max-w-5xl mx-auto">
-          <div className="flex w-full justify-between lg:gap-6">
+      <LogoPart />
+      <footer className="w-full bg-white 2xl:py-8 py-4">
+        <PageContainer>
+          <div className="flex 2xl:flex-row xl:flex-row lg:flex-row w-full 2xl:justify-between xl:justify-between lg:justify-between lg:gap-6 mx-auto max-w-5xl sm:flex-col sm:justify-center">
             <div className="flex flex-col gap-y-4">
               <div className="flex">
                 <svg
@@ -122,7 +112,7 @@ const Footer = () => {
               </button>
             </div>
           </div>
-        </div>
+        </PageContainer>
       </footer>
     </>
   );

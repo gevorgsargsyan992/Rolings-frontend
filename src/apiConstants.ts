@@ -4,3 +4,6 @@ export const USER = "/user";
 export const TABLET = "/tablet";
 export const VERIFICATION = "/verification";
 export const VERIFICATION_RESEND = "/verification/resend";
+export const VIDEOS = "/video";
+export const TABLET_ASSIGN_VIDEO = "/tablet/assign-video";
+export const NOT_ASSIGNED_VIDEOS = "/video/notAssigned";
