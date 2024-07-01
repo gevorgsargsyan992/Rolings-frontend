@@ -12,7 +12,7 @@ const Footer = () => {
   const [email, setEmail] = useState<string>("");
 
   return (
-    <>
+    <div>
       <LogoPart />
       <footer className="w-full bg-white 2xl:py-8 py-4">
         <PageContainer>
@@ -114,7 +114,7 @@ const Footer = () => {
           </div>
         </PageContainer>
       </footer>
-    </>
+    </div>
   );
 };
 
