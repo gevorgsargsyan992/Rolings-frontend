@@ -7,7 +7,6 @@ import Typography from "../Typography";
 import { getData } from "./content";
 import AuthContext from "@/contexts/Auth";
 import { useSidebar } from "@/contexts/SideBar";
-import { UserType } from "@/types/UserTypes";
 
 const { Text } = Typography;
 
@@ -15,7 +14,6 @@ const LeftSidebar: FC = () => {
   const router = useRouter();
   const { activeIndex, setActiveIndex, isOpen, setIsOpen } = useSidebar();
   const {state} = useContext(AuthContext) as any;
-  const isSuperAdmin = state?.user?.type === UserType.ADMIN;
 
   const handleClick = (index: number, link: string) => {
     setActiveIndex(index);
