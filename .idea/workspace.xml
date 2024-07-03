@@ -5,46 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="add tablet skeleton">
-      <change afterPath="$PROJECT_DIR$/public/add.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/check-full.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/[locale]/homepage/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/ModalContent/component/VideoData/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/ModalContent/component/VideoData/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/ModalContent/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/ModalContent/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/TabletInfo/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Footer/components/LogoPart.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Layout/components/MainContent/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Layout/components/MainContent/type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PageContainer/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PageContainer/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ProtectedRoutes.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/SideBar/content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apiConstants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apiConstants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/aboutus/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/aboutus/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/components/SignInForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/contsnts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Hero/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SideBar/constants.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SideBar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SideBar/types.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Table/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Table/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/userTypes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contexts/SideBar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contexts/SideBar/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/providers/Auth/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/providers/Auth/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/UserTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/UserTypes.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Merging main-01",
+    "git-widget-placeholder": "main-02",
     "js.linters.configure.manually.selectedeslint": "true",
     "last_opened_file_path": "/home/anahitalaverdyan/Other/Rolings-frontend/public",
     "node.js.detected.package.eslint": "true",
