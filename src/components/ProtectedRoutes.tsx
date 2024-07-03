@@ -10,17 +10,18 @@ const ProtectedRoute = ({
   children: ReactNode;
   allowedRoles: UserType[];
 }) => {
-  const { state, logout } = useAuth() as any;
+  const { getUserData, logout } = useAuth() as any;
   const router = useRouter();
+  const userData = getUserData();
 
-  if (!state.user) {
+  if (!userData) {
     logout();
     router.push("/signin");
 
     return null;
   }
 
-  if (!allowedRoles.includes(state.user.type)) {
+  if (!allowedRoles.includes(userData?.type)) {
     router.push("/not-authorized");
     return null;
   }

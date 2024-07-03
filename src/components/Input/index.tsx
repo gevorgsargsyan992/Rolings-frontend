@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import Image from 'next/image';
 import { InputFieldProps } from "@/components/Input/types";
-import visibleImg from '../../../public/visible.svg'
-import inVisibleImg from '../../../public/invisible.svg'
+import Icon from "@/components/Icon";
 
 const InputField: React.FC<InputFieldProps> = ({
   type = "text",
@@ -41,11 +39,7 @@ const InputField: React.FC<InputFieldProps> = ({
             className="absolute top-1/2 transform -translate-y-1/2 right-3 text-gray-600"
             onClick={togglePasswordVisibility}
           >
-            {showPassword ? (
-              <Image width={20} alt='visible' src={visibleImg} color='orange'/>
-            ) : (
-                <Image width={20} alt='invisible' src={inVisibleImg} />
-            )}
+            <Icon name={showPassword ? "eye" : "eye-close"} />
           </button>
         )}
       </div>
