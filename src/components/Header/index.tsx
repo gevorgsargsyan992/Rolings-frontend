@@ -37,9 +37,7 @@ const Header: FC = () => {
     <header className="bg-gray-100 fixed top-0 w-full z-40">
       <PageContainer>
         <nav
-          className={`mx-auto flex justify-between py-6 items-center px-2 ${
-            isOpen ? "pr-24" : ""
-          }`}
+          className={`mx-auto flex justify-between py-6 items-center pl-2 ${isAuthenticated ? 'pr-12' : 'pr-2'}`}
           aria-label="Global"
         >
           <div className="flex gap-x-2 md:gap-x-4 items-center">
