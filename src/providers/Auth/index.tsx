@@ -53,6 +53,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       }
 
       // @ts-ignore
+      window.localStorage.setItem("user", JSON.stringify(data));
+      // @ts-ignore
       dispatch({ type: "LOGIN_SUCCESS", payload: data });
     } catch (error) {
       dispatch({
@@ -72,9 +74,24 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       ? !!window.localStorage.getItem("token")
       : false;
 
+  const getUserData = () => {
+    const data = localStorage.getItem("user");
+    return data ? JSON.parse(data) : null;
+  };
+
   return (
     <AuthContext.Provider
-      value={{ state, login, logout, setUser, isAuthenticated, loading } as any}
+      value={
+        {
+          state,
+          login,
+          logout,
+          setUser,
+          isAuthenticated,
+          loading,
+          getUserData,
+        } as any
+      }
     >
       {children}
     </AuthContext.Provider>

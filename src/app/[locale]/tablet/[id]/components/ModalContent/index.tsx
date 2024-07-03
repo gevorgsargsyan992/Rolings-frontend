@@ -40,7 +40,7 @@ const ModalContent: FC = () => {
     <TableSkeleton />
   ) : videos.length ? (
     <div className="py-4 max-w-5xl lg:max-w-4xl md:max-w-2xl sm:max-w-xl">
-      <div className="grid grid-cols-[0.1fr_1fr_1fr_1fr_1fr_0.5fr] gap-3 mb-4">
+      <div className="grid grid-cols-[0.1fr_1fr_1fr_1fr_1fr_0.2fr] gap-3 mb-4">
         {DATA_TITLES.map((el) => (
           <Text
             className={`text-center ${el.className ? el.className : ""}`}

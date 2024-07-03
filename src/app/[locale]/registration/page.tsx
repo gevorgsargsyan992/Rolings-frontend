@@ -1,5 +1,5 @@
 "use client";
-import { FC, useState } from "react";
+import React, { FC, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Typography from "@/components/Typography";
@@ -8,6 +8,7 @@ import logo from "../../../../public/rolings-logo.svg";
 import SignUpForm from "./components/RegistrationForm";
 import { useRouter } from "next/navigation";
 import ActivationCodeForm from "@/app/[locale]/registration/components/ActivationCodeForm";
+import Icon from "@/components/Icon";
 
 const { Text } = Typography;
 
@@ -28,29 +29,12 @@ const Registration: FC = () => {
         <div className="2xl:w-[900px] xl:w-[860px] md:w-[720px] 2xl:h-[608px] h-[500px] flex mx-auto bg-gray-100 rounded-lg overflow-hidden relative">
           <button
             onClick={handleCloseModal}
-            className="absolute z-50 focus:outline-none top-1.5 2xl:top-2 2xl:right-4 right-1.5 text-gray-500 hover:text-gray-700"
+            className="absolute z-50 focus:outline-none top-1.5 2xl:top-2 2xl:right-4 text-gray-500 hover:text-gray-700"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <Icon name="close-full" size={20} />
           </button>
           <div className="flex flex-2 p-3">
-            <Image
-              className="w-full"
-              src={rolingsImg}
-              alt="roling image"
-            />
+            <Image className="w-full" src={rolingsImg} alt="roling image" />
           </div>
           <div className="flex flex-1 py-4 px-3 2xl:pt-4 md:pt-16 h-full flex-col align-middle justify-center text-center max-h-[608px] overflow-y-auto">
             <Image

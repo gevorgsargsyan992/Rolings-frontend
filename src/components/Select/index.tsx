@@ -2,6 +2,7 @@
 import { FC, useState } from "react";
 import { SelectDropdownProps, Option } from "./types";
 import Typography from "../Typography";
+import Icon from "@/components/Icon";
 
 const { Text } = Typography;
 
@@ -34,19 +35,7 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
         <Text className="font-semibold" color="text-black">
           {selectedOption.label}
         </Text>
-        <svg
-          className={`w-4 h-4 ml-2 transition-transform ${
-            isOpen ? "transform rotate-180" : ""
-          }`}
-          fill="currentColor"
-          viewBox="0 0 20 20"
-        >
-          <path
-            fillRule="evenodd"
-            d="M6.293 7.707a1 1 0 011.414 0L10 10.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
+        <Icon name={isOpen ? "arrow-up-small" : "arrow-down-small"} />
       </button>
 
       {isOpen && (
@@ -57,9 +46,7 @@ const SelectDropdown: FC<SelectDropdownProps> = ({
               onClick={() => handleOptionClick(option)}
               className="block w-full px-2 py-2 text-gray-800 hover:bg-gray-100"
             >
-              <Text color="text-black">
-                {option.label}
-              </Text>
+              <Text color="text-black">{option.label}</Text>
             </button>
           ))}
         </div>
