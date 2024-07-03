@@ -5,6 +5,7 @@ import Link from "next/link";
 import i18nConfig from "../../../i18nConfig";
 import { localeNameMap } from "@/constants/locales";
 import Typography from "../Typography";
+import Icon from "@/components/Icon";
 
 const { Text } = Typography;
 
@@ -53,22 +54,10 @@ export default function LanguageChanger() {
           onClick={toggleDropdown}
           className="py-2 flex items-center text-gray-800"
         >
-          <Text className="font-semibold" color="text-black">
+          <Text className="font-semibold mr-1" color="text-black">
             {languageToShow}
           </Text>
-          <svg
-            className={`w-4 h-4 ml-2 transition-transform ${
-              dropdownOpen ? "transform rotate-180" : ""
-            }`}
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              fillRule="evenodd"
-              d="M6.293 7.707a1 1 0 011.414 0L10 10.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            />
-          </svg>
+          <Icon name={dropdownOpen ? "arrow-up-small" : "arrow-down-small"} />
         </button>
       </div>
       {dropdownOpen && (
