@@ -7,14 +7,14 @@ const DATA2 = ["հարցաշարեր", "Տվյալների բազա", "24/7 հա
 const Advantages: FC = () => {
   return (
     <div className="flex flex-col">
-      <div className="flex">
+      <div className="flex flex-col md:flex-row">
         {DATA1.map((el, idx) => (
-          <Advantage className="mr-3" text={el} key={idx} />
+          <Advantage className="mr-0 md:mr-3" text={el} key={idx} />
         ))}
       </div>
-      <div className="flex mr-3 mt-3">
+      <div className="flex flex-col md:flex-row mt-0 md:mt-3">
         {DATA2.map((el, idx) => (
-          <Advantage className="mr-3" text={el} key={idx} />
+          <Advantage className="mr-0 md:mr-3" text={el} key={idx} />
         ))}
       </div>
     </div>

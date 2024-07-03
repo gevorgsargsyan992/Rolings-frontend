@@ -1,5 +1,4 @@
 import { FC, useCallback, useState } from "react";
-import Image from "next/image";
 import Typography from "@/components/Typography";
 import { formattedDate } from "@/utils";
 import { TabletStatus } from "@/app/[locale]/tablet/constants";
@@ -7,8 +6,7 @@ import { TabletStatusKey } from "@/app/[locale]/tablet/types";
 import { useParams } from "next/navigation";
 import useApi from "@/hooks/useApi";
 import { TABLET_ASSIGN_VIDEO } from "@/apiConstants";
-import checkImg from "../../../../../../../../../public/check-full.svg";
-import addImg from "../../../../../../../../../public/add.svg";
+import Icon from "@/components/Icon";
 
 const { Text } = Typography;
 
@@ -36,12 +34,12 @@ const VideoData: FC<{ video: any }> = ({ video }) => {
   }, [id, tabletId, post]);
 
   return (
-    <div className="grid grid-cols-[0.1fr_1fr_1fr_1fr_1fr_0.5fr] gap-3 mt-2 items-center">
+    <div className="grid grid-cols-[0.1fr_1fr_1fr_1fr_1fr_0.2fr] gap-3 mt-2 items-center">
       <Text className="text-center mt-2">{id}</Text>
       <Text className="text-center mt-2">
         {TabletStatus[status as TabletStatusKey]}
       </Text>
-      <Text className="text-center mt-2 overflow-hidden whitespace-normal max-w-[260px] whitespace-nowrap overflow-ellipsis">
+      <Text className="text-center mt-2 overflow-hidden max-w-[260px] whitespace-nowrap overflow-ellipsis">
         {name}
       </Text>
       <a
@@ -56,14 +54,10 @@ const VideoData: FC<{ video: any }> = ({ video }) => {
       </Text>
       <button
         disabled={isAssigned}
-        className="flex justify-center items-center mt-2"
+        className="flex justify-center items-center self-center mt-2"
         onClick={onAssignVideo}
       >
-        <Image
-          alt="assign video"
-          src={isAssigned ? checkImg : addImg}
-          width={18}
-        />
+        <Icon name={isAssigned ? "green-check" : "plus"} />
       </button>
     </div>
   );
