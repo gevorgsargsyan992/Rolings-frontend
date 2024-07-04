@@ -8,3 +8,7 @@ export interface SelectDropdownProps {
   defaultValue?: Option;
   onSelect?: (option: Option) => void;
 }
+
+export interface LanguageChangerProps {
+  className?: string;
+}
