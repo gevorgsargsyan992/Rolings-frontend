@@ -1,15 +1,16 @@
 "use client";
 
-import React, { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect, useRef, FC } from "react";
 import Link from "next/link";
 import i18nConfig from "../../../i18nConfig";
 import { localeNameMap } from "@/constants/locales";
 import Typography from "../Typography";
 import Icon from "@/components/Icon";
+import { LanguageChangerProps } from "./types";
 
 const { Text } = Typography;
 
-export default function LanguageChanger() {
+const LanguageChanger: FC<LanguageChangerProps> = ({ className = "" }) => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [savedLanguage, setSavedLanguage] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -48,7 +49,7 @@ export default function LanguageChanger() {
   }, [savedLanguage]);
 
   return (
-    <div className="relative inline-block text-left">
+    <div className={`relative inline-block text-left ${className}`}>
       <div>
         <button
           onClick={toggleDropdown}
@@ -82,4 +83,6 @@ export default function LanguageChanger() {
       )}
     </div>
   );
-}
+};
+
+export default LanguageChanger;
