@@ -73,7 +73,7 @@ const Header: FC = () => {
           </div>
           <div
             className={`absolute top-8 right-6 lg:hidden ${
-              isOpen ? "right-28" : ""
+              isOpen ? "right-16" : ""
             }`}
           >
             <button
@@ -83,13 +83,13 @@ const Header: FC = () => {
               <Icon name="menu" color="text-white" size={20} />
             </button>
           </div>
-          <div className="flex items-center gap-x-2">
+          <div className="flex items-center gap-x-3">
             {!isAuthenticated ? (
               <>
                 <Link
                   href="/signin"
                   passHref
-                  className="text-sm font-semibold leading-6 text-black hidden lg:block"
+                  className="text-sm font-semibold text-black hidden lg:block"
                 >
                   Sign In
                 </Link>
@@ -117,7 +117,7 @@ const Header: FC = () => {
           <div
             className={`fixed top-0 right-0 h-full bg-white transition-transform transform ${
               menuOpen ? "translate-x-0" : "translate-x-full"
-            } lg:relative lg:translate-x-0 lg:hidden w-[180px]`}
+            } lg:relative lg:translate-x-0 lg:hidden w-[160px]`}
           >
             {menuOpen && (
               <div className="flex justify-end p-4">
@@ -130,7 +130,7 @@ const Header: FC = () => {
               </div>
             )}
             <div className="flex flex-col items-center gap-2 lg:gap-0">
-              {DATA.map((elem) => (
+              {/* {DATA.map((elem) => (
                 <Link
                   key={elem.id}
                   href={elem.link}
@@ -140,7 +140,7 @@ const Header: FC = () => {
                 >
                   {elem.name}
                 </Link>
-              ))}
+              ))} */}
               {!isAuthenticated ? (
                 <>
                   <Link
