@@ -1,8 +1,8 @@
 "use client";
 import Header from "../Header";
 import Footer from "../Footer";
-import { SidebarProvider } from "@/contexts/SideBar";
 import MainContent from "./components/MainContent";
+import { SidebarProvider } from "@/contexts/SideBar";
 
 const Layout = ({ children }) => (
   <SidebarProvider>

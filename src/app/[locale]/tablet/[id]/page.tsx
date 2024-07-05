@@ -115,9 +115,7 @@ const TabletDetail: FC = () => {
       <div className="flex flex-col relative h-full">
         <div className="mb-10">
           {tablet?.id && <InfoElement name="ID" value={tablet?.id} />}
-          {tablet?.tb_uuid && (
-            <InfoElement name="UUID" value={tablet?.tb_uuid} />
-          )}
+          {tablet?.tb_uuid && <InfoElement name="UUID" value={tablet?.tb_uuid} />}
           {tablet?.createdAt && (
             <InfoElement name="Creation Time" value={tablet?.createdAt} />
           )}

@@ -4,38 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="merge conflict">
-      <change afterPath="$PROJECT_DIR$/public/fonts/icomoon.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/icomoon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/icomoon.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/fonts/icomoon.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Icon/index.tsx" afterDir="false" />
+    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="add tablet skeleton">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/add.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/check-full.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/invisible.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/visible.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/registration/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/signin/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/ModalContent/component/VideoData/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/ModalContent/component/VideoData/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/ModalContent/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/tablet/[id]/components/ModalContent/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/components/LogoPart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/components/LogoPart.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Hero/components/Advantages/Advatage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/components/Advantages/Advatage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Hero/components/Advantages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/components/Advantages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Hero/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Input/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PageContainer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageContainer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProtectedRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProtectedRoutes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Select/SelectLanguage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Select/SelectLanguage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Select/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Select/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SideBar/content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar/content.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SideBar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/providers/Auth/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/providers/Auth/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +16,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="staging" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -81,16 +52,15 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "rl-responsive-changes",
+    "git-widget-placeholder": "main-02",
     "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "/home/anahitalaverdyan/Other/Rolings-frontend/public/fonts",
+    "last_opened_file_path": "/home/anahitalaverdyan/Other/Rolings-frontend/public",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.standard": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
     "ts.external.directory.path": "/home/anahitalaverdyan/Other/Rolings-frontend/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
@@ -98,14 +68,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/fonts" />
       <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/public/css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/public/css" />
-      <recent name="$PROJECT_DIR$/public/fonts" />
       <recent name="$PROJECT_DIR$/src/app/[locale]" />
     </key>
   </component>
@@ -167,8 +132,6 @@
       <workItem from="1719223853674" duration="601000" />
       <workItem from="1719240653878" duration="1247000" />
       <workItem from="1719387577887" duration="5955000" />
-      <workItem from="1719928244158" duration="10078000" />
-      <workItem from="1719995772166" duration="15153000" />
     </task>
     <task id="LOCAL-00002" summary="registration final steps">
       <option name="closed" value="true" />

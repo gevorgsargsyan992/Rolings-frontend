@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from "react";
+import React, { FC, useCallback  } from "react";
 import Icon from "@/components/Icon";
 import Button from "../Button";
 import Typography from "../Typography";
@@ -15,6 +15,7 @@ const Modal: FC<ModalProps> = ({
   onClose,
   showButtons = true,
 }) => {
+
   const handleConfirm = useCallback(
     (prop: any) => {
       if (onConfirm) {
