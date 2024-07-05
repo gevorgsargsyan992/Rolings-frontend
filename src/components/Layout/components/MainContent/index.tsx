@@ -17,7 +17,7 @@ const MainContent: FC<IMainContent> = ({ children, className }) => {
       <main
         className={`flex-grow flex flex-col justify-between pt-20 h-full ${
           isAuthenticated
-            ? `pl-${SIDEBAR_SIZE} ${isOpen ? "ml-24" : "ml-0"}`
+            ? `pl-${SIDEBAR_SIZE} ${isOpen ? "ml-12 md:ml-12 lg:ml-24" : "ml-0"}`
             : ""
         } transition-all duration-300`}
       >

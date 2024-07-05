@@ -14,11 +14,11 @@ const items: string[] = [
 
 const VerticalTimeline: FC = () => (
   <PageContainer className="flex gap-10 bg-white pb-40 pt-10">
-    <div className="w-full flex-1 sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg mx-auto">
+    <div className="w-full flex items-start hidden md:flex flex-1 sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg mx-auto">
       <Image src={imgRolings} alt="rolings image" layout="responsive" />
     </div>
     <div className="flex flex-col flex-1 items-start pl-12">
-      <Title color="text-black" className="font-semibold" level={3}>
+      <Title color="text-black" className="font-semibold text-xl md:text-2xl lg:text-6xl" level={3}>
         About us
       </Title>
       <Text color="text-gray-800" className="mt-2 mb-10 font-normal">
@@ -38,7 +38,7 @@ const VerticalTimeline: FC = () => (
               <div className="h-full border-l-2 border-gray-500 pb-4" />
             )}
           </div>
-          <Text className="pb-4 pl-8 font-medium" color="text-black">
+          <Text className="pb-4 pl-8 font-medium text-sm lg:text-base" color="text-black">
             {item}
           </Text>
         </div>

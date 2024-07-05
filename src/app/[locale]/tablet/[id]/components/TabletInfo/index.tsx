@@ -8,10 +8,10 @@ interface IProps {
 }
 const TabletInfo: FC<IProps> = ({ name = "", value = "" }) => (
   <div className="flex mb-2 gap-1">
-    <Text color="text-black" className="bold">
+    <Text bold className="text-sm md:text-lg">
       {name}
     </Text>
-    <Text>{` - ${value}`}</Text>
+    <Text className="text-xs md:text-base">{` - ${value}`}</Text>
   </div>
 );
 

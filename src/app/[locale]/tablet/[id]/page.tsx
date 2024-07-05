@@ -130,10 +130,8 @@ const TabletDetail: FC = () => {
           )}
           {tablet?.tabletStatus && (
             <div className="flex items-center gap-1">
-              <Text color="text-black" className="bold">
-              Tablet Status
-            </Text>
-            <Text>- {!isEditingStatus && tablet?.tabletStatus}</Text>
+              <Text className="font-bold">Tablet Status</Text>
+              <Text>- {!isEditingStatus && tablet?.tabletStatus}</Text>
               {isEditingStatus && (
                 <select
                   value={editedStatus}
@@ -190,7 +188,7 @@ const TabletDetail: FC = () => {
           )}
         </div>
         <Button
-          className="w-[160px] self-end mr-24 absolute bottom-0"
+          className="w-[160px] self-end mr-0 md:mr-24 absolute bottom-0"
           size="small"
           onClick={() => setIsVideosModalOpen(true)}
         >

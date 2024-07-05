@@ -26,14 +26,14 @@ const Registration: FC = () => {
   return (
     <div className="fixed z-10 inset-0 bg-gray-800 bg-opacity-50">
       <div className="absolute inset-0 flex justify-center items-center">
-        <div className="2xl:w-[900px] xl:w-[860px] md:w-[720px] 2xl:h-[608px] h-[500px] flex mx-auto bg-gray-100 rounded-lg overflow-hidden relative">
+        <div className="2xl:w-[900px] xl:w-[860px] md:w-[720px] w-[356px]  h-[608px] flex mx-auto bg-gray-100 rounded-lg overflow-hidden relative">
           <button
             onClick={handleCloseModal}
-            className="absolute z-50 focus:outline-none top-1.5 2xl:top-2 2xl:right-4 text-gray-500 hover:text-gray-700"
+            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700 focus:outline-none"
           >
             <Icon name="close-full" size={20} />
           </button>
-          <div className="flex flex-2 p-3">
+          <div className="flex flex-2 p-3  hidden md:flex">
             <Image className="w-full" src={rolingsImg} alt="roling image" />
           </div>
           <div className="flex flex-1 py-4 px-3 2xl:pt-4 md:pt-16 h-full flex-col align-middle justify-center text-center max-h-[608px] overflow-y-auto">
@@ -46,20 +46,21 @@ const Registration: FC = () => {
             {!showCodeFragment && (
               <>
                 <div className="py-4">
-                  <Text className="text-2xl" color="text-black" bold>
+                  <Text className="text-xl lg:text-2xl" color="text-black" bold>
                     Start earning with us!
                   </Text>
                 </div>
                 <div className="flex justify-center mb-8">
-                  <Text className="text-lg" bold>
+                  <Text className="text-sm md:text-xs lg:text-xl " bold>
                     Do you have an account?
-                  </Text>
-                  <Link
+                      <Link
                     href="/signin"
-                    className="text-blue-500 text-bold pl-2 pt-0.5"
+                    className="text-sm md:text-xs lg:text-xl  text-blue-500 text-bold pl-2 pt-0.5"
                   >
                     Log in
                   </Link>
+                  </Text>
+                
                 </div>
               </>
             )}

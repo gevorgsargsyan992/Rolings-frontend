@@ -35,21 +35,21 @@ const VideoData: FC<{ video: any }> = ({ video }) => {
 
   return (
     <div className="grid grid-cols-[0.1fr_1fr_1fr_1fr_1fr_0.2fr] gap-3 mt-2 items-center">
-      <Text className="text-center mt-2">{id}</Text>
-      <Text className="text-center mt-2">
+      <Text className="text-center text-xs md:text-base mt-2">{id}</Text>
+      <Text className="text-center text-xs md:text-base mt-2">
         {TabletStatus[status as TabletStatusKey]}
       </Text>
-      <Text className="text-center mt-2 overflow-hidden max-w-[260px] whitespace-nowrap overflow-ellipsis">
+      <Text className="text-center mt-2 text-xs md:text-base overflow-hidden max-w-[260px] whitespace-nowrap overflow-ellipsis">
         {name}
       </Text>
       <a
         href={url}
-        className="text-center text-blue-500 underline"
+        className="text-center text-xs md:text-base text-blue-500 underline"
         target="blank"
       >
         Link
       </a>
-      <Text className="text-center mt-2 max-w-[200px]">
+      <Text className="text-center text-xs md:text-base mt-2 max-w-[200px]">
         {formattedDate(createdAt)}
       </Text>
       <button
