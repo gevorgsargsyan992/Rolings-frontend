@@ -39,7 +39,7 @@ const Tablets: FC = () => {
     <ProtectedRoute allowedRoles={[UserType.SUPER_ADMIN]}>
       <PageContainer className="bg-white pb-40 pt-10">
         {tablets.length > 0 ? (
-          <Table columns={COLUMNS} data={tablets || []} url="tablet" />
+          <Table columns={COLUMNS} data={tablets || []} url="tablet" className="overflow-x-auto whitespace-nowrap" />
         ) : (
           <NoData />
         )}

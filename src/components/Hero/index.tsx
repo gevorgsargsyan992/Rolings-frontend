@@ -14,26 +14,26 @@ const Hero: FC = () => {
       <div className="flex w-full">
         <div className="flex flex-1 flex-col">
           <div className="flex justify-center md:justify-start">
-            <Button className="mr-0 md:mr-4">
+            <Button className="mr-0 md:mr-4 text-xs md:text-sm">
               Եղեք ուշադրության կենտրոնում
             </Button>
           </div>
           <div className="flex flex-col h-full justify-between">
             <div className="flex flex-col pt-10 text-center md:text-start">
               <Text
-                className="2xl:text-4xl xl:text-4xl lg:text-2xl"
+                className="xl:text-4xl lg:text-2xl text-xl"
                 color="text-gray-900"
               >
                 Առաջին ինտերակտիվ
               </Text>
               <Text
-                className="2xl:text-4xl xl:text-4xl lg:text-2xl"
+                className="xl:text-4xl lg:text-2xl text-xl"
                 color="text-gray-900"
               >
                 գովազդը
               </Text>
               <Text
-                className="uppercase mt-4 2xl:text-4xl xl:text-4xl lg:text-2xl"
+                className="uppercase mt-4 xl:text-4xl lg:text-2xl text-xl"
                 color="text-blue-500"
               >
                 Հայաստանում
@@ -42,7 +42,7 @@ const Hero: FC = () => {
             <Text
               bold
               color="text-black"
-              className="mt-2 text-center md:text-start"
+              className="mt-2 text-center md:text-start md:text-base text-sm"
             >
               Մեր ցանցի առավելությունները
             </Text>
