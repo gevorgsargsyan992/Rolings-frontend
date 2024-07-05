@@ -72,8 +72,8 @@ const Header: FC = () => {
             </div>
           </div>
           <div
-            className={`absolute top-8 right-6 lg:hidden ${
-              isOpen ? "right-16" : ""
+            className={`absolute top-8 right-6 lg:hidden kkkkk ${
+              isOpen ? "right-20" : ""
             }`}
           >
             <button
@@ -130,37 +130,36 @@ const Header: FC = () => {
               </div>
             )}
             <div className="flex flex-col items-center gap-2 lg:gap-0">
-              {/* {DATA.map((elem) => (
-                <Link
-                  key={elem.id}
-                  href={elem.link}
-                  passHref
-                  onClick={() => handleLinkClick(elem.link)}
-                  className="text-sm font-semibold text-charcoal mt-2"
-                >
-                  {elem.name}
-                </Link>
-              ))} */}
               {!isAuthenticated ? (
                 <>
                   <Link
                     href="/signin"
                     passHref
                     className="text-sm font-semibold leading-6 text-black mt-2"
+                    onClick={() => setMenuOpen(false)}
                   >
                     Sign In
                   </Link>
                   <Link
                     className="lg:bg-blue-royal lg:rounded-full mt-2 flex items-center justify-center px-2 py-1"
                     href="/registration"
+                    onClick={() => setMenuOpen(false)}
                   >
-                    <Text className="pr-2 overflow-ellipsis text-sm font-semibold" color="lg:text-white text-charcoal">
+                    <Text
+                      className="pr-2 overflow-ellipsis text-sm font-semibold"
+                      color="lg:text-white text-charcoal"
+                    >
                       Registration
                     </Text>
                   </Link>
                 </>
               ) : (
-                <div onClick={logout}>
+                <div
+                  onClick={() => {
+                    setMenuOpen(false);
+                    logout();
+                  }}
+                >
                   <Text className="text-sm font-semibold" color="text-charcoal">
                     Log Out
                   </Text>

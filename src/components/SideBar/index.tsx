@@ -52,7 +52,7 @@ const LeftSidebar: FC = () => {
               } ${index === activeIndex ? "bg-gray-700" : ""}`}
             >
               <Icon name={item.iconName} className="mr-2" />
-              <Text className="text-sm lg:text-lg" color="text-white">
+              <Text className="md:text-sm lg:text-lg" color="text-white">
                 {item.title}
               </Text>
             </Link>
