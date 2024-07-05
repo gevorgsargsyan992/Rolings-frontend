@@ -26,7 +26,7 @@ const InputField: React.FC<InputFieldProps> = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className={`border p-2 rounded-md text-gray-700 w-full ${
+          className={`border p-2 rounded-md text-gray-700 w-full ${showEyeIcon ? 'pr-10' : 'pr-2'} ${
             errorText
               ? "border-red-500"
               : "border-gray-300 hover:border-gray-400 focus:border-gray-400"
