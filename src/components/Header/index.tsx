@@ -44,7 +44,7 @@ const Header: FC = () => {
       <PageContainer>
         <nav
           className={`mx-auto flex justify-center md:justify-between py-6 items-center px-2 ${
-            isOpen ? "pr-12" : "pr-2"
+            isOpen ? "pr-14" : "pr-2"
           }`}
           aria-label="Global"
         >
@@ -72,8 +72,8 @@ const Header: FC = () => {
             </div>
           </div>
           <div
-            className={`absolute top-8 right-6 lg:hidden kkkkk ${
-              isOpen ? "right-20" : ""
+            className={`absolute top-8 right-6 lg:hidden ${
+              isOpen ? "right-24" : ""
             }`}
           >
             <button
