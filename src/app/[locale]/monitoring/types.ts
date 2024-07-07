@@ -24,10 +24,3 @@ export interface IChartArea {
   title?: string;
   color?: string;
 }
-
-export interface IChartArea {
-  className?: string;
-  data: ChartData[];
-  title?: string;
-  color?: string;
-}
