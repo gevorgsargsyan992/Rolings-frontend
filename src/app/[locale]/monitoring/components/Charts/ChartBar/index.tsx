@@ -10,12 +10,12 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { IChartBar } from "../../../types";
+import { IChartArea } from "../../../types";
 import Typography from "@/components/Typography";
 
 const { Text } = Typography;
 
-const ChartBar: FC<IChartBar> = ({ className, data, title, color }) => {
+const ChartBar: FC<IChartArea> = ({ className, data, title, color }) => {
   return (
     <div className={` flex flex-col items-center justify-start ${className}`}>
       {title && (
@@ -31,8 +31,7 @@ const ChartBar: FC<IChartBar> = ({ className, data, title, color }) => {
             right: 30,
             left: 20,
             bottom: 5,
-          }}
-        >
+          }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
