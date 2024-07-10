@@ -1,6 +1,7 @@
 "use client";
 import { FC } from "react";
 import Image from "next/image";
+import {useTranslation} from "react-i18next";
 import Button from "../Button";
 import Typography from "../Typography";
 import rolingsImg from "../../../public/rolings-hero.png";
@@ -9,13 +10,15 @@ import Advantages from "./components/Advantages";
 const { Text } = Typography;
 
 const Hero: FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col w-full">
       <div className="flex w-full">
         <div className="flex flex-1 flex-col">
           <div className="flex justify-center md:justify-start">
             <Button className="mr-0 md:mr-4 text-xs md:text-sm">
-              Եղեք ուշադրության կենտրոնում
+              {t('common:stay-focused')}
             </Button>
           </div>
           <div className="flex flex-col h-full justify-between">

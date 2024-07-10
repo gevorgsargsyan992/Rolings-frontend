@@ -10,8 +10,10 @@ export interface HomeProps {
   };
 }
 
+const i18nNamespaces = ['common'];
+
 export default async function Home({ params: { locale } }: HomeProps) {
-  const { t, resources } = await initTranslations(locale, ["blog"]);
+  const { resources } = await initTranslations(locale, i18nNamespaces, undefined, undefined);
   return (
     <TranslationsProvider
       resources={resources}
