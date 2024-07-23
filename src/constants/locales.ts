@@ -3,7 +3,7 @@ interface LocaleNameMapInput {
 }
 
 export const localeNameMap: LocaleNameMapInput = {
-  hy: "Arm",
+  hy: "Հայ",
   en: "Eng",
-  ru: "Rus",
+  ru: "Рус",
 };

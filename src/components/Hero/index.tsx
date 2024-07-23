@@ -10,7 +10,7 @@ import Advantages from "./components/Advantages";
 const { Text } = Typography;
 
 const Hero: FC = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation() as any;
 
   return (
     <div className="flex flex-col w-full">
@@ -18,7 +18,7 @@ const Hero: FC = () => {
         <div className="flex flex-1 flex-col">
           <div className="flex justify-center md:justify-start">
             <Button className="mr-0 md:mr-4 text-xs md:text-sm">
-              {t('common:stay-focused')}
+              {t('stay-focused')}
             </Button>
           </div>
           <div className="flex flex-col h-full justify-between">
@@ -27,19 +27,19 @@ const Hero: FC = () => {
                 className="xl:text-4xl lg:text-2xl text-xl"
                 color="text-gray-900"
               >
-                Առաջին ինտերակտիվ
+                {t('first-interactive')}
               </Text>
               <Text
                 className="xl:text-4xl lg:text-2xl text-xl"
                 color="text-gray-900"
               >
-                գովազդը
+                {t('advertisement')}
               </Text>
               <Text
                 className="uppercase mt-4 xl:text-4xl lg:text-2xl text-xl"
                 color="text-blue-500"
               >
-                Հայաստանում
+                {t('in-armenia')}
               </Text>
             </div>
             <Text
@@ -47,7 +47,7 @@ const Hero: FC = () => {
               color="text-black"
               className="mt-2 text-center md:text-start md:text-base text-sm"
             >
-              Մեր ցանցի առավելությունները
+              {t('advatages-our-network')}
             </Text>
           </div>
         </div>

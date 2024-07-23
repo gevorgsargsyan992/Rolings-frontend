@@ -1,58 +1,67 @@
-export const DATA = [
-  {
-    title: "Service",
-    data: [
-      {
-        text: "Offers",
-        link: "/offers",
-      },
-      {
-        text: "Blog",
-        link: "/blog",
-      },
-      {
-        text: "About Us",
-        link: "/contact", //TODO: change this to about us
-      },
-      {
-        text: "Contact",
-        link: "/contact",
-      },
-    ],
-  },
-  {
-    title: "Company",
-    data: [
-      {
-        text: "Service",
-        link: "/",
-      },
-      {
-        text: "Partners",
-        link: "/",
-      },
-      {
-        text: "Portfolio",
-        link: "/contact",
-      },
-    ],
-  },
-];
+import { useTranslation } from "react-i18next";
 
-export const INFO_DATA = [
-  {
-    id: 1,
-    text: "Armenia / Yerevan, Abovyan 20",
-    iconName: "location",
-  },
-  {
-    id: 2,
-    text: "info@rolings.am",
-    iconName: "email",
-  },
-  {
-    id: 3,
-    text: "+374 44 410 002",
-    iconName: "phone",
-  },
-];
+export const DATA = () => {
+  const { t } = useTranslation() as any;
+  return [
+    {
+      title: t("service"),
+      data: [
+        {
+          text: t("offers"),
+          link: "/offers",
+        },
+        {
+          text: t("blog"),
+          link: "/blog",
+        },
+        {
+          text: t("aboutus"),
+          link: "/contact", //TODO: change this to about us
+        },
+        {
+          text: t("contact"),
+          link: "/contact",
+        },
+      ],
+    },
+    {
+      title: t("company"),
+      data: [
+        {
+          text: t("service"),
+          link: "/",
+        },
+        {
+          text: t("partners"),
+          link: "/",
+        },
+        {
+          text: t("portfolio"),
+          link: "/contact",
+        },
+      ],
+    },
+  ];
+};
+
+export const INFO_DATA = () => {
+  const { t } = useTranslation() as any;
+
+  return [
+    {
+      id: 1,
+      text: t("address-real"),
+      iconName: "location",
+    },
+    {
+      id: 2,
+      text: "info@rolings.am",
+      iconName: "email",
+    },
+    {
+      id: 3,
+      text: "+374 44 410 002",
+      iconName: "phone",
+    },
+  ];
+};
