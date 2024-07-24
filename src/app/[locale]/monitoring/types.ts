@@ -23,4 +23,5 @@ export interface IChartArea {
   data: ChartData[];
   title?: string;
   color?: string;
+  tick?: boolean;
 }
