@@ -1,15 +1,12 @@
 "use client";
-
 import { FC, useContext } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Typography from "../Typography";
-// import { DATA } from "./content";
+import { DATA } from "./content";
 import AuthContext from "@/contexts/Auth";
 import { useSidebar } from "@/contexts/SideBar";
 import Icon from "@/components/Icon";
-import {UserType} from "@/types/UserTypes";
-import {useTranslation} from "react-i18next";
 
 const { Text } = Typography;
 
@@ -18,7 +15,6 @@ const LeftSidebar: FC = () => {
   const { activeIndex, setActiveIndex, isOpen, setIsOpen } = useSidebar();
   const { getUserData } = useContext(AuthContext) as any;
   const userData = getUserData();
-  const {t} = useTranslation() as any;
 
   const handleClick = (index: number, link: string) => {
     setActiveIndex(index);
@@ -28,49 +24,6 @@ const LeftSidebar: FC = () => {
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
   };
-
-  const DATA = (userType) =>{
-    return [
-      {
-        link: "/tablet",
-        title: t('tablets'),
-        iconName: "tablet",
-        isVisible: userType === UserType.SUPER_ADMIN,
-      },
-      {
-        link: "/videos",
-        title: t('videos'),
-        iconName: "video",
-        isVisible: userType === UserType.SUPER_ADMIN,
-      },
-      {
-        link: "/users",
-        title: t('users'),
-        iconName: "users",
-        isVisible: userType === UserType.SUPER_ADMIN,
-      },
-      {
-        link: "/email-stats",
-        title: t('email-stats'),
-        iconName: "email",
-        isVisible: userType === UserType.SUPER_ADMIN,
-      },
-      {
-        link: "/monitoring",
-        title: t('monitoring'),
-        iconName: "monitoring",
-        isVisible:
-            userType === UserType.SUPER_ADMIN || userType === UserType.SELLER,
-      },
-      {
-        link: "/questionnaire",
-        title: t('questionnaire'),
-        iconName: "forum",
-        isVisible:
-            userType === UserType.SUPER_ADMIN || userType === UserType.SELLER,
-      },
-    ]
-  }
 
   return (
     <div

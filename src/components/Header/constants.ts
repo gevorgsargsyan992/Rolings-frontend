@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 export const DATA = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation() as any;
 
   return [
     {

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Typography from "@/components/Typography";
 import logo from "../../../public/rolings-logo.svg";
-// import { DATA } from "./constants";
+import { DATA } from "./constants";
 import SelectLanguage from "@/components/Select/SelectLanguage";
 import { useAuth } from "@/contexts/Auth";
 import Button from "@/components/Button";
@@ -17,34 +17,11 @@ import { useTranslation } from "react-i18next";
 const { Text } = Typography;
 
 const Header: FC = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation() as any;
   const router = useRouter();
   const { logout, isAuthenticated } = useAuth() as any;
   const { setIsOpen, setActiveIndex, isOpen } = useSidebar();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const DATA = [
-    {
-      id: 1,
-      name: t("offers"),
-      link: "/offers",
-    },
-    {
-      id: 2,
-      name: t("blog"),
-      link: "/blog",
-    },
-    {
-      id: 3,
-      name: t("aboutus"),
-      link: "/aboutus",
-    },
-    {
-      id: 4,
-      name: t("contact"),
-      link: "/contact",
-    },
-  ]
 
   const onLogout = useCallback(async () => {
     await logout();
@@ -83,7 +60,7 @@ const Header: FC = () => {
               />
             </Link>
             <div className="hidden lg:flex lg:items-center lg:gap-x-4">
-              {DATA.map((elem) => (
+              {DATA().map((elem) => (
                 <Link
                   key={elem.id}
                   href={elem.link}
@@ -163,7 +140,7 @@ const Header: FC = () => {
                     className="text-sm font-semibold leading-6 text-black mt-2"
                     onClick={() => setMenuOpen(false)}
                   >
-                    {t('signin')}
+                    {t("signin")}
                   </Link>
                   <Link
                     className="lg:bg-blue-royal lg:rounded-full mt-2 flex items-center justify-center px-2 py-1"
