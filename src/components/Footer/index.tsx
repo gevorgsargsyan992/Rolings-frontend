@@ -7,9 +7,11 @@ import { useState } from "react";
 import LogoPart from "./components/LogoPart";
 import PageContainer from "../PageContainer";
 import Icon from "@/components/Icon";
+import {useTranslation} from "react-i18next";
 const { Text } = Typography;
 
 const Footer = () => {
+  const {t} = useTranslation() as any;
   const [email, setEmail] = useState<string>("");
 
   return (
@@ -19,7 +21,7 @@ const Footer = () => {
         <PageContainer>
           <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-auto max-w-5xl">
             <div className="flex flex-col gap-y-4">
-              {INFO_DATA.map(({ iconName, text, id }) => (
+              {INFO_DATA().map(({ iconName, text, id }) => (
                 <div className="flex justify-center md:justify-start" key={id}>
                   <Icon
                     name={iconName}
@@ -32,7 +34,7 @@ const Footer = () => {
                 </div>
               ))}
             </div>
-            {DATA.map((elem, idx) => (
+            {DATA().map((elem, idx) => (
               <div className="flex flex-col mt-6 md:mt-0" key={idx}>
                 {elem?.title && (
                   <Text className="font-bold mb-4 lg:text-base sm:text-sm text-center md:text-start">
@@ -55,20 +57,20 @@ const Footer = () => {
             ))}
             <div className="flex flex-col mt-6 md:mt-0 space-y-4 lg:max-w-xl self-center md:self-start sm:max-w-[200px]">
               <Text className="font-bold mb-4 lg:text-base sm:text-sm text-center md:text-start">
-                Join Our Newsletter
+                {t('join-newsletter')}
               </Text>
               <Input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                placeholder="Enter your email"
+                placeholder={t('enter-email')}
                 className="rounded-md text-gray-800 border border-gray-5"
               />
               <button
                 type="submit"
                 className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-md"
               >
-                Subscribe
+                {t('subscribe')}
               </button>
             </div>
           </div>

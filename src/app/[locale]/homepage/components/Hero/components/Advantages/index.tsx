@@ -1,11 +1,15 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import Advantage from "./Advatage";
+import {useTranslation} from "react-i18next";
 
-const DATA1 = ["անձնական էջ", "մոնիտորինգ", "ընտրության հնարավորություն"];
-const DATA2 = ["հարցաշարեր", "Տվյալների բազա", "24/7 հասանելիություն"];
 
 const Advantages: FC = () => {
-  return (
+    const { t } = useTranslation() as any;
+
+    const DATA1 = useMemo(() => [t('personal-page'), t('monitoring'), t('choice')],[]);
+    const DATA2 =  useMemo(() => [t('surveys'),t('database'), t('availability')],[]);
+
+    return (
     <div className="flex flex-col">
       <div className="flex flex-col md:flex-row">
         {DATA1.map((el, idx) => (

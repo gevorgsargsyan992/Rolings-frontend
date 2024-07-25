@@ -1,23 +1,28 @@
+import { useTranslation } from "react-i18next";
 
-export const DATA = [
-  {
-    id: 1,
-    name: "Offers",
-    link: "/offers",
-  },
-  {
-    id: 2,
-    name: "Blog",
-    link: "/blog",
-  },
-  {
-    id: 3,
-    name: "About us",
-    link: "/aboutus",
-  },
-  {
-    id: 4,
-    name: "Contact",
-    link: "/contact",
-  },
-];
+export const DATA = () => {
+  const { t } = useTranslation() as any;
+
+  return [
+    {
+      id: 1,
+      name: t("offers"),
+      link: "/offers",
+    },
+    {
+      id: 2,
+      name: t("blog"),
+      link: "/blog",
+    },
+    {
+      id: 3,
+      name: t("aboutus"),
+      link: "/aboutus",
+    },
+    {
+      id: 4,
+      name: t("contact"),
+      link: "/contact",
+    },
+  ];
+};

@@ -1,10 +1,9 @@
 "use client";
-
 import { FC, useContext } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Typography from "../Typography";
-import { getData } from "./content";
+import { DATA } from "./content";
 import AuthContext from "@/contexts/Auth";
 import { useSidebar } from "@/contexts/SideBar";
 import Icon from "@/components/Icon";
@@ -28,7 +27,7 @@ const LeftSidebar: FC = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full z-50 flex transition-width duration-300 ease-in-out`}
+      className={`fixed top-0 left-0 h-full z-50 max-w-[120px] flex transition-width duration-300 ease-in-out`}
     >
       <div
         className={`bg-gray-800 text-white transition-all duration-300 ease-in-out transform ${
@@ -42,7 +41,7 @@ const LeftSidebar: FC = () => {
           <Icon name="close" color="text-white" size={12} />
         </button>
         <div className="flex flex-col mt-4 w-full">
-          {getData(userData?.type)?.map((item, index) => (
+          {DATA(userData?.type).map((item, index) => (
             <Link
               key={index}
               href={item.link}
@@ -52,7 +51,7 @@ const LeftSidebar: FC = () => {
               } ${index === activeIndex ? "bg-gray-700" : ""}`}
             >
               <Icon name={item.iconName} className="mr-2" />
-              <Text className="md:text-sm lg:text-lg" color="text-white">
+              <Text className="text-sm" color="text-white">
                 {item.title}
               </Text>
             </Link>
