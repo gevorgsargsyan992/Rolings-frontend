@@ -6,8 +6,10 @@ import { useEffect, useState } from "react";
 import { MONITORING } from "@/apiConstants";
 import { ChartData, DataCar, DataMonthly, DataWeekly } from "./types";
 import { formattedDateWithWeek } from "./helper";
+import { useTranslation } from "react-i18next";
 
 const Monitoring = () => {
+  const {t} = useTranslation() as any;
   const [dataCars, setDataCars] = useState<ChartData[]>([]);
   const [dataMonthly, setDataMonthly] = useState<ChartData[]>([]);
   const [dataWeekly, setDataWeekly] = useState<ChartData[]>([]);
@@ -54,7 +56,7 @@ const Monitoring = () => {
     <div className="flex flex-col pl-24 pt-10 pb-40">
       <ChartArea title="Cars Weekly Report" data={dataCars} tick={false} />
       <ChartBar
-        title="Monthly Report"
+        title={t('monthly-report')}
         className="my-32"
         data={dataMonthly}
         color="#c54bb9"

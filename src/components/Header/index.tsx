@@ -1,5 +1,5 @@
 "use client";
-import { FC, useCallback, useState } from "react";
+import { FC, useCallback, useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Typography from "@/components/Typography";
@@ -12,10 +12,12 @@ import Icon from "@/components/Icon";
 import { useRouter } from "next/navigation";
 import { useSidebar } from "@/contexts/SideBar";
 import PageContainer from "../PageContainer";
+import { useTranslation } from "react-i18next";
 
 const { Text } = Typography;
 
 const Header: FC = () => {
+  const { t } = useTranslation() as any;
   const router = useRouter();
   const { logout, isAuthenticated } = useAuth() as any;
   const { setIsOpen, setActiveIndex, isOpen } = useSidebar();
@@ -58,7 +60,7 @@ const Header: FC = () => {
               />
             </Link>
             <div className="hidden lg:flex lg:items-center lg:gap-x-4">
-              {DATA.map((elem) => (
+              {DATA().map((elem) => (
                 <Link
                   key={elem.id}
                   href={elem.link}
@@ -91,14 +93,14 @@ const Header: FC = () => {
                   passHref
                   className="text-sm font-semibold text-black hidden lg:block"
                 >
-                  Sign In
+                  {t("signin")}
                 </Link>
                 <Link
                   className="bg-blue-royal rounded-full hidden lg:flex items-center justify-center px-2 py-1 lg:py-2 lg:px-3 md:px-2"
                   href="/registration"
                 >
                   <Text className="pr-2 overflow-ellipsis" color="text-white">
-                    Registration
+                    {t("registration")}
                   </Text>
                   <Icon name="logout" />
                 </Link>
@@ -106,7 +108,7 @@ const Header: FC = () => {
             ) : (
               <Button onClick={onLogout} className="hidden lg:flex">
                 <Text className="pr-2 overflow-ellipsis" color="text-white">
-                  Log Out
+                  {t("logout")}
                 </Text>
                 <Icon name="logout" className="pr--2" />
               </Button>
@@ -138,7 +140,7 @@ const Header: FC = () => {
                     className="text-sm font-semibold leading-6 text-black mt-2"
                     onClick={() => setMenuOpen(false)}
                   >
-                    Sign In
+                    {t("signin")}
                   </Link>
                   <Link
                     className="lg:bg-blue-royal lg:rounded-full mt-2 flex items-center justify-center px-2 py-1"
@@ -149,7 +151,7 @@ const Header: FC = () => {
                       className="pr-2 overflow-ellipsis text-sm font-semibold"
                       color="lg:text-white text-charcoal"
                     >
-                      Registration
+                      {t("registration")}
                     </Text>
                   </Link>
                 </>
@@ -161,7 +163,7 @@ const Header: FC = () => {
                   }}
                 >
                   <Text className="text-sm font-semibold" color="text-charcoal">
-                    Log Out
+                    {t("logout")}
                   </Text>
                 </div>
               )}
