@@ -45,9 +45,8 @@ const Header: FC = () => {
     <header className="bg-gray-100 fixed top-0 w-full z-40">
       <PageContainer>
         <nav
-          className={`mx-auto flex justify-center md:justify-between py-6 items-center px-2 ${
-            isOpen ? "pr-14" : "pr-2"
-          }`}
+          className={`mx-auto flex justify-center md:justify-between py-6 items-center px-2 
+        `}
           aria-label="Global"
         >
           <div className="flex items-center">

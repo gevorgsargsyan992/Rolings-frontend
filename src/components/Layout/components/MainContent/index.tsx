@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { useAuth } from "@/contexts/Auth";
-import { SIDEBAR_SIZE } from "@/constants";
 import LeftSidebar from "@/components/SideBar";
 import { IMainContent } from "./type";
 import { useSidebar } from "@/contexts/SideBar";
@@ -15,11 +14,7 @@ const MainContent: FC<IMainContent> = ({ children, className }) => {
     >
       {isAuthenticated && <LeftSidebar />}
       <main
-        className={`flex-grow flex flex-col justify-between pt-20 h-full ${
-          isAuthenticated
-            ? `pl-${SIDEBAR_SIZE} ${isOpen ? "ml-12 md:ml-12 lg:ml-24" : "ml-0"}`
-            : ""
-        } transition-all duration-300`}
+        className="flex-grow flex flex-col justify-between pt-20 h-full"
       >
         {children}
       </main>

@@ -8,7 +8,7 @@ const PageContainer: FC<IPageContainer> = ({ children, className = "" }) => {
       : false;
 
   return (
-    <div className={`px-24 ${isAuthenticated ? "pr-12" : ""} ${className}`}>
+    <div className={`px-80 ${isAuthenticated ? "pr-12" : ""} ${className}`}>
       {children}
     </div>
   );
