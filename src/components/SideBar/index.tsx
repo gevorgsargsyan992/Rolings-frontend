@@ -74,7 +74,7 @@ const LeftSidebar: FC = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full z-50 flex transition-width duration-300 ease-in-out`}
+      className={`fixed top-0 left-0 h-full z-50 max-w-[120px] flex transition-width duration-300 ease-in-out`}
     >
       <div
         className={`bg-gray-800 text-white transition-all duration-300 ease-in-out transform ${
@@ -98,7 +98,7 @@ const LeftSidebar: FC = () => {
               } ${index === activeIndex ? "bg-gray-700" : ""}`}
             >
               <Icon name={item.iconName} className="mr-2" />
-              <Text className="md:text-sm lg:text-lg" color="text-white">
+              <Text className="text-sm" color="text-white">
                 {item.title}
               </Text>
             </Link>
