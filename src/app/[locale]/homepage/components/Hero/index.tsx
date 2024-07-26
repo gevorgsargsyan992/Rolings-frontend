@@ -39,7 +39,7 @@ const Hero: FC = () => {
                 className="uppercase mt-4 xl:text-4xl lg:text-2xl text-xl"
                 color="text-blue-500"
               >
-                Հայաստանում
+                {t('in-armenia')}
               </Text>
             </div>
             <Text
