@@ -43,5 +43,33 @@ export const DATA = (userType: UserType) => {
       isVisible:
         userType === UserType.SUPER_ADMIN || userType === UserType.SELLER,
     },
+    {
+      title: t("offers"),
+      iconName: "forum",
+      link: "/offers",
+      className: "visible lg:hidden",
+      isVisible: true,
+    },
+    {
+      title: t("blog"),
+      iconName: "blog",
+      className: "visible lg:hidden",
+      link: "/blog",
+      isVisible: true,
+    },
+    {
+      title: t("aboutus"),
+      iconName: "group",
+      className: "visible lg:hidden",
+      link: "/aboutus",
+      isVisible: true,
+    },
+    {
+      title: t("contact"),
+      iconName: "contact-us",
+      className: "visible lg:hidden",
+      link: "/contact",
+      isVisible: true,
+    },
   ];
 };

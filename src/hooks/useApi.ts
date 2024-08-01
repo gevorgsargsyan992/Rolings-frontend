@@ -12,7 +12,7 @@ interface ApiResponse<T> {
 }
 
 const api = axios.create({
-  baseURL: process.env.PUBLIC_APP_AUTH_URL,
+  baseURL: "https://rolings-backend.onrender.com",
 });
 
 const useApi = <T>(): ApiResponse<T> => {
@@ -51,7 +51,6 @@ const useApi = <T>(): ApiResponse<T> => {
     } catch (error) {
       const axiosError = error as AxiosError;
       if (axiosError.response?.status === 401) {
-        console.log("called");
         window.localStorage.removeItem("token");
         router.replace("/"); //logout user
       }

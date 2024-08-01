@@ -11,4 +11,5 @@ export interface SelectDropdownProps {
 
 export interface LanguageChangerProps {
   className?: string;
+  titleClassName?: string;
 }

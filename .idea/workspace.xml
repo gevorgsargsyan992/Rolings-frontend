@@ -4,27 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="add translations">
+    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="fix translation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/i18n.js" beforeDir="false" afterPath="$PROJECT_DIR$/i18n.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en/aboutus.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/aboutus.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/en/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/common.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/hy/aboutus.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/hy/aboutus.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/hy/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/hy/common.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/ru/aboutus.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/ru/aboutus.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/locales/ru/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/ru/common.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/monitoring/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/monitoring/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/icomoon.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/icomoon.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/icomoon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/icomoon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/icomoon.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/icomoon.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/icomoon.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/icomoon.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/icomoon.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/icomoon.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/homepage/components/Hero/components/Advantages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/homepage/components/Hero/components/Advantages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/homepage/components/Hero/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/homepage/components/Hero/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/[locale]/homepage/components/InfoSection/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/homepage/components/InfoSection/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CurrentlyWorking/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CurrentlyWorking/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/constants.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Hero/components/Advantages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/components/Advantages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Hero/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Hero/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PageContainer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PageContainer/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Select/SelectLanguage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Select/SelectLanguage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Select/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Select/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SideBar/content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar/content.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/SideBar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants/locales.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/locales.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/hooks/useApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useApi.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="staging" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -71,7 +68,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;rl-add-texts-i18-nexus&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;rl-design-fixes&quot;,
     &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/anahitalaverdyan/Other/Rolings-frontend/public&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -88,6 +85,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/public/fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/app/[locale]" />
@@ -154,6 +152,10 @@
       <workItem from="1720792653500" duration="599000" />
       <workItem from="1721644117297" duration="9602000" />
       <workItem from="1721732941335" duration="10731000" />
+      <workItem from="1721991626941" duration="616000" />
+      <workItem from="1722258921874" duration="557000" />
+      <workItem from="1722419416049" duration="24827000" />
+      <workItem from="1722523886415" duration="2756000" />
     </task>
     <task id="LOCAL-00002" summary="registration final steps">
       <option name="closed" value="true" />
@@ -251,14 +253,29 @@
       <option name="project" value="LOCAL" />
       <updated>1720621057980</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="some changes">
+      <option name="closed" value="true" />
+      <created>1721919567773</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1721919567773</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix translation">
+      <option name="closed" value="true" />
+      <created>1721976080428</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1721976080428</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="some changes" />
     <MESSAGE value="registration final steps" />
     <MESSAGE value="fix registration error" />
     <MESSAGE value="fix data persisting case after login" />
@@ -271,6 +288,8 @@
     <MESSAGE value="add tablet skeleton" />
     <MESSAGE value="add header menu" />
     <MESSAGE value="add translations" />
-    <option name="LAST_COMMIT_MESSAGE" value="add translations" />
+    <MESSAGE value="some changes" />
+    <MESSAGE value="fix translation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix translation" />
   </component>
 </project>
