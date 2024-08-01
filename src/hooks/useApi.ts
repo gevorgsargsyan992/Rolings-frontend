@@ -51,7 +51,6 @@ const useApi = <T>(): ApiResponse<T> => {
     } catch (error) {
       const axiosError = error as AxiosError;
       if (axiosError.response?.status === 401) {
-        console.log("called");
         window.localStorage.removeItem("token");
         router.replace("/"); //logout user
       }

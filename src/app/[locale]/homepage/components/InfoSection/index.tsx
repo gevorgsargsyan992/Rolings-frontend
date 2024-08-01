@@ -12,7 +12,7 @@ const InfoSection = () => {
         <Image src={ImgCars} alt="cars" />
       </div>
       <div className="flex flex-1 items-center lg:items-start flex-col">
-        <div className="bg-blue-royal max-w-max rounded-full text-white px-4 py-2 text-base mr-0 md:mr-4 text-xs md:text-sm">
+        <div className="bg-blue-royal max-w-max rounded-full text-white px-4 py-2 text-base mr-0 text-xs md:text-sm">
           Consectetur Adipiscing
         </div>
         <Text

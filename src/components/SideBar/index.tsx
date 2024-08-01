@@ -1,12 +1,13 @@
 "use client";
-import { FC, useContext } from "react";
+import { FC, useCallback, useContext } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Typography from "../Typography";
 import { DATA } from "./content";
-import AuthContext from "@/contexts/Auth";
+import AuthContext, { useAuth } from "@/contexts/Auth";
 import { useSidebar } from "@/contexts/SideBar";
 import Icon from "@/components/Icon";
+import { useTranslation } from "react-i18next";
 
 const { Text } = Typography;
 
@@ -15,10 +16,19 @@ const LeftSidebar: FC = () => {
   const { activeIndex, setActiveIndex, isOpen, setIsOpen } = useSidebar();
   const { getUserData } = useContext(AuthContext) as any;
   const userData = getUserData();
+  const { logout, isAuthenticated } = useAuth() as any;
+  const { t } = useTranslation() as any;
+
+  const onLogout = useCallback(async () => {
+    await logout();
+    setIsOpen(false);
+    router.replace("/");
+  }, [logout, router, setIsOpen]);
 
   const handleClick = (index: number, link: string) => {
     setActiveIndex(index);
     router.push(link);
+    setIsOpen(false);
   };
 
   const toggleSidebar = () => {
@@ -47,7 +57,7 @@ const LeftSidebar: FC = () => {
               href={item.link}
               onClick={() => handleClick(index, item.link)}
               className={`flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700 ${
-                item.isVisible ? "" : "hidden"
+                item.isVisible ? `${item?.className}` : "hidden"
               } ${index === activeIndex ? "bg-gray-700" : ""}`}
             >
               <Icon name={item.iconName} className="mr-2" />
@@ -56,6 +66,52 @@ const LeftSidebar: FC = () => {
               </Text>
             </Link>
           ))}
+          {!isAuthenticated ? (
+            <>
+              <Link
+                href="/signin"
+                className="flex items-center px-4 py-2 cursor-pointer lg:hidden hover:bg-gray-700"
+              >
+                <Icon name="logout" className="mr-2" />
+                <Text className="text-sm" color="text-white">
+                  {t("signin")}
+                </Text>
+              </Link>
+              <Link
+                href="/registration"
+                className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700"
+              >
+                <Icon name="logout" className="mr-2" />
+                <Text className="text-sm" color="text-white">
+                  {t("registration")}
+                </Text>
+              </Link>
+              <Link
+                className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700"
+                href="/registration"
+              >
+                <Icon name="logout" className="mr-2" />
+                <Text
+                  className="flex items-center text-white px-4 py-2 cursor-pointer hover:bg-gray-700"
+                  color="text-white"
+                >
+                  {t("registration")}
+                </Text>
+              </Link>
+            </>
+          ) : (
+            <div
+              className="flex items-center px-4 py-2 cursor-pointer lg:hidden hover:bg-gray-700"
+              onClick={() => {
+                onLogout();
+              }}
+            >
+              <Icon name="logout" className="mr-2" />
+              <Text className="text-sm" color="text-white">
+                {t("logout")}
+              </Text>
+            </div>
+          )}
         </div>
       </div>
       <button
