@@ -1,5 +1,6 @@
 "use client";
 import Typography from "@/components/Typography";
+import Image from "next/image";
 import Link from "next/link";
 import Input from "@/components/Input";
 import { DATA, INFO_DATA } from "./constants";
@@ -8,7 +9,17 @@ import LogoPart from "./components/LogoPart";
 import PageContainer from "../PageContainer";
 import Icon from "@/components/Icon";
 import { useTranslation } from "react-i18next";
+import youtubeImg from "../../../public/youtube.webp";
+import instagramImg from "../../../public/instagram.webp";
+import facebookImg from "../../../public/facebook.webp";
+
 const { Text } = Typography;
+
+const SOCIAL_NETWORK = [
+  { imgSrc: instagramImg, url: "" }, //TODO: add urls in the future
+  { imgSrc: facebookImg, url: "" },
+  { imgSrc: youtubeImg, url: "" },
+];
 
 const Footer = () => {
   const { t } = useTranslation() as any;
@@ -33,6 +44,13 @@ const Footer = () => {
                   </Text>
                 </div>
               ))}
+              <div className="flex gap-2 mt-4">
+                {SOCIAL_NETWORK.map((el) => (
+                  <Link key={el.url} href={el.url}>
+                    <Image width={24} alt="social accounts" src={el.imgSrc} />
+                  </Link>
+                ))}
+              </div>
             </div>
             {DATA().map((elem, idx) => (
               <div className="flex flex-col mt-6 md:mt-0" key={idx}>
