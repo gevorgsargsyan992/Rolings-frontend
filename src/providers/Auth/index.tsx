@@ -7,7 +7,7 @@ import { LOGIN, USER } from "@/apiConstants";
 import useApi from "@/hooks/useApi";
 import { UserType } from "@/types/UserTypes";
 
-const initialState: AuthState = {
+export const initialState: AuthState = {
   user: null,
   error: null,
 };
@@ -15,9 +15,7 @@ const initialState: AuthState = {
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const api = useApi();
   const [loading, setLoading] = useState<boolean>(false);
-  const [state, dispatch] = useReducer<
-    (state: AuthState, action: Action) => AuthState
-  >(authReducer, initialState);
+  const [state, dispatch] = useReducer(authReducer, initialState);
 
   const login = async (email: string, password: string) => {
     try {
