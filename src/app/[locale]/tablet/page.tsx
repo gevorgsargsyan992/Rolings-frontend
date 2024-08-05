@@ -10,10 +10,11 @@ import NoData from "@/components/NoData";
 import PageContainer from "@/components/PageContainer";
 import ProtectedRoute from "@/components/ProtectedRoutes";
 import { UserType } from "@/types/UserTypes";
+import {TableSkeleton} from "@/components/Skeleton";
 
 const Tablets: FC = () => {
   const [tablets, setTablets] = useState<any>([]);
-  const { get } = useApi<any>();
+  const { get, loading } = useApi<any>();
 
   useEffect(() => {
     const fetchTablets = async () => {
@@ -33,13 +34,21 @@ const Tablets: FC = () => {
     };
 
     fetchTablets();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <ProtectedRoute allowedRoles={[UserType.SUPER_ADMIN]}>
       <PageContainer className="bg-white pb-40 pt-10">
-        {tablets.length > 0 ? (
-          <Table columns={COLUMNS} data={tablets || []} url="tablet" className="overflow-x-auto whitespace-nowrap" />
+        {loading ? (
+          <TableSkeleton />
+        ) : tablets.length > 0 ? (
+          <Table
+            columns={COLUMNS}
+            data={tablets || []}
+            url="tablet"
+            className="overflow-x-auto whitespace-nowrap"
+          />
         ) : (
           <NoData />
         )}

@@ -1,5 +1,6 @@
 "use client";
 import Typography from "@/components/Typography";
+import Image from "next/image";
 import Link from "next/link";
 import Input from "@/components/Input";
 import { DATA, INFO_DATA } from "./constants";
@@ -7,18 +8,28 @@ import { useState } from "react";
 import LogoPart from "./components/LogoPart";
 import PageContainer from "../PageContainer";
 import Icon from "@/components/Icon";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
+import youtubeImg from "../../../public/youtube.webp";
+import instagramImg from "../../../public/instagram.webp";
+import facebookImg from "../../../public/facebook.webp";
+
 const { Text } = Typography;
 
+const SOCIAL_NETWORK = [
+  { imgSrc: instagramImg, url: "" }, //TODO: add urls in the future
+  { imgSrc: facebookImg, url: "" },
+  { imgSrc: youtubeImg, url: "" },
+];
+
 const Footer = () => {
-  const {t} = useTranslation() as any;
+  const { t } = useTranslation() as any;
   const [email, setEmail] = useState<string>("");
 
   return (
     <div>
       <LogoPart />
       <footer className="w-full bg-white 2xl:py-8 py-4">
-        <PageContainer>
+        <PageContainer className="md:px-0 md:pl-20 md:pr-8">
           <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-auto max-w-5xl">
             <div className="flex flex-col gap-y-4">
               {INFO_DATA().map(({ iconName, text, id }) => (
@@ -33,11 +44,18 @@ const Footer = () => {
                   </Text>
                 </div>
               ))}
+              <div className="flex gap-2 mt-4">
+                {SOCIAL_NETWORK.map((el) => (
+                  <Link key={el.url} href={el.url}>
+                    <Image width={24} alt="social accounts" src={el.imgSrc} />
+                  </Link>
+                ))}
+              </div>
             </div>
             {DATA().map((elem, idx) => (
               <div className="flex flex-col mt-6 md:mt-0" key={idx}>
                 {elem?.title && (
-                  <Text className="font-bold mb-4 lg:text-base sm:text-sm text-center md:text-start">
+                  <Text className="font-bold mb-4 lg:text-base  md:text-xs text-sm text-center md:text-start">
                     {elem?.title}
                   </Text>
                 )}
@@ -56,21 +74,21 @@ const Footer = () => {
               </div>
             ))}
             <div className="flex flex-col mt-6 md:mt-0 space-y-4 lg:max-w-xl self-center md:self-start sm:max-w-[200px]">
-              <Text className="font-bold mb-4 lg:text-base sm:text-sm text-center md:text-start">
-                {t('join-newsletter')}
+              <Text className="font-bold mb-4 lg:text-base md:text-xs text-sm text-center md:text-start">
+                {t("join-newsletter")}
               </Text>
               <Input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                placeholder={t('enter-email')}
-                className="rounded-md text-gray-800 border border-gray-5"
+                placeholder={t("enter-email")}
+                className="rounded-md text-gray-800 text-xs border border-gray-5"
               />
               <button
                 type="submit"
-                className="bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded-md"
+                className="bg-black hover:bg-gray-900 text-white text-xs lg:text-base font-bold py-2 px-4 rounded-md"
               >
-                {t('subscribe')}
+                {t("subscribe")}
               </button>
             </div>
           </div>

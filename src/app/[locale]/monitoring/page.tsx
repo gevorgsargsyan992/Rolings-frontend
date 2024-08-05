@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import ChartBar from "./components/Charts/ChartBar";
 import ChartArea from "./components/Charts/ChartArea";
@@ -7,6 +8,7 @@ import { MONITORING } from "@/apiConstants";
 import { ChartData, DataCar, DataMonthly, DataWeekly } from "./types";
 import { formattedDateWithWeek } from "./helper";
 import { useTranslation } from "react-i18next";
+import PageContainer from "@/components/PageContainer";
 
 const Monitoring = () => {
   const {t} = useTranslation() as any;
@@ -53,7 +55,7 @@ const Monitoring = () => {
   }, []);
 
   return (
-    <div className="flex flex-col pl-24 pt-10 pb-40">
+    <PageContainer className="flex flex-col pt-10 pb-40">
       <ChartArea title="Cars Weekly Report" data={dataCars} tick={false} />
       <ChartBar
         title={t('monthly-report')}
@@ -62,7 +64,7 @@ const Monitoring = () => {
         color="#c54bb9"
       />
       <ChartBar title="Weekly Report" data={dataWeekly} />
-    </div>
+    </PageContainer>
   );
 };
 

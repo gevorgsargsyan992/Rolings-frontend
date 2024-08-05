@@ -16,7 +16,7 @@ export interface User {
 }
 
 export type Action =
-  | { type: "LOGIN_SUCCESS"; payload: number }
+  | { type: "LOGIN_SUCCESS"; payload: User }
   | { type: "LOGOUT" }
   | { type: "SET_ERROR"; payload: string };
 

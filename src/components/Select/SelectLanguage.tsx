@@ -10,7 +10,10 @@ import { LanguageChangerProps } from "./types";
 
 const { Text } = Typography;
 
-const LanguageChanger: FC<LanguageChangerProps> = ({ className = "" }) => {
+const LanguageChanger: FC<LanguageChangerProps> = ({
+  className = "",
+  titleClassName = "",
+}) => {
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [savedLanguage, setSavedLanguage] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -50,17 +53,18 @@ const LanguageChanger: FC<LanguageChangerProps> = ({ className = "" }) => {
 
   return (
     <div className={`relative inline-block text-left ${className}`}>
-      <div>
-        <button
-          onClick={toggleDropdown}
-          className="py-2 flex items-center text-gray-800"
+      <button
+        onClick={toggleDropdown}
+        className="py-2 flex items-center text-gray-800"
+      >
+        <Text
+          className={`font-semibold mr-1 ${titleClassName}`}
+          color="text-black"
         >
-          <Text className="font-semibold mr-1" color="text-black">
-            {languageToShow}
-          </Text>
-          <Icon name={dropdownOpen ? "arrow-up-small" : "arrow-down-small"} />
-        </button>
-      </div>
+          {languageToShow}
+        </Text>
+        <Icon name={dropdownOpen ? "arrow-up-small" : "arrow-down-small"} />
+      </button>
       {dropdownOpen && (
         <div
           ref={dropdownRef}

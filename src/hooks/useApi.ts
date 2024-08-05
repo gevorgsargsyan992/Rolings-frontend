@@ -1,6 +1,8 @@
-import { useState } from "react";
+import {useReducer, useState} from "react";
 import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from "axios";
 import { useRouter } from "next/navigation";
+import {authReducer} from "@/reducers/Auth";
+import { initialState } from "@/providers/Auth";
 
 interface ApiResponse<T> {
   loading: boolean;
@@ -19,6 +21,9 @@ const useApi = <T>(): ApiResponse<T> => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<AxiosError | null>(null);
   const router = useRouter();
+
+  const [_state, dispatch] = useReducer(authReducer, initialState);
+
 
   api.interceptors.request.use(
     (config) => {
@@ -51,8 +56,9 @@ const useApi = <T>(): ApiResponse<T> => {
     } catch (error) {
       const axiosError = error as AxiosError;
       if (axiosError.response?.status === 401) {
-        console.log("called");
         window.localStorage.removeItem("token");
+        window.localStorage.removeItem("user");
+        dispatch({ type: "LOGOUT" });
         router.replace("/"); //logout user
       }
       setError(axiosError);
