@@ -1,7 +1,6 @@
 import {useReducer, useState} from "react";
 import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from "axios";
 import { useRouter } from "next/navigation";
-import {Action, AuthState} from "@/providers/Auth/types";
 import {authReducer} from "@/reducers/Auth";
 import { initialState } from "@/providers/Auth";
 
@@ -23,9 +22,7 @@ const useApi = <T>(): ApiResponse<T> => {
   const [error, setError] = useState<AxiosError | null>(null);
   const router = useRouter();
 
-  const [ dispatch] = useReducer<
-      (state: AuthState, action: Action) => AuthState
-  >(authReducer, initialState);
+  const [_state, dispatch] = useReducer(authReducer, initialState);
 
 
   api.interceptors.request.use(
@@ -60,6 +57,7 @@ const useApi = <T>(): ApiResponse<T> => {
       const axiosError = error as AxiosError;
       if (axiosError.response?.status === 401) {
         window.localStorage.removeItem("token");
+        window.localStorage.removeItem("user");
         dispatch({ type: "LOGOUT" });
         router.replace("/"); //logout user
       }

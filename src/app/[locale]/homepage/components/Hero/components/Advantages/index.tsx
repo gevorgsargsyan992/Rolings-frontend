@@ -7,11 +7,11 @@ const Advantages: FC = () => {
 
   const DATA1 = useMemo(
     () => [t("personal-page"), t("monitoring"), t("choice")],
-    []
+    [t]
   );
   const DATA2 = useMemo(
     () => [t("surveys"), t("database"), t("availability")],
-    []
+    [t]
   );
 
   return (

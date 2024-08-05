@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import ChartBar from "./components/Charts/ChartBar";
 import ChartArea from "./components/Charts/ChartArea";

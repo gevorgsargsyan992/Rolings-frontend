@@ -34,6 +34,7 @@ const Tablets: FC = () => {
     };
 
     fetchTablets();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
