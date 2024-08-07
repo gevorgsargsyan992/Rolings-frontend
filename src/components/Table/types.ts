@@ -14,6 +14,7 @@ interface Column<T> {
   label: string;
   editable?: boolean;
   render?: (value: T[keyof T]) => ReactNode;
+  link?: boolean;
 }
 
 interface TableAction<T> {
