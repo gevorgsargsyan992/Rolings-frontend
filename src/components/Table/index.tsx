@@ -48,25 +48,30 @@ const Table: FC<TableProps<any>> = ({
                 editRowId === row.id ? "bg-gray-100" : "hover:bg-gray-100"
               }`}
             >
-              {columns.map((column) => console.log('row>>>', row) || (
-                <td className="border-b px-4 py-2" key={column.key as string}>
-                  {column?.link ? (
-                    <a
-                      href={row?.url}
-                      className="text-center text-xs md:text-base text-blue-500 underline"
-                      target="blank"
+              {columns.map(
+                (column) => (
+                    <td
+                      className="border-b px-4 py-2"
+                      key={column.key as string}
                     >
-                      Link
-                    </a>
-                  ) : (
-                    <Text className="text-xs md:text-sx lg:text-base">
-                      {column.render
-                        ? column.render(row[column.key])
-                        : row[column.key]}
-                    </Text>
-                  )}
-                </td>
-              ))}
+                      {column?.link ? (
+                        <a
+                          href={row?.url}
+                          className="text-center text-xs md:text-base text-blue-500 underline"
+                          target="blank"
+                        >
+                          Link
+                        </a>
+                      ) : (
+                        <Text className="text-xs md:text-sx lg:text-base">
+                          {column.render
+                            ? column.render(row[column.key])
+                            : row[column.key]}
+                        </Text>
+                      )}
+                    </td>
+                  )
+              )}
               {rowActions.length > 0 && (
                 <td className="border-b border-t border-h-4 px-4 py-2">
                   <div className="flex gap-1">

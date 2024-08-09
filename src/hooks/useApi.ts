@@ -1,7 +1,7 @@
-import {useReducer, useState} from "react";
+import { useReducer, useState } from "react";
 import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from "axios";
 import { useRouter } from "next/navigation";
-import {authReducer} from "@/reducers/Auth";
+import { authReducer } from "@/reducers/Auth";
 import { initialState } from "@/providers/Auth";
 
 interface ApiResponse<T> {
@@ -14,7 +14,7 @@ interface ApiResponse<T> {
 }
 
 const api = axios.create({
-  baseURL: "https://rolings-backend.onrender.com",
+  baseURL: process.env.PUBLIC_APP_AUTH_URL,
 });
 
 const useApi = <T>(): ApiResponse<T> => {
@@ -23,7 +23,6 @@ const useApi = <T>(): ApiResponse<T> => {
   const router = useRouter();
 
   const [_state, dispatch] = useReducer(authReducer, initialState);
-
 
   api.interceptors.request.use(
     (config) => {
