@@ -37,7 +37,7 @@ const LeftSidebar: FC = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full z-50 max-w-[120px] flex transition-width duration-300 ease-in-out`}
+      className={`fixed top-0 left-0 h-full z-50 max-w-[120px] flex transition-width duration-300 ease-in-out ${!isAuthenticated && 'lg:hidden'}`}
     >
       <div
         className={`bg-gray-800 text-white transition-all duration-300 ease-in-out transform ${
@@ -67,9 +67,10 @@ const LeftSidebar: FC = () => {
             </Link>
           ))}
           {!isAuthenticated ? (
-            <>
+            <div className='flex flex-col lg:hidden'>
               <Link
                 href="/signin"
+                onClick={() => setIsOpen(false)}
                 className="flex items-center px-4 py-2 cursor-pointer lg:hidden hover:bg-gray-700"
               >
                 <Icon name="logout" className="mr-2" />
@@ -79,6 +80,7 @@ const LeftSidebar: FC = () => {
               </Link>
               <Link
                 href="/registration"
+                onClick={() => setIsOpen(false)}
                 className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700"
               >
                 <Icon name="logout" className="mr-2" />
@@ -86,19 +88,7 @@ const LeftSidebar: FC = () => {
                   {t("registration")}
                 </Text>
               </Link>
-              <Link
-                className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-700"
-                href="/registration"
-              >
-                <Icon name="logout" className="mr-2" />
-                <Text
-                  className="flex items-center text-white px-4 py-2 cursor-pointer hover:bg-gray-700"
-                  color="text-white"
-                >
-                  {t("registration")}
-                </Text>
-              </Link>
-            </>
+            </div>
           ) : (
             <div
               className="flex items-center px-4 py-2 cursor-pointer lg:hidden hover:bg-gray-700"
