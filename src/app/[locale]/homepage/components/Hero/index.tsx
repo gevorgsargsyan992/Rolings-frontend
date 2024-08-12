@@ -8,6 +8,7 @@ const { Text } = Typography;
 
 const Hero: FC = () => {
   const { t } = useTranslation() as any;
+  const currentLanguage = window.localStorage.getItem("language");
 
   return (
     <div className="flex flex-col w-full">
@@ -48,11 +49,11 @@ const Hero: FC = () => {
             </Text>
           </div>
         </div>
-        <div className="flex flex-1 w-full hidden md:block">
+        <div className="flex flex-1 w-full md:block">
           <div className="relative w-full h-full">
             <video
               className="absolute inset-0 w-full h-full object-cover rounded-xl"
-              src="/rolings.MOV"
+              src={`/rolings${currentLanguage}.mov`}
               autoPlay
               loop
               muted
