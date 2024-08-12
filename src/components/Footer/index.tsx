@@ -44,7 +44,7 @@ const Footer = () => {
                   </Text>
                 </div>
               ))}
-              <div className="flex gap-2 mt-4">
+              <div className="flex gap-2 mt-4 justify-center md:justify-normal">
                 {SOCIAL_NETWORK.map((el) => (
                   <Link key={el.url} href={el.url}>
                     <Image width={24} alt="social accounts" src={el.imgSrc} />

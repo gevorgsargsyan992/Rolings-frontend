@@ -10,7 +10,7 @@ const MainContent: FC<IMainContent> = ({ children, className }) => {
     <div
       className={`flex w-full mx-auto transition-all duration-300 ${className}`}
     >
-      {isAuthenticated && <LeftSidebar />}
+      <LeftSidebar />
       <main
         className="flex-grow flex flex-col justify-between pt-20 h-full"
       >
