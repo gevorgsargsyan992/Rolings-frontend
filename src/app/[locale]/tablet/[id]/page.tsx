@@ -122,10 +122,10 @@ const TabletDetail: FC = () => {
           {tablet?.lastActive && (
             <InfoElement name="Last Active" value={tablet?.lastActive} />
           )}
-          {tablet?.latitude && (
+          {(tablet?.latitude || +tablet?.latitude === 0) && (
             <InfoElement name="LAT" value={tablet?.latitude} />
           )}
-          {tablet?.longitude && (
+          {(tablet?.longitude || +tablet?.longitude === 0) && (
             <InfoElement name="LONG" value={tablet?.longitude} />
           )}
           {tablet?.tabletStatus && (
