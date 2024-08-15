@@ -57,7 +57,7 @@ const VideoData: FC<{ video: any }> = ({ video }) => {
         className="flex justify-center items-center self-center mt-2"
         onClick={onAssignVideo}
       >
-        <Icon name={isAssigned ? "green-check" : "plus"} />
+        <Icon color='black' name={isAssigned ? "green-check" : "plus"} />
       </button>
     </div>
   );
