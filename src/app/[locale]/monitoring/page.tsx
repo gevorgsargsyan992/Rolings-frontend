@@ -56,14 +56,14 @@ const Monitoring = () => {
 
   return (
     <PageContainer className="flex flex-col pt-10 pb-40">
-      <ChartArea title="Cars Weekly Report" data={dataCars} tick={false} />
+      <ChartArea title={t('cars-weekly-report')} data={dataCars} tick={false} />
       <ChartBar
         title={t('monthly-report')}
         className="my-32"
         data={dataMonthly}
         color="#c54bb9"
       />
-      <ChartBar title="Weekly Report" data={dataWeekly} />
+      <ChartBar title={t('weekly-report')} data={dataWeekly} />
     </PageContainer>
   );
 };
