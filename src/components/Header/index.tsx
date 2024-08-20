@@ -100,9 +100,9 @@ const Header: FC = () => {
               </>
             ) : (
               <div className="flex items-center">
-                {user?.avatarUrl ? (
+                {user?.avatarImage ? (
                   <Image
-                    src={user.avatarUrl}
+                    src={user.avatarImage}
                     alt="User Avatar"
                     className="rounded-full h-10 w-10 object-cover"
                     width={40}
