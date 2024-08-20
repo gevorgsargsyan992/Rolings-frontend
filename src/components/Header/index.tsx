@@ -1,5 +1,5 @@
 "use client";
-import { FC, useCallback, useState, useMemo } from "react";
+import { FC, useCallback, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Typography from "@/components/Typography";
@@ -19,9 +19,11 @@ const { Text } = Typography;
 const Header: FC = () => {
   const { t } = useTranslation() as any;
   const router = useRouter();
-  const { logout, isAuthenticated } = useAuth() as any;
+  const { logout, isAuthenticated, getUserData } = useAuth() as any;
   const { setIsOpen, setActiveIndex, isOpen } = useSidebar();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const user = getUserData();
 
   const onLogout = useCallback(async () => {
     await logout();
@@ -41,12 +43,16 @@ const Header: FC = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const getUserInitials = useCallback(() => {
+    if (!user || !user.companyName) return "NN";
+    return `${user.companyName[0]}`;
+  }, [user]);
+
   return (
     <header className="bg-gray-100 fixed top-0 w-full z-40">
       <PageContainer>
         <nav
-          className={`mx-auto flex justify-between py-6 items-center px-2 
-        `}
+          className="mx-auto flex justify-between py-6 items-center px-2"
           aria-label="Global"
         >
           <div className="flex items-center">
@@ -93,15 +99,32 @@ const Header: FC = () => {
                 </Link>
               </>
             ) : (
-              <Button onClick={onLogout} className="hidden lg:flex">
-                <Text
-                  className="pr-2 overflow-ellipsis text-xs xl:text-base whitespace-nowrap"
-                  color="text-white"
-                >
-                  {t("logout")}
-                </Text>
-                <Icon name="logout" className="pr--2" />
-              </Button>
+              <div className="flex items-center">
+                {user?.avatarUrl ? (
+                  <Image
+                    src={user.avatarUrl}
+                    alt="User Avatar"
+                    className="rounded-full h-10 w-10 object-cover"
+                    width={40}
+                    height={40}
+                  />
+                ) : (
+                  <div className="bg-purple-900 text-white rounded-full h-10 w-10 flex items-center justify-center">
+                    <span className="text-sm font-semibold">
+                      {getUserInitials()}
+                    </span>
+                  </div>
+                )}
+                <Button onClick={onLogout} className="hidden lg:flex ml-4">
+                  <Text
+                    className="pr-2 overflow-ellipsis text-xs xl:text-base whitespace-nowrap"
+                    color="text-white"
+                  >
+                    {t("logout")}
+                  </Text>
+                  <Icon name="logout" className="pr--2" />
+                </Button>
+              </div>
             )}
             <div className="border-l h-8 hidden lg:block" />
             <SelectLanguage />
