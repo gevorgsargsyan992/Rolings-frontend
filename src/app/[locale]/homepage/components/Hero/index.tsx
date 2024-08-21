@@ -12,7 +12,7 @@ const Hero: FC = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <div className="flex w-full">
+      <div className="flex flex-col md:flex-row w-full">
         <div className="flex flex-1 flex-col md:mr-4">
           <div className="flex justify-center md:justify-start">
             <div className="bg-blue-royal rounded-full text-white px-4 py-2 text-base mr-0 md:mr-4 text-xs md:text-sm text-center">
@@ -49,10 +49,10 @@ const Hero: FC = () => {
             </Text>
           </div>
         </div>
-        <div className="flex flex-1 w-full md:block">
+        <div className="flex flex-1 w-full mt-8 md:mt-0 md:block">
           <div className="relative w-full h-full">
             <video
-              className="absolute inset-0 w-full h-full object-cover rounded-xl"
+              className="inset-0 w-full h-full object-cover rounded-xl"
               src={`/rolings${currentLanguage}.mov`}
               autoPlay
               loop
