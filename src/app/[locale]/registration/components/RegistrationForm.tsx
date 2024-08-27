@@ -6,6 +6,7 @@ import Typography from "@/components/Typography";
 import Button from "@/components/Button";
 import { USER } from "@/apiConstants";
 import useApi from "@/hooks/useApi";
+import { useTranslation } from "react-i18next";
 
 const { Text } = Typography;
 
@@ -27,14 +28,14 @@ const SignUpForm: FC<any> = ({
   const [loading, setLoading] = useState<boolean>(false);
   const [checked, setChecked] = useState<boolean>(false);
 
+  const { t } = useTranslation() as any;
+
   const api = useApi();
 
   const validatePassword = (password: string) => {
     const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{6,}$/;
     if (!regex.test(password)) {
-      setPasswordError(
-        "Password must be at least 6 characters, with one uppercase letter, one lowercase letter, and one symbol."
-      );
+      setPasswordError(t("password-must-contain"));
       return false;
     }
     setPasswordError("");
@@ -92,16 +93,8 @@ const SignUpForm: FC<any> = ({
 
   return (
     <>
-      {error && (
-        <Text color="text-red-500 mb-2">
-          {error}
-        </Text>
-      )}
-      {passwordError && (
-        <Text color="text-red-500 mb-2">
-          {passwordError}
-        </Text>
-      )}
+      {error && <Text color="text-red-500 mb-2">{error}</Text>}
+      {passwordError && <Text color="text-red-500 mb-2">{passwordError}</Text>}
       {confirmPasswordError && (
         <Text color="text-red-500 text-xs mb-2">{confirmPasswordError}</Text>
       )}
@@ -111,7 +104,7 @@ const SignUpForm: FC<any> = ({
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="w-full bg-transparent"
-          placeholder="UserName"
+          placeholder={t("username")}
         />
         <Input
           type="email"
@@ -119,14 +112,14 @@ const SignUpForm: FC<any> = ({
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full bg-transparent mt-4"
-          placeholder="Email"
+          placeholder={t("email")}
         />
         <Input
           required
           value={companyName}
           onChange={(e) => setCompanyName(e.target.value)}
           className="w-full bg-transparent mt-4"
-          placeholder="Company Name"
+          placeholder={t("company-name")}
         />
         <Input
           type="number"
@@ -134,7 +127,7 @@ const SignUpForm: FC<any> = ({
           value={phoneNumber}
           onChange={(e) => setPhoneNumber(e.target.value)}
           className="w-full bg-transparent mt-4"
-          placeholder="Phone Number"
+          placeholder={t("phone")}
         />
         <Input
           type="password"
@@ -143,7 +136,7 @@ const SignUpForm: FC<any> = ({
           onChange={(e) => setPassword(e.target.value)}
           errorText={passwordError || confirmPasswordError}
           className="w-full mt-4 bg-transparent"
-          placeholder="Password"
+          placeholder={t("password")}
         />
         <Input
           type="confirmPassword"
@@ -152,7 +145,7 @@ const SignUpForm: FC<any> = ({
           onChange={(e) => setConfirmPassword(e.target.value)}
           errorText={confirmPasswordError}
           className="w-full mt-4 bg-transparent"
-          placeholder="Confirm Password"
+          placeholder={t("confirm-password")}
         />
         <label className="flex items-center mt-4">
           <input
@@ -163,9 +156,9 @@ const SignUpForm: FC<any> = ({
             className="form-radio text-indigo-600"
           />
           <Text color="text-gray-dark" className="text-xs  pl-2">
-            I have read and agree to the{" "}
+            {t("agree-terms")}{" "}
             <Link className="underline text-xs" href="/">
-              Terms of Service
+              {t("terms-of-service")}
             </Link>
           </Text>
         </label>
@@ -184,12 +177,9 @@ const SignUpForm: FC<any> = ({
           type="ghost"
           className="w-full mt-6"
         >
-          Register now
+          {t("resgister-now")}
         </Button>
       </form>
-      <Button type="text" className="mt-4" onClick={onRestorePassword}>
-        Restore password
-      </Button>
     </>
   );
 };

@@ -1,3 +1,7 @@
-export interface LoginFormProps {
-    className?: string;
+export interface ILoginFormProps {
+  className?: string;
+}
+
+export interface IForgotPasswordForm {
+  email?: string;
 }
