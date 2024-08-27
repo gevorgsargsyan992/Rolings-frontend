@@ -10,6 +10,11 @@ import { useTranslation } from "react-i18next";
 
 const { Text } = Typography;
 
+interface SuccessResponse {
+  success: boolean;
+  // other properties if available
+}
+
 const ForgotPasswordForm: FC<IForgotPasswordForm> = ({ email }) => {
   const [verificationCode, setVerificationCode] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -54,8 +59,7 @@ const ForgotPasswordForm: FC<IForgotPasswordForm> = ({ email }) => {
         verificationCode: +verificationCode,
         password,
         email,
-      });
-
+      }) as SuccessResponse;
       if (response?.success) {
         window.location.reload();
       }

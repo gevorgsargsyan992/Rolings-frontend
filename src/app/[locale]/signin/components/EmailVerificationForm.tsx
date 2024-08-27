@@ -10,6 +10,11 @@ import { useTranslation } from "react-i18next";
 
 const { Text } = Typography;
 
+interface SuccessResponse {
+  success: boolean;
+  // other properties if available
+}
+
 const EmailVerificationForm = ({ ...props }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
@@ -26,9 +31,12 @@ const EmailVerificationForm = ({ ...props }) => {
       setLoading(true);
       e.preventDefault();
       try {
-        const response = await api.post(`${RESTORE_PASSWORD}/verify-email`, {
-          email,
-        });
+        const response = await api.post(
+          `${RESTORE_PASSWORD}/verify-email`,
+          {
+            email,
+          }
+        ) as SuccessResponse;
 
         if (response?.success) {
           setShowForgotPasswordForm(true);
@@ -40,7 +48,7 @@ const EmailVerificationForm = ({ ...props }) => {
       }
       setLoading(false);
     },
-    [api, email]
+    [api, email, t]
   );
 
   return (
@@ -63,8 +71,7 @@ const EmailVerificationForm = ({ ...props }) => {
               loading={loading}
               disable={!email}
               type="ghost"
-              className="w-full mt-6"
-            >
+              className="w-full mt-6">
               {t("next")}
             </Button>
           </form>
