@@ -1,5 +1,5 @@
 "use client";
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Typography from "../../../components/Typography";
@@ -8,6 +8,9 @@ import logo from "../../../../public/rolings-logo.svg";
 import LoginForm from "./components/SignInForm";
 import { useRouter } from "next/navigation";
 import Icon from "@/components/Icon";
+import Button from "@/components/Button";
+import ForgotPassword from "@/app/[locale]/signin/components/EmailVerificationForm";
+import { useTranslation } from "react-i18next";
 
 const { Text } = Typography;
 
@@ -16,6 +19,10 @@ const SignIn: FC = () => {
   const handleCloseModal = () => {
     router.replace("/");
   };
+
+  const { t } = useTranslation() as any;
+
+  const [showForgotPassSection, setShowForgotPassSection] = useState(false);
 
   return (
     <div className="fixed z-50 inset-0 bg-gray-800 bg-opacity-50">
@@ -37,29 +44,39 @@ const SignIn: FC = () => {
               src={logo}
               alt="logo image"
             />
-            <div className="py-4">
-              <Text className="text-xl lg:text-2xl" color="text-black" bold>
-                Welcome back to
-              </Text>
-              <Text className="text-xl lg:text-2xl" color="text-black" bold>
-                ROLINGS
-              </Text>
-            </div>
-            <div className="flex justify-center mb-8">
-              <Text className="text-sm lg:text-lg" bold>
-                New user ?
-              </Text>
-              <Link
-                href="/registration"
-                className="text-sm lg:text-lg text-blue-500 text-bold pl-2 pt-0.5"
-              >
-                Create an account
-              </Link>
-            </div>
-            <LoginForm />
-            <Link className="mt-8 text-gray-500" href="/forgot">
-              Forgot password ?
-            </Link>
+            {showForgotPassSection ? (
+              <ForgotPassword />
+            ) : (
+              <div className="flex flex-col">
+                <div className="py-4">
+                  <Text className="text-xl lg:text-2xl" color="text-black" bold>
+                    {t("welcome-back")}
+                  </Text>
+                  <Text className="text-xl lg:text-2xl" color="text-black" bold>
+                    ROLINGS
+                  </Text>
+                </div>
+                <div className="flex justify-center mb-8">
+                  <Text className="text-sm" bold>
+                    {t("new-user")}
+                  </Text>
+                  <Link
+                    href="/registration"
+                    className="text-sm text-blue-500 text-bold pl-2 pt-0.5"
+                  >
+                    {t("create-account")}
+                  </Link>
+                </div>
+                <LoginForm />
+                <Button
+                  type="text"
+                  className="mt-8 text-gray-500"
+                  onClick={() => setShowForgotPassSection(true)}
+                >
+                  {t("forgot-password")}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </div>

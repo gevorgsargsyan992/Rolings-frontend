@@ -9,10 +9,12 @@ import SignUpForm from "./components/RegistrationForm";
 import { useRouter } from "next/navigation";
 import ActivationCodeForm from "@/app/[locale]/registration/components/ActivationCodeForm";
 import Icon from "@/components/Icon";
+import { useTranslation } from "react-i18next";
 
 const { Text } = Typography;
 
 const Registration: FC = () => {
+  const { t } = useTranslation() as any;
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -47,20 +49,19 @@ const Registration: FC = () => {
               <>
                 <div className="py-4">
                   <Text className="text-xl lg:text-2xl" color="text-black" bold>
-                    Start earning with us!
+                    {t("start-earning")}
                   </Text>
                 </div>
                 <div className="flex justify-center mb-8">
-                  <Text className="text-sm md:text-xs lg:text-xl " bold>
-                    Do you have an account?
-                      <Link
-                    href="/signin"
-                    className="text-sm md:text-xs lg:text-xl  text-blue-500 text-bold pl-2 pt-0.5"
-                  >
-                    Log in
-                  </Link>
+                  <Text className="text-sm md:text-xs lg:text-sm" bold>
+                    {t("have-account")}
+                    <Link
+                      href="/signin"
+                      className="text-sm md:text-xs lg:text-sm  text-blue-500 text-bold pl-2 pt-0.5"
+                    >
+                      {t("signin")}
+                    </Link>
                   </Text>
-                
                 </div>
               </>
             )}
