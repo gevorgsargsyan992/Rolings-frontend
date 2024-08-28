@@ -12,7 +12,7 @@ const InputField: React.FC<InputFieldProps> = ({
   showEyeIcon = false,
   ...props
 }) => {
-  const [showPassword, setShowPassword] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

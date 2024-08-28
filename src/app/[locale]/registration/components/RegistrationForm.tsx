@@ -134,13 +134,15 @@ const SignUpForm: FC<any> = ({
           required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          showEyeIcon
           errorText={passwordError || confirmPasswordError}
           className="w-full mt-4 bg-transparent"
           placeholder={t("password")}
         />
         <Input
-          type="confirmPassword"
+          type="password"
           required
+          showEyeIcon
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           errorText={confirmPasswordError}
