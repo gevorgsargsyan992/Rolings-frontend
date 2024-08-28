@@ -100,6 +100,7 @@ const ForgotPasswordForm: FC<IForgotPasswordForm> = ({ email }) => {
         <Input
           type="password"
           required
+          showEyeIcon
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           errorText={passwordError || confirmPasswordError}
@@ -107,9 +108,10 @@ const ForgotPasswordForm: FC<IForgotPasswordForm> = ({ email }) => {
           placeholder={t("password")}
         />
         <Input
-          type="confirmPassword"
+          type="password"
           required
           value={confirmPassword}
+          showEyeIcon
           onChange={(e) => setConfirmPassword(e.target.value)}
           errorText={confirmPasswordError}
           className="w-full mt-4 bg-transparent"
