@@ -22,6 +22,7 @@ const Header: FC = () => {
   const { logout, isAuthenticated, getUserData } = useAuth() as any;
   const { setIsOpen, setActiveIndex, isOpen } = useSidebar();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<number | null>(null);
 
   const user = getUserData();
 
@@ -32,9 +33,10 @@ const Header: FC = () => {
     router.replace("/");
   }, [logout, router, setIsOpen, setActiveIndex]);
 
-  const handleLinkClick = (link: string) => {
+  const handleLinkClick = (index: number, link: string) => {
     setIsOpen(false);
     setActiveIndex(-1);
+    setActiveTab(index);
     router.push(link);
     setMenuOpen(false);
   };
@@ -65,13 +67,15 @@ const Header: FC = () => {
               />
             </Link>
             <div className="hidden lg:flex lg:items-center lg:gap-x-4">
-              {DATA().map((elem) => (
+              {DATA().map((elem, index) => (
                 <Link
                   key={elem.id}
                   href={elem.link}
                   passHref
-                  onClick={() => handleLinkClick(elem.link)}
-                  className="text-sm font-semibold lg:text-xs xl:text-sm text-charcoal lg:mr-6"
+                  onClick={() => handleLinkClick(index, elem.link)}
+                  className={`text-sm font-semibold lg:text-xs xl:text-sm lg:mr-6 ${
+                    activeTab === index ? "text-blue-royal" : "text-charcoal"
+                  }`}
                 >
                   {elem.name}
                 </Link>
