@@ -73,7 +73,7 @@ const Header: FC = () => {
                   href={elem.link}
                   passHref
                   onClick={() => handleLinkClick(index, elem.link)}
-                  className={`text-sm font-semibold lg:text-xs xl:text-sm lg:mr-6 ${
+                  className={`text-sm font-semibold lg:text-xs xl:text-sm lg:mr-6 hover:text-blue-royal ${
                     activeTab === index ? "text-blue-royal" : "text-charcoal"
                   }`}
                 >
@@ -88,7 +88,7 @@ const Header: FC = () => {
                 <Link
                   href="/signin"
                   passHref
-                  className="text-sm font-semibold text-black hidden lg:block"
+                  className="text-sm font-semibold text-black hidden lg:block hover:text-blue-royal"
                 >
                   {t("signin")}
                 </Link>
