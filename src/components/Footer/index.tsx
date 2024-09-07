@@ -5,13 +5,13 @@ import Link from "next/link";
 import Input from "@/components/Input";
 import { DATA, INFO_DATA } from "./constants";
 import { useState } from "react";
-import LogoPart from "./components/LogoPart";
 import PageContainer from "../PageContainer";
 import Icon from "@/components/Icon";
 import { useTranslation } from "react-i18next";
 import youtubeImg from "../../../public/youtube.webp";
 import instagramImg from "../../../public/instagram.webp";
 import facebookImg from "../../../public/facebook.webp";
+import logo from "../../../public/rolings-logo.svg";
 
 const { Text } = Typography;
 
@@ -27,9 +27,11 @@ const Footer = () => {
 
   return (
     <div>
-      <LogoPart />
       <footer className="w-full bg-white 2xl:py-8 py-4">
-        <PageContainer className="md:px-0 md:pl-20 md:pr-8">
+        <PageContainer className="flex md:px-0 md:pl-20 md:pr-8">
+          <div className="flex">
+            <Image className="flex rotate-90 object-contain" src={logo} alt="logo image" />
+          </div>
           <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-auto max-w-5xl">
             <div className="flex flex-col gap-y-4">
               {INFO_DATA().map(({ iconName, text, id }) => (
@@ -44,13 +46,6 @@ const Footer = () => {
                   </Text>
                 </div>
               ))}
-              <div className="flex gap-2 mt-4 justify-center md:justify-normal">
-                {SOCIAL_NETWORK.map((el) => (
-                  <Link key={el.url} href={el.url}>
-                    <Image width={24} alt="social accounts" src={el.imgSrc} />
-                  </Link>
-                ))}
-              </div>
             </div>
             {DATA().map((elem, idx) => (
               <div className="flex flex-col mt-6 md:mt-0" key={idx}>
@@ -91,6 +86,13 @@ const Footer = () => {
                 {t("subscribe")}
               </button>
             </div>
+          </div>
+          <div className="flex flex-col gap-2 mt-4 justify-center md:justify-normal">
+            {SOCIAL_NETWORK.map((el) => (
+                <Link key={el.url} href={el.url}>
+                  <Image width={24} alt="social accounts" src={el.imgSrc} />
+                </Link>
+            ))}
           </div>
         </PageContainer>
       </footer>
