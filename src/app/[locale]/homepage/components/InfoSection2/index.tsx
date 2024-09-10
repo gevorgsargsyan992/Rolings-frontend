@@ -24,7 +24,7 @@ const InfoSection = () => (
       </Text>
       <ul className="list-disc list-inside">
         {DATA.map((el) => (
-          <li className="mt-4 xl:text-base text-sm" id={el}>
+          <li key={el} className="mt-4 xl:text-base text-sm" id={el}>
             {el}
           </li>
         ))}

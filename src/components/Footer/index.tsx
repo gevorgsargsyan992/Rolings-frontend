@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import youtubeImg from "../../../public/youtube.webp";
 import instagramImg from "../../../public/instagram.webp";
 import facebookImg from "../../../public/facebook.webp";
-import logo from "../../../public/rolings-logo.svg";
+import logoRotated from "../../../public/rolings-rotate.webp";
 
 const { Text } = Typography;
 
@@ -29,10 +29,10 @@ const Footer = () => {
     <div>
       <footer className="w-full bg-white 2xl:py-8 py-4">
         <PageContainer className="flex md:px-0 md:pl-20 md:pr-8">
-          <div className="flex">
-            <Image className="flex rotate-90 object-contain" src={logo} alt="logo image" />
-          </div>
-          <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-auto max-w-5xl">
+          <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-8 max-w-5xl">
+            <div className="flex">
+              <Image className="flex" width={40} src={logoRotated}  alt="logo image" />
+            </div>
             <div className="flex flex-col gap-y-4">
               {INFO_DATA().map(({ iconName, text, id }) => (
                 <div className="flex justify-center md:justify-start" key={id}>
