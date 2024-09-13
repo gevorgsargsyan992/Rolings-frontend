@@ -31,7 +31,7 @@ const Footer = () => {
           <div className="flex">
             <Image className="hidden lg:block" width={40} src={logoRotated}  alt="logo image" />
           </div>
-          <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-8 max-w-5xl">
+          <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-8 max-w-6xl">
             <div className="flex flex-col gap-y-4">
               {INFO_DATA().map(({ iconName, text, id }) => (
                 <div className="flex justify-center md:justify-start" key={id}>
