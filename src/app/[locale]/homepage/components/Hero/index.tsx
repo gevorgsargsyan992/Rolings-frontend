@@ -53,7 +53,7 @@ const Hero: FC = () => {
           <div className="relative w-full h-full">
             <video
               className="inset-0 w-full h-full object-cover rounded-xl"
-              src={`/rolings${currentLanguage}.mov`}
+              src={currentLanguage ? `/rolings${currentLanguage}.mov` : `/rolingsen.mov`}
               autoPlay
               loop
               muted
