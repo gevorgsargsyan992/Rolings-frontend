@@ -5,13 +5,13 @@ import Link from "next/link";
 import Input from "@/components/Input";
 import { DATA, INFO_DATA } from "./constants";
 import { useState } from "react";
-import LogoPart from "./components/LogoPart";
 import PageContainer from "../PageContainer";
 import Icon from "@/components/Icon";
 import { useTranslation } from "react-i18next";
 import youtubeImg from "../../../public/youtube.webp";
 import instagramImg from "../../../public/instagram.webp";
 import facebookImg from "../../../public/facebook.webp";
+import logoRotated from "../../../public/rolings-rotate.webp";
 
 const { Text } = Typography;
 
@@ -26,11 +26,12 @@ const Footer = () => {
   const [email, setEmail] = useState<string>("");
 
   return (
-    <div>
-      <LogoPart />
       <footer className="w-full bg-white 2xl:py-8 py-4">
-        <PageContainer className="md:px-0 md:pl-20 md:pr-8">
-          <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-auto max-w-5xl">
+        <PageContainer className="flex md:px-0 md:pl-20 justify-center md:pr-8 w-full">
+          <div className="flex">
+            <Image className="hidden lg:block" width={40} src={logoRotated}  alt="logo image" />
+          </div>
+          <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-8 max-w-5xl">
             <div className="flex flex-col gap-y-4">
               {INFO_DATA().map(({ iconName, text, id }) => (
                 <div className="flex justify-center md:justify-start" key={id}>
@@ -44,13 +45,6 @@ const Footer = () => {
                   </Text>
                 </div>
               ))}
-              <div className="flex gap-2 mt-4 justify-center md:justify-normal">
-                {SOCIAL_NETWORK.map((el) => (
-                  <Link key={el.url} href={el.url}>
-                    <Image width={24} alt="social accounts" src={el.imgSrc} />
-                  </Link>
-                ))}
-              </div>
             </div>
             {DATA().map((elem, idx) => (
               <div className="flex flex-col mt-6 md:mt-0" key={idx}>
@@ -92,9 +86,15 @@ const Footer = () => {
               </button>
             </div>
           </div>
+          <div className="flex flex-col gap-2 mt-2 justify-center md:justify-normal">
+            {SOCIAL_NETWORK.map((el) => (
+                <Link key={el.url} href={el.url}>
+                  <Image width={24} alt="social accounts" src={el.imgSrc} />
+                </Link>
+            ))}
+          </div>
         </PageContainer>
       </footer>
-    </div>
   );
 };
 
