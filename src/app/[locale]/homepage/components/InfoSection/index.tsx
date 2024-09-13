@@ -24,10 +24,7 @@ const InfoSection = () => {
         {/*>*/}
         {/*  {t("elevate-game")}*/}
         {/*</Text>*/}
-        <Text
-          className="xl:text-base text-sm lg:mt-0 mt-4 lg:text-left text-center"
-          color="black"
-        >
+        <Text className="xl:text-base text-sm lg:mt-0 mt-4 lg:text-left text-center text-black">
           {t("looking-to-reach-audience")}
         </Text>
         {/*<Button type="ghost" className="max-w-max xl:mt-6 mt-4">*/}

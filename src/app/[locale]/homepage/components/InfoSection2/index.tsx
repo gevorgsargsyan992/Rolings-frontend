@@ -17,15 +17,18 @@ const InfoSection = () => {
     <div className="flex items-center lg:items-start flex-col lg:flex-row gap-4 py-8">
       <div className="flex flex-1 items-center lg:items-start flex-col">
         <Text
-          className="text-sm xl:mt-0 mt-4 uppercase xl:ml-4"
+          className="text-sm xl:mt-0 mt-4 uppercase xl:ml-4 text-black"
           bold
-          color="black"
         >
           {t("our_features")}
         </Text>
         <ul className="list-disc list-inside">
           {DATA.map((el) => (
-            <li key={el} className="mt-4 xl:text-base text-sm" id={el}>
+            <li
+              key={el}
+              className="mt-4 xl:text-base text-sm text-black"
+              id={el}
+            >
               {el}
             </li>
           ))}
