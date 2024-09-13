@@ -26,13 +26,12 @@ const Footer = () => {
   const [email, setEmail] = useState<string>("");
 
   return (
-    <div>
       <footer className="w-full bg-white 2xl:py-8 py-4">
-        <PageContainer className="flex md:px-0 md:pl-20 md:pr-8">
+        <PageContainer className="flex md:px-0 md:pl-20 justify-center md:pr-8 w-full">
+          <div className="flex">
+            <Image className="hidden lg:block" width={40} src={logoRotated}  alt="logo image" />
+          </div>
           <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-8 max-w-5xl">
-            <div className="flex">
-              <Image className="flex" width={40} src={logoRotated}  alt="logo image" />
-            </div>
             <div className="flex flex-col gap-y-4">
               {INFO_DATA().map(({ iconName, text, id }) => (
                 <div className="flex justify-center md:justify-start" key={id}>
@@ -87,7 +86,7 @@ const Footer = () => {
               </button>
             </div>
           </div>
-          <div className="flex flex-col gap-2 mt-4 justify-center md:justify-normal">
+          <div className="flex flex-col gap-2 mt-2 justify-center md:justify-normal">
             {SOCIAL_NETWORK.map((el) => (
                 <Link key={el.url} href={el.url}>
                   <Image width={24} alt="social accounts" src={el.imgSrc} />
@@ -96,7 +95,6 @@ const Footer = () => {
           </div>
         </PageContainer>
       </footer>
-    </div>
   );
 };
 

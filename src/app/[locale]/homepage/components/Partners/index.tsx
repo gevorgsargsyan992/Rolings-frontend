@@ -7,7 +7,7 @@ import exterior from "../../../../../../public/exterior.webp";
 import autolab from "../../../../../../public/autolab.webp";
 import { useTranslation } from "react-i18next";
 
-const DATA = [{src: ameria, width: 240}, {src: autolab, width: 258}, {src: exterior, width: 258}, {src: derma, width: 258}];
+const DATA = [ameria, autolab, exterior, derma];
 
 const { Text } = Typography;
 
@@ -15,12 +15,19 @@ const Partners = () => {
   const { t } = useTranslation() as any;
   return (
     <div className="flex flex-col py-8 w-full">
-      <Text color="black" className="mb-4">
+      <Text color="black" className="mb-4 tex text-center lg:text-start">
         {t("partners")}
       </Text>
-      <div className="md:flex justify-between gap-16">
+      <div className="md:flex flex-col lg:flex-row justify-between self-center lg:self-auto gap-10">
         {DATA.map((el, idx) => (
-          <Image key={idx} width={el.width} src={el.src} alt="partner" className="responsive"/>
+          <Image
+            key={idx}
+            src={el}
+            width={200}
+            alt="partner"
+            className="mt-6 lg:mt-0"
+            style={{ objectFit: "contain" }}
+          />
         ))}
       </div>
     </div>
