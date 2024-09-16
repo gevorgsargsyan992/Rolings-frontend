@@ -6,12 +6,12 @@ import Partners from "./components/Partners";
 
 const HomePage = () => {
   return (
-    <PageContainer className="flex flex-col items-center justify-center bg-gray-100 pt-10">
+    <div className="flex flex-col items-center justify-center bg-gray-100 pt-10">
       <Hero />
       <InfoSection />
       <InfoSectionCars />
       <Partners />
-    </PageContainer>
+    </div>
   );
 };
 
