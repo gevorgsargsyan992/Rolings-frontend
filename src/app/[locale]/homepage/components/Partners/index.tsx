@@ -9,10 +9,10 @@ import { useTranslation } from "react-i18next";
 import PageContainer from "@/components/PageContainer";
 
 const DATA = [
-  { image: ameria, url: 'https://ameriabank.am/' },
-  { image: autolab, url: 'https://www.autolab.am/' },
-  { image: exterior, url: 'https://exterior.am/' },
-  { image: loyal, url: 'https://loyal.am/hy' },
+  { image: ameria, url: "https://ameriabank.am/", height: 36 },
+  { image: autolab, url: "https://www.autolab.am/", height: 14 },
+  { image: exterior, url: "https://exterior.am/", height: 40 },
+  { image: loyal, url: "https://loyal.am/hy", height: 60 },
 ];
 
 const { Text } = Typography;
@@ -33,14 +33,14 @@ const Partners = () => {
         <div className="md:flex flex-col lg:flex-row justify-between self-center lg:self-auto gap-10">
           {DATA.map((el, idx) => (
             <a
-              target='_blank'
+              target="_blank"
               href={`${el.url}`}
               className="flex mt-6 lg:mt-0"
               key={idx}
             >
               <Image
                 src={el.image}
-                width={200}
+                height={el.height}
                 alt="partner"
                 style={{ objectFit: "contain" }}
               />
