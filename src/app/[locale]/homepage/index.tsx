@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import InfoSection from "./components/InfoSection";
 import InfoSectionCars from "./components/InfoSection2";
 import Partners from "./components/Partners";
+import Pricing from "@/app/[locale]/homepage/components/Pricing";
 
 const HomePage = () => {
   return (
@@ -11,6 +12,7 @@ const HomePage = () => {
       <InfoSection />
       <InfoSectionCars />
       <Partners />
+      <Pricing />
     </div>
   );
 };
