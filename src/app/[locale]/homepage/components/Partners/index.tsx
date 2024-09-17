@@ -1,14 +1,19 @@
 "use client";
 import Image from "next/image";
 import Typography from "@/components/Typography";
-import derma from "../../../../../../public/derma.webp";
+import loyal from "../../../../../../public/loyal.webp";
 import ameria from "../../../../../../public/ameria.webp";
 import exterior from "../../../../../../public/exterior.webp";
 import autolab from "../../../../../../public/autolab.webp";
 import { useTranslation } from "react-i18next";
 import PageContainer from "@/components/PageContainer";
 
-const DATA = [ameria, autolab, exterior, derma];
+const DATA = [
+  { image: ameria, url: 'https://ameriabank.am/' },
+  { image: autolab, url: 'https://www.autolab.am/' },
+  { image: exterior, url: 'https://exterior.am/' },
+  { image: loyal, url: 'https://loyal.am/hy' },
+];
 
 const { Text } = Typography;
 
@@ -24,17 +29,22 @@ const Partners = () => {
           {t("partners")}
         </Text>
       </div>
-      <PageContainer className="flex flex-col py-8 w-full">
+      <PageContainer className="flex flex-col py-6 w-full">
         <div className="md:flex flex-col lg:flex-row justify-between self-center lg:self-auto gap-10">
           {DATA.map((el, idx) => (
-            <Image
+            <a
+              target='_blank'
+              href={`${el.url}`}
+              className="flex mt-6 lg:mt-0"
               key={idx}
-              src={el}
-              width={200}
-              alt="partner"
-              className="mt-6 lg:mt-0"
-              style={{ objectFit: "contain" }}
-            />
+            >
+              <Image
+                src={el.image}
+                width={200}
+                alt="partner"
+                style={{ objectFit: "contain" }}
+              />
+            </a>
           ))}
         </div>
       </PageContainer>
