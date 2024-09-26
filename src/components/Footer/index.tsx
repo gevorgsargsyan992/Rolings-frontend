@@ -8,7 +8,7 @@ import { useState } from "react";
 import PageContainer from "../PageContainer";
 import Icon from "@/components/Icon";
 import { useTranslation } from "react-i18next";
-import youtubeImg from "../../../public/youtube.webp";
+// import youtubeImg from "../../../public/youtube.webp";
 import instagramImg from "../../../public/instagram.webp";
 import facebookImg from "../../../public/facebook.webp";
 import logoRotated from "../../../public/rolings-rotate.webp";
@@ -16,9 +16,9 @@ import logoRotated from "../../../public/rolings-rotate.webp";
 const { Text } = Typography;
 
 const SOCIAL_NETWORK = [
-  { imgSrc: instagramImg, url: "" }, //TODO: add urls in the future
-  { imgSrc: facebookImg, url: "" },
-  { imgSrc: youtubeImg, url: "" },
+  { imgSrc: instagramImg, url: "https://www.instagram.com/rolings_official/" },
+  { imgSrc: facebookImg, url: "https://www.facebook.com/profile.php?id=61555657757405&locale=ru_RU" },
+  // { imgSrc: youtubeImg, url: "" }, //TODO: check if we need it in the future
 ];
 
 const Footer = () => {
@@ -88,9 +88,9 @@ const Footer = () => {
           </div>
           <div className="flex flex-col gap-2 mt-2 justify-center md:justify-normal">
             {SOCIAL_NETWORK.map((el) => (
-                <Link key={el.url} href={el.url}>
+                <a key={el.url} href={el.url} target="_blank">
                   <Image width={24} alt="social accounts" src={el.imgSrc} />
-                </Link>
+                </a>
             ))}
           </div>
         </PageContainer>
