@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Typography from "@/components/Typography";
-import ideaImg from "../../../../../../public/idea.webp";
+import ImgTablet from "../../../../../../public/tablets_car.webp";
 // import Button from "@/components/Button";
 import { useTranslation } from "react-i18next";
 import PageContainer from "@/components/PageContainer";
@@ -14,7 +14,7 @@ const InfoSection = () => {
     <>
       <PageContainer className="flex items-center lg:items-start flex-col lg:flex-row gap-4 py-8">
         <div className="flex lg:w-full max-w-[500px] lg:max-w-[704px] lg:flex-1 mr-0 lg:mr-6">
-          <Image src={ideaImg} alt="idea" className="rounded-xl" />
+          <Image src={ImgTablet} alt="idea" className="rounded-xl" />
         </div>
         <div className="flex flex-1 items-center lg:items-start flex-col pt-2">
           {/*<div className="bg-blue-royal max-w-max rounded-full text-white px-4 py-2 text-base mr-0 text-xs md:text-sm">*/}
