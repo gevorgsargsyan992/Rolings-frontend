@@ -21,16 +21,18 @@ const Partners = () => {
   const { t } = useTranslation() as any;
   return (
     <>
-      <div className="flex bg-white w-full mt-2">
-        <Text
-          color="black"
-          className="lg:text-start text-xl pt-8 2xl:pl-40 pl-20 pb-1 bold text-center"
-        >
-          {t("partners")}
-        </Text>
+      <div className="flex bg-white w-full mt-2 justify-center">
+        <div className="w-full self-center max-w-[2000px]">
+          <Text
+            color="black"
+            className="lg:text-start text-xl pt-8 2xl:pl-40 pl-20 pb-1 bold text-center"
+          >
+            {t("partners")}
+          </Text>
+        </div>
       </div>
       <PageContainer className="flex flex-col py-6 w-full">
-        <div className="md:flex flex-col lg:flex-row justify-between self-center lg:self-auto gap-10">
+        <div className="md:flex flex-col lg:flex-row justify-between self-center lg:self-auto mx-auto w-full max-w-[2000px]">
           {DATA.map((el, idx) => (
             <a
               target="_blank"

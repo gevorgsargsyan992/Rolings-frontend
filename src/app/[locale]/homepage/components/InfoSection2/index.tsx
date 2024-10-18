@@ -16,7 +16,7 @@ const InfoSection = () => {
   );
   return (
     <PageContainer className="flex items-center lg:items-start flex-col lg:flex-row gap-4 py-8">
-      <div className="flex flex-1 items-center lg:items-start flex-col">
+      <div className="flex flex-1 items-center lg:items-start flex-col max-w-5xl">
         <Text
           className="text-sm xl:mt-0 mt-4 uppercase xl:ml-4 text-black"
           bold
@@ -36,7 +36,7 @@ const InfoSection = () => {
         </ul>
       </div>
       <div className="flex lg:w-full max-w-[500px] lg:max-w-[704px] lg:flex-1">
-        <Image src={ImgDriver} alt="cars"  className="rounded-xl" />
+        <Image src={ImgDriver} alt="cars" className="rounded-xl" />
       </div>
     </PageContainer>
   );
