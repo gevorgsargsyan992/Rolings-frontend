@@ -29,7 +29,7 @@ const Footer = () => {
       <footer className="w-full bg-white 2xl:py-8 py-4">
         <PageContainer className="flex md:px-0 md:pl-20 justify-center md:pr-8 w-full">
           <div className="flex">
-            <Image className="hidden lg:block 2xl:w-[30px] w-[40px] h-[120px]" src={logoRotated}  alt="logo image" />
+            <Image className="hidden lg:block 2xl:w-[30px] w-[30px] h-[110px]" src={logoRotated}  alt="logo image" />
           </div>
           <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-8 max-w-6xl">
             <div className="flex flex-col gap-y-4">
