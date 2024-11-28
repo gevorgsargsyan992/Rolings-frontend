@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 // import youtubeImg from "../../../public/youtube.webp";
 import instagramImg from "../../../public/instagram.webp";
 import facebookImg from "../../../public/facebook.webp";
+import linkedIn from "../../../public/linkedin.webp";
 import logoRotated from "../../../public/rolings-rotate.webp";
 
 const { Text } = Typography;
@@ -21,7 +22,7 @@ const SOCIAL_NETWORK = [
     imgSrc: facebookImg,
     url: "https://www.facebook.com/profile.php?id=61555657757405&locale=ru_RU",
   },
-  // { imgSrc: youtubeImg, url: "" }, //TODO: check if we need it in the future
+  { imgSrc: linkedIn, url: "https://www.linkedin.com/company/rolings-llc/" },
 ];
 
 const Footer = () => {
