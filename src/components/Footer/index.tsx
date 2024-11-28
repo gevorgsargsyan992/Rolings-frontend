@@ -11,6 +11,7 @@ import { useTranslation } from "react-i18next";
 // import youtubeImg from "../../../public/youtube.webp";
 import instagramImg from "../../../public/instagram.webp";
 import facebookImg from "../../../public/facebook.webp";
+import linkedIn from "../../../public/linkedin.webp";
 import logoRotated from "../../../public/rolings-rotate.webp";
 
 const { Text } = Typography;
@@ -21,7 +22,7 @@ const SOCIAL_NETWORK = [
     imgSrc: facebookImg,
     url: "https://www.facebook.com/profile.php?id=61555657757405&locale=ru_RU",
   },
-  // { imgSrc: youtubeImg, url: "" }, //TODO: check if we need it in the future
+  { imgSrc: linkedIn, url: "https://www.linkedin.com/company/rolings-llc/" },
 ];
 
 const Footer = () => {
@@ -94,7 +95,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-2 mt-2 justify-center md:justify-normal">
           {SOCIAL_NETWORK.map((el) => (
-            <a key={el.url} href={el.url} target="_blank">
+            <a key={el.url} href={el.url} target="_blank" className="rounded">
               <Image width={24} alt="social accounts" src={el.imgSrc} />
             </a>
           ))}
