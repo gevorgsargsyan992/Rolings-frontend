@@ -95,7 +95,7 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-2 mt-2 justify-center md:justify-normal">
           {SOCIAL_NETWORK.map((el) => (
-            <a key={el.url} href={el.url} target="_blank" className="rounded">
+            <a key={el.url} href={el.url} target="_blank">
               <Image width={24} alt="social accounts" src={el.imgSrc} />
             </a>
           ))}
