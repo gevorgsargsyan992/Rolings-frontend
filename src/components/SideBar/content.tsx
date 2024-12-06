@@ -24,6 +24,12 @@ export const DATA = (userType: UserType) => {
       isVisible: userType === UserType.SUPER_ADMIN,
     },
     {
+      link: "/vehicle",
+      title: t("vehicle"),
+      iconName: "vehicle",
+      isVisible: userType === UserType.SUPER_ADMIN,
+    },
+    {
       link: "/email-stats",
       title: t("email-stats"),
       iconName: "email",

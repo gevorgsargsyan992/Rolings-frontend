@@ -9,3 +9,4 @@ export const VIDEOS = "/video";
 export const TABLET_ASSIGN_VIDEO = "/tablet/assign-video";
 export const NOT_ASSIGNED_VIDEOS = "/video/notAssigned";
 export const MONITORING = "/monitoring";
+export const VEHICLE = "/vehicle";
