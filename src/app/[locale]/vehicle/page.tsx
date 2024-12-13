@@ -10,10 +10,12 @@ import PageContainer from "@/components/PageContainer";
 import ProtectedRoute from "@/components/ProtectedRoutes";
 import { UserType } from "@/types/UserTypes";
 import { TableSkeleton } from "@/components/Skeleton";
+import { useRouter } from "next/navigation";
 
 const Tablets: FC = () => {
   const [vehicles, setVehicles] = useState<any>([]);
   const { get, loading } = useApi<any>();
+  const router = useRouter();
 
   useEffect(() => {
     const fetchTablets = async () => {
@@ -45,6 +47,12 @@ const Tablets: FC = () => {
             data={vehicles || []}
             url="vehicle"
             className="overflow-x-auto whitespace-nowrap"
+            rowActions={[
+              {
+                label: "Edit",
+                onClick: (row) => router.push(`${VEHICLE}/${row.id}`),
+              },
+            ]}
           />
         ) : (
           <NoData />
