@@ -13,8 +13,3 @@ export const COLUMNS: Column[] = [
   { key: "licensePlate", label: "Number plate" },
   { key: "tabletId", label: "Tablet Id" },
 ];
-
-export const COLUMNS_VIDEO: Column[] = [
-  { key: "videoId", label: "ID" },
-  { key: "videoName", label: "Video Name" },
-];

@@ -12,13 +12,13 @@ import { UserType } from "@/types/UserTypes";
 import { TableSkeleton } from "@/components/Skeleton";
 import { useRouter } from "next/navigation";
 
-const Tablets: FC = () => {
+const Vehicles: FC = () => {
   const [vehicles, setVehicles] = useState<any>([]);
   const { get, loading } = useApi<any>();
   const router = useRouter();
 
   useEffect(() => {
-    const fetchTablets = async () => {
+    const fetchVehicles = async () => {
       try {
         const data = await get(`${VEHICLE}`);
         if (data?.count) {
@@ -29,11 +29,11 @@ const Tablets: FC = () => {
           setVehicles(vehiclesToShow);
         }
       } catch (err) {
-        console.error("Error fetching tablets:", err);
+        console.error("Error fetching vehicles:", err);
       }
     };
 
-    fetchTablets();
+    fetchVehicles();
   }, []);
 
   return (
@@ -62,4 +62,4 @@ const Tablets: FC = () => {
   );
 };
 
-export default Tablets;
+export default Vehicles;
