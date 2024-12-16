@@ -4,20 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="fix translation">
-      <change afterPath="$PROJECT_DIR$/public/ameria.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/autolab.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/derma.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/exterior.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/idea.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/[locale]/homepage/components/InfoSection2/index.tsx" afterDir="false" />
+    <list default="true" id="8464adb8-293e-4fd2-96ad-c7888813f206" name="Changes" comment="remove image border">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/locales/en/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/en/common.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/locales/hy/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/hy/common.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/locales/ru/common.json" beforeDir="false" afterPath="$PROJECT_DIR$/locales/ru/common.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/homepage/components/InfoSection/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/homepage/components/InfoSection/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/[locale]/homepage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/[locale]/homepage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/icomoon.eot" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/icomoon.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/icomoon.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/icomoon.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/icomoon.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/icomoon.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/fonts/icomoon.woff" beforeDir="false" afterPath="$PROJECT_DIR$/public/fonts/icomoon.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/styles/icomoon.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/styles/icomoon.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apiConstants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/apiConstants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SideBar/content.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SideBar/content.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/useApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useApi.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,32 +57,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "rl-design-changes",
-    "js.linters.configure.manually.selectedeslint": "true",
-    "last_opened_file_path": "/home/anahitalaverdyan/Other/Rolings-frontend/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "/home/anahitalaverdyan/Other/Rolings-frontend/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;rl-vehicles&quot;,
+    &quot;js.linters.configure.manually.selectedeslint&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/anahitalaverdyan/Other/Rolings-frontend/src/app/[locale]/vehicle&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/anahitalaverdyan/Other/Rolings-frontend/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/anahitalaverdyan/Other/Rolings-frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/[locale]/vehicle" />
       <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/app/[locale]/homepage/components" />
       <recent name="$PROJECT_DIR$/public/fonts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/app/[locale]/vehicle/[id]" />
+      <recent name="$PROJECT_DIR$/src/app/[locale]/vehicle" />
+      <recent name="$PROJECT_DIR$/src/app" />
       <recent name="$PROJECT_DIR$/src/app/[locale]" />
     </key>
   </component>
@@ -153,6 +158,35 @@
       <workItem from="1722419416049" duration="24827000" />
       <workItem from="1722523886415" duration="2756000" />
       <workItem from="1725717132976" duration="4823000" />
+      <workItem from="1726215863046" duration="1561000" />
+      <workItem from="1726228069738" duration="3000" />
+      <workItem from="1726481200554" duration="15290000" />
+      <workItem from="1726570662348" duration="548000" />
+      <workItem from="1726571513014" duration="3735000" />
+      <workItem from="1726661937924" duration="24000" />
+      <workItem from="1727356868430" duration="2736000" />
+      <workItem from="1728893488766" duration="552000" />
+      <workItem from="1728895502287" duration="3145000" />
+      <workItem from="1728904703569" duration="1132000" />
+      <workItem from="1728909966216" duration="4089000" />
+      <workItem from="1728919009202" duration="3406000" />
+      <workItem from="1728983649138" duration="2531000" />
+      <workItem from="1729154162745" duration="30556000" />
+      <workItem from="1729509786275" duration="1271000" />
+      <workItem from="1729516003381" duration="1048000" />
+      <workItem from="1729663658371" duration="599000" />
+      <workItem from="1729771447706" duration="599000" />
+      <workItem from="1729866147292" duration="6361000" />
+      <workItem from="1730176756889" duration="8723000" />
+      <workItem from="1730704342594" duration="916000" />
+      <workItem from="1731412285486" duration="9906000" />
+      <workItem from="1731498900206" duration="599000" />
+      <workItem from="1731652356711" duration="32000" />
+      <workItem from="1731938394905" duration="7216000" />
+      <workItem from="1732171478339" duration="863000" />
+      <workItem from="1732518304303" duration="6800000" />
+      <workItem from="1733402772731" duration="1929000" />
+      <workItem from="1733490800910" duration="4496000" />
     </task>
     <task id="LOCAL-00002" summary="registration final steps">
       <option name="closed" value="true" />
@@ -266,16 +300,173 @@
       <option name="project" value="LOCAL" />
       <updated>1721976080428</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="change max with of footer">
+      <option name="closed" value="true" />
+      <created>1726212947168</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1726212947168</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fix text color issue">
+      <option name="closed" value="true" />
+      <created>1726216005941</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1726216005941</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add check if there is no current language">
+      <option name="closed" value="true" />
+      <created>1726216767415</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1726216767415</updated>
+    </task>
+    <task id="LOCAL-00019" summary="some design changes">
+      <option name="closed" value="true" />
+      <created>1726493555620</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1726493555620</updated>
+    </task>
+    <task id="LOCAL-00020" summary="add pricing">
+      <option name="closed" value="true" />
+      <created>1726568482844</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1726568482844</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add new partner">
+      <option name="closed" value="true" />
+      <created>1726569494592</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1726569494592</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix icon height">
+      <option name="closed" value="true" />
+      <created>1726575224063</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1726575224063</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add facebook and instagram links">
+      <option name="closed" value="true" />
+      <created>1727358062746</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1727358062746</updated>
+    </task>
+    <task id="LOCAL-00024" summary="replaced images">
+      <option name="closed" value="true" />
+      <created>1729059297059</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1729059297059</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix footer image size">
+      <option name="closed" value="true" />
+      <created>1729155177174</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1729155177174</updated>
+    </task>
+    <task id="LOCAL-00026" summary="design fixes">
+      <option name="closed" value="true" />
+      <created>1729260853532</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1729260853532</updated>
+    </task>
+    <task id="LOCAL-00027" summary="design fixes">
+      <option name="closed" value="true" />
+      <created>1729261605565</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1729261605565</updated>
+    </task>
+    <task id="LOCAL-00028" summary="change fav icon">
+      <option name="closed" value="true" />
+      <created>1729499417099</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1729499417099</updated>
+    </task>
+    <task id="LOCAL-00029" summary="change fav icon">
+      <option name="closed" value="true" />
+      <created>1729516399495</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1729516399496</updated>
+    </task>
+    <task id="LOCAL-00030" summary="remove extra wrapper div">
+      <option name="closed" value="true" />
+      <created>1730101650205</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1730101650206</updated>
+    </task>
+    <task id="LOCAL-00031" summary="remove image border">
+      <option name="closed" value="true" />
+      <created>1730178351508</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1730178351508</updated>
+    </task>
+    <task id="LOCAL-00032" summary="remove image border">
+      <option name="closed" value="true" />
+      <created>1730179651457</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1730179651457</updated>
+    </task>
+    <task id="LOCAL-00033" summary="remove image border">
+      <option name="closed" value="true" />
+      <created>1730179779582</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1730179779582</updated>
+    </task>
+    <task id="LOCAL-00034" summary="remove image border">
+      <option name="closed" value="true" />
+      <created>1730179800866</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1730179800866</updated>
+    </task>
+    <task id="LOCAL-00035" summary="remove image border">
+      <option name="closed" value="true" />
+      <created>1730181806976</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1730181806976</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="registration final steps" />
-    <MESSAGE value="fix registration error" />
-    <MESSAGE value="fix data persisting case after login" />
     <MESSAGE value="some fixes" />
     <MESSAGE value="add translations for homepage texts in the component" />
     <MESSAGE value="removed unused code" />
@@ -287,6 +478,20 @@
     <MESSAGE value="add translations" />
     <MESSAGE value="some changes" />
     <MESSAGE value="fix translation" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix translation" />
+    <MESSAGE value="change max with of footer" />
+    <MESSAGE value="fix text color issue" />
+    <MESSAGE value="add check if there is no current language" />
+    <MESSAGE value="some design changes" />
+    <MESSAGE value="add pricing" />
+    <MESSAGE value="add new partner" />
+    <MESSAGE value="fix icon height" />
+    <MESSAGE value="add facebook and instagram links" />
+    <MESSAGE value="replaced images" />
+    <MESSAGE value="fix footer image size" />
+    <MESSAGE value="design fixes" />
+    <MESSAGE value="change fav icon" />
+    <MESSAGE value="remove extra wrapper div" />
+    <MESSAGE value="remove image border" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove image border" />
   </component>
 </project>
