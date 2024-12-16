@@ -11,7 +11,7 @@ import PageContainer from "@/components/PageContainer";
 
 const { Text } = Typography;
 
-const TabletDetail: FC = () => {
+const VehicleDetail: FC = () => {
   const [vehicle, setVehicle] = useState<any>({});
   const [tablets, setTablets] = useState<any[]>([]);
   const [selectedTablet, setSelectedTablet] = useState<string>("");
@@ -203,4 +203,4 @@ const TabletDetail: FC = () => {
   );
 };
 
-export default TabletDetail;
+export default VehicleDetail;
