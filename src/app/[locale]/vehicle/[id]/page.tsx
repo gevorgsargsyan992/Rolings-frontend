@@ -4,19 +4,10 @@ import React, { FC, useEffect, useState, useCallback } from "react";
 import Typography from "@/components/Typography";
 import { TABLET, VEHICLE } from "@/apiConstants";
 import { VehicleStatusKey } from "@/app/[locale]/vehicle/types";
-import { formattedDate } from "@/utils";
 import { VehicleStatus } from "../constants";
 import useApi from "@/hooks/useApi";
-import Table from "@/components/Table";
-import NoData from "@/components/NoData";
 import Button from "@/components/Button";
-import Modal from "@/components/Modal";
-import { TableSkeleton } from "@/components/Skeleton";
-import InfoElement from "./components/TabletInfo";
-import ModalContent from "@/app/[locale]/tablet/[id]/components/ModalContent";
 import PageContainer from "@/components/PageContainer";
-import { TabletStatus } from "@/app/[locale]/tablet/constants";
-import { TabletStatusKey } from "@/app/[locale]/tablet/types";
 
 const { Text } = Typography;
 
@@ -26,29 +17,12 @@ const TabletDetail: FC = () => {
   const [selectedTablet, setSelectedTablet] = useState<string>("");
   const [isEditing, setIsEditing] = useState(false);
   const { id } = useParams();
-  const { loading, get, patch, put } = useApi<any>();
+  const { get, patch, put } = useApi<any>();
 
   useEffect(() => {
     fetchVehicle();
     fetchTablets();
   }, []);
-
-  // const fetchVehicle = useCallback(async () => {
-  //   try {
-  //     const vehicleData = await get(`${VEHICLE}/${id}`);
-  //     if (vehicleData) {
-  //       const vehiclesToShow = {
-  //         ...vehicleData,
-  //         tabletStatus:
-  //           VehicleStatus[vehicleData.tabletStatus as VehicleStatusKey],
-  //       };
-  //       setVehicle(vehiclesToShow);
-  //       setSelectedTablet(vehicleData.tabletId || "");
-  //     }
-  //   } catch (err) {
-  //     console.error("Error fetching vehicle:", err);
-  //   }
-  // }, [id, get]);
 
   const fetchVehicle = useCallback(async () => {
     try {
@@ -60,16 +34,11 @@ const TabletDetail: FC = () => {
             VehicleStatus[vehicleData.tabletStatus as VehicleStatusKey],
         };
 
-        console.log("vehicleData>>>>", vehicleData);
-
         setVehicle(vehiclesToShow);
 
         // Check if the vehicle has a tablet ID and set it
         if (vehicleData.tabletId) {
-          const matchedTablet = tablets.find(
-            (tablet) => tablet.id === vehicleData.tabletId,
-          );
-          setSelectedTablet(matchedTablet ? matchedTablet.id : "");
+          setSelectedTablet(vehicleData.tabletId);
         } else {
           setSelectedTablet(""); // No tablet connected
         }
@@ -77,7 +46,7 @@ const TabletDetail: FC = () => {
     } catch (err) {
       console.error("Error fetching vehicle:", err);
     }
-  }, [id, get, tablets]);
+  }, [id, get]);
 
   const fetchTablets = useCallback(async () => {
     try {
@@ -111,8 +80,6 @@ const TabletDetail: FC = () => {
     }
   };
 
-  console.log("selectedTablet>>>", selectedTablet);
-
   return (
     <PageContainer className="bg-white pb-40 pt-10">
       <div className="flex flex-col relative h-full">
@@ -134,7 +101,7 @@ const TabletDetail: FC = () => {
                     className="ml-2 p-2 border border-gray-300 rounded-md text-gray-700 bg-white focus:outline-none focus:ring-2"
                   />
                 ) : (
-                  <Text className="ml-2">{vehicle?.name || "N/A"}</Text>
+                  <Text className="ml-2">{vehicle?.name || ""}</Text>
                 )}
               </div>
               <div className="flex">
@@ -149,7 +116,7 @@ const TabletDetail: FC = () => {
                     className="ml-2 p-2 border border-gray-300 rounded-md text-gray-700 bg-white focus:outline-none focus:ring-2"
                   />
                 ) : (
-                  <Text className="ml-2">{vehicle?.color || "N/A"}</Text>
+                  <Text className="ml-2">{vehicle?.color || ""}</Text>
                 )}
               </div>
               <div className="flex">
@@ -166,7 +133,7 @@ const TabletDetail: FC = () => {
                     className="ml-2 p-2 border border-gray-300 rounded-md text-gray-700 bg-white focus:outline-none focus:ring-2"
                   />
                 ) : (
-                  <Text className="ml-2">{vehicle?.licensePlate || "N/A"}</Text>
+                  <Text className="ml-2">{vehicle?.licensePlate || ""}</Text>
                 )}
               </div>
               <div className="flex">
@@ -187,18 +154,6 @@ const TabletDetail: FC = () => {
                     ))}
                   </select>
                 ) : (
-                  // <select
-                  //   value={selectedTablet}
-                  //   onChange={(e) => setSelectedTablet(e.target.value)}
-                  //   className="ml-2 p-2 border border-gray-300 rounded-md text-gray-700 bg-white focus:outline-none focus:ring-2"
-                  // >
-                  //   <option value="">Select Tablet</option>
-                  //   {tablets.map((tablet) => (
-                  //     <option key={tablet.id} value={tablet.id}>
-                  //       {tablet.id}
-                  //     </option>
-                  //   ))}
-                  // </select>
                   <Text className="ml-2">
                     {selectedTablet || "No tablet connected"}
                   </Text>
@@ -224,8 +179,7 @@ const TabletDetail: FC = () => {
                   </select>
                 ) : (
                   <Text className="ml-2">
-                    {VehicleStatus[vehicle?.status as VehicleStatusKey] ||
-                      "N/A"}
+                    {VehicleStatus[vehicle?.status as VehicleStatusKey] || ""}
                   </Text>
                 )}
               </div>
