@@ -16,8 +16,25 @@ const VehicleDetail: FC = () => {
   const [tablets, setTablets] = useState<any[]>([]);
   const [selectedTablet, setSelectedTablet] = useState<string>("");
   const [isEditing, setIsEditing] = useState(false);
+
+  // Store initial state for cancel
+  const [originalVehicle, setOriginalVehicle] = useState<any>({});
+  const [originalTablet, setOriginalTablet] = useState<string>("");
   const { id } = useParams();
   const { get, patch, put } = useApi<any>();
+
+  const handleEdit = () => {
+    setOriginalVehicle(vehicle); // Save the current vehicle state
+    setOriginalTablet(selectedTablet); // Save the current selected tablet state
+    setIsEditing(true);
+  };
+
+  // Revert changes on cancel
+  const handleCancel = () => {
+    setVehicle(originalVehicle); // Restore the original state
+    setSelectedTablet(originalTablet); // Restore the original tablet selection
+    setIsEditing(false);
+  };
 
   useEffect(() => {
     fetchVehicle();
@@ -171,9 +188,9 @@ const VehicleDetail: FC = () => {
                     }
                     className="ml-2 p-2 border border-gray-300 rounded-md text-gray-700 bg-white focus:outline-none focus:ring-2"
                   >
-                    {Object.keys(VehicleStatus).map((key) => (
+                    {Object.entries(VehicleStatus).map(([key, value]) => (
                       <option key={key} value={key}>
-                        {VehicleStatus[key as VehicleStatusKey]}
+                        {value}
                       </option>
                     ))}
                   </select>
@@ -188,12 +205,12 @@ const VehicleDetail: FC = () => {
               {isEditing ? (
                 <>
                   <Button onClick={handleSaveChanges}>Save</Button>
-                  <Button type="ghost" onClick={() => setIsEditing(false)}>
+                  <Button type="ghost" onClick={handleCancel}>
                     Cancel
                   </Button>
                 </>
               ) : (
-                <Button onClick={() => setIsEditing(true)}>Edit</Button>
+                <Button onClick={handleEdit}>Edit</Button>
               )}
             </div>
           </div>
