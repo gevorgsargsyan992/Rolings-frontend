@@ -1,5 +1,5 @@
 "use client";
-import { FC, useEffect, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import Table from "@/components/Table";
 import useApi from "@/hooks/useApi";
 import { COLUMNS, VehicleStatus } from "./constants";
@@ -10,31 +10,51 @@ import PageContainer from "@/components/PageContainer";
 import ProtectedRoute from "@/components/ProtectedRoutes";
 import { UserType } from "@/types/UserTypes";
 import { TableSkeleton } from "@/components/Skeleton";
-import { useRouter } from "next/navigation";
+import Modal from "@/components/Modal";
 
 const Vehicles: FC = () => {
   const [vehicles, setVehicles] = useState<any>([]);
-  const { get, loading } = useApi<any>();
-  const router = useRouter();
+  const { _delete, get, loading } = useApi<any>();
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [selectedRow, setSelectedRow] = useState<any>(null);
+
+  const fetchVehicles = useCallback(async () => {
+    try {
+      const data = await get(`${VEHICLE}`);
+      if (data?.count) {
+        const vehiclesToShow = data?.result?.map((vehicle: VehicleData) => ({
+          ...vehicle,
+          status: VehicleStatus[vehicle.status as VehicleStatusKey],
+        }));
+        setVehicles(vehiclesToShow);
+      }
+    } catch (err) {
+      console.error("Error fetching vehicles:", err);
+    }
+  }, [get]);
 
   useEffect(() => {
-    const fetchVehicles = async () => {
-      try {
-        const data = await get(`${VEHICLE}`);
-        if (data?.count) {
-          const vehiclesToShow = data?.result?.map((vehicle: VehicleData) => ({
-            ...vehicle,
-            status: VehicleStatus[vehicle.status as VehicleStatusKey],
-          }));
-          setVehicles(vehiclesToShow);
-        }
-      } catch (err) {
-        console.error("Error fetching vehicles:", err);
-      }
-    };
-
     fetchVehicles();
   }, []);
+
+  const onClickDelete = useCallback((row: any) => {
+    setSelectedRow(row);
+    setIsDeleteModalOpen(true);
+  }, []);
+
+  const onModalConfirm = useCallback(async () => {
+    const { id } = selectedRow || {};
+    if (id) {
+      try {
+        const response = (await _delete(`${VEHICLE}/${id}`)) || {};
+        if (response?.success) {
+          await fetchVehicles();
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }, [_delete, fetchVehicles, selectedRow]);
 
   return (
     <ProtectedRoute allowedRoles={[UserType.SUPER_ADMIN]}>
@@ -49,14 +69,20 @@ const Vehicles: FC = () => {
             className="overflow-x-auto whitespace-nowrap"
             rowActions={[
               {
-                label: "Edit",
-                onClick: (row) => router.push(`${VEHICLE}/${row.id}`),
+                label: "Delete",
+                onClick: (row) => onClickDelete(row),
               },
             ]}
           />
         ) : (
           <NoData />
         )}
+        <Modal
+          isOpen={isDeleteModalOpen}
+          onClose={() => setIsDeleteModalOpen(false)}
+          subtitle="Do you want to delete?"
+          onConfirm={onModalConfirm}
+        />
       </PageContainer>
     </ProtectedRoute>
   );
