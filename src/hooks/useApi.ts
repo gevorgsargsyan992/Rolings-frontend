@@ -1,7 +1,7 @@
-import {useReducer, useState} from "react";
+import { useReducer, useState } from "react";
 import axios, { AxiosResponse, AxiosError, AxiosRequestConfig } from "axios";
 import { useRouter } from "next/navigation";
-import {authReducer} from "@/reducers/Auth";
+import { authReducer } from "@/reducers/Auth";
 import { initialState } from "@/providers/Auth";
 
 interface ApiResponse<T> {
@@ -10,6 +10,7 @@ interface ApiResponse<T> {
   get: (url: string) => Promise<T>;
   post: (url: string, data: any) => Promise<T>;
   patch: (url: string, data: any) => Promise<T>;
+  put: (url: string, data: any) => Promise<T>;
   _delete: (url: string) => Promise<T>;
 }
 
@@ -24,7 +25,6 @@ const useApi = <T>(): ApiResponse<T> => {
 
   const [_state, dispatch] = useReducer(authReducer, initialState);
 
-
   api.interceptors.request.use(
     (config) => {
       const token = window.localStorage.getItem("token");
@@ -35,13 +35,13 @@ const useApi = <T>(): ApiResponse<T> => {
     },
     (error) => {
       return Promise.reject(error);
-    }
+    },
   );
 
   const makeRequest = async (
     method: AxiosRequestConfig["method"],
     url: string,
-    data: any = null
+    data: any = null,
   ) => {
     setLoading(true);
     setError(null);
@@ -76,6 +76,10 @@ const useApi = <T>(): ApiResponse<T> => {
     return makeRequest("POST", url, data);
   };
 
+  const put = async (url: string, data: any) => {
+    return makeRequest("PUT", url, data);
+  };
+
   const patch = async (url: string, data: any) => {
     return makeRequest("PATCH", url, data);
   };
@@ -84,7 +88,7 @@ const useApi = <T>(): ApiResponse<T> => {
     return makeRequest("DELETE", url);
   };
 
-  return { loading, error, get, post, patch, _delete };
+  return { loading, error, get, post, patch, _delete, put };
 };
 
 export default useApi;
