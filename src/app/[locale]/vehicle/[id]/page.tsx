@@ -80,24 +80,27 @@ const VehicleDetail: FC = () => {
   };
 
   const handleSaveChanges = async () => {
-    setLoadingSave(true);
     try {
+      setLoadingSave(true);
       const { licensePlate, name, status, color } = vehicle;
-      await put(`${VEHICLE}/${id}`, {
-        tabletId: +selectedTablet,
-        action: "UPDATE",
-      });
+      if (originalTablet != selectedTablet) {
+        await put(`${VEHICLE}/${id}`, {
+          tabletId: selectedTablet ? +selectedTablet : 0,
+          action: selectedTablet ? "UPDATE" : "REMOVE",
+        });
+      }
       await patch(`${VEHICLE}/${id}`, {
         licensePlate,
         name,
-        status,
+        status: +status,
         color,
       });
       setIsEditing(false);
+      setLoadingSave(false);
     } catch (err) {
+      setLoadingSave(false);
       console.error("Error saving changes:", err);
     }
-    setLoadingSave(false);
   };
 
   return (
