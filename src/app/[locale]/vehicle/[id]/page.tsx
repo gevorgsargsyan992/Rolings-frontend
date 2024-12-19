@@ -16,6 +16,7 @@ const VehicleDetail: FC = () => {
   const [tablets, setTablets] = useState<any[]>([]);
   const [selectedTablet, setSelectedTablet] = useState<string>("");
   const [isEditing, setIsEditing] = useState(false);
+  const [loadingSave, setLoadingSave] = useState(false);
 
   // Store initial state for cancel
   const [originalVehicle, setOriginalVehicle] = useState<any>({});
@@ -79,6 +80,7 @@ const VehicleDetail: FC = () => {
   };
 
   const handleSaveChanges = async () => {
+    setLoadingSave(true);
     try {
       const { licensePlate, name, status, color } = vehicle;
       await put(`${VEHICLE}/${id}`, {
@@ -95,6 +97,7 @@ const VehicleDetail: FC = () => {
     } catch (err) {
       console.error("Error saving changes:", err);
     }
+    setLoadingSave(false);
   };
 
   return (
@@ -204,7 +207,9 @@ const VehicleDetail: FC = () => {
             <div className="mt-8 flex gap-4">
               {isEditing ? (
                 <>
-                  <Button onClick={handleSaveChanges}>Save</Button>
+                  <Button onClick={handleSaveChanges} loading={loadingSave}>
+                    Save
+                  </Button>
                   <Button type="ghost" onClick={handleCancel}>
                     Cancel
                   </Button>
