@@ -85,8 +85,8 @@ const VehicleDetail: FC = () => {
       const { licensePlate, name, status, color } = vehicle;
       if (originalTablet != selectedTablet) {
         await put(`${VEHICLE}/${id}`, {
-          tabletId: +selectedTablet,
-          action: "UPDATE",
+          tabletId: selectedTablet ? +selectedTablet : 0,
+          action: selectedTablet ? "UPDATE" : "REMOVE",
         });
       }
       await patch(`${VEHICLE}/${id}`, {
