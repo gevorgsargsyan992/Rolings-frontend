@@ -13,15 +13,15 @@ const VerticalTimeline: FC = () => {
 
   const items: string[] = useMemo(
     () => [t("rolings-info1"), t("rolings-info2"), t("rolings-info3")],
-    [t]
+    [t],
   );
 
   return (
-    <PageContainer className="flex gap-10 bg-white pb-40 pt-10">
-      <div className="w-full flex items-start hidden md:flex flex-1 sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg mx-auto">
+    <PageContainer className="flex gap-10 bg-white pb-20 lg:pb-40 pt-10">
+      <div className="w-full items-start hidden md:flex flex-1 sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg mx-auto">
         <Image src={imgRolings} alt="rolings image" layout="responsive" />
       </div>
-      <div className="flex flex-col flex-1 items-start pl-12 max-h-[480px] overflow-y-auto">
+      <div className="flex flex-col flex-1 items-start pl-0 lg:pl-12 max-h-[480px] overflow-y-auto">
         <Title
           color="text-black"
           className="font-semibold text-xl md:text-2xl lg:text-6xl"

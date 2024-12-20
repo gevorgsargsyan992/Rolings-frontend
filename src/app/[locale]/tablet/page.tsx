@@ -10,7 +10,7 @@ import NoData from "@/components/NoData";
 import PageContainer from "@/components/PageContainer";
 import ProtectedRoute from "@/components/ProtectedRoutes";
 import { UserType } from "@/types/UserTypes";
-import {TableSkeleton} from "@/components/Skeleton";
+import { TableSkeleton } from "@/components/Skeleton";
 
 const Tablets: FC = () => {
   const [tablets, setTablets] = useState<any>([]);
@@ -34,12 +34,12 @@ const Tablets: FC = () => {
     };
 
     fetchTablets();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <ProtectedRoute allowedRoles={[UserType.SUPER_ADMIN]}>
-      <PageContainer className="bg-white pb-40 pt-10">
+      <PageContainer className="bg-white pb-20 lg:pb-40 pt-10">
         {loading ? (
           <TableSkeleton />
         ) : tablets.length > 0 ? (
