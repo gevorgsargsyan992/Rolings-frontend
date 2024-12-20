@@ -14,7 +14,7 @@ const Partners = () => {
         <div className="w-full self-center max-w-[2000px]">
           <Text
             color="black"
-            className="lg:text-start text-2xl pt-8 2xl:pl-40 pl-20 pb-1 bold text-center"
+            className="lg:text-start text-2xl pt-8 2xl:pl-40 lg:pl-20 pb-1 bold text-center"
           >
             {t("partners")}
           </Text>

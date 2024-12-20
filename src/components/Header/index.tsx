@@ -58,7 +58,11 @@ const Header: FC = () => {
           aria-label="Global"
         >
           <div className="flex items-center">
-            <Link href="/" passHref>
+            <Link
+              href="/"
+              passHref
+              className={`${isAuthenticated ? "pl-12 2xl:pl-0" : "pl-12 lg:pl-0 "}`}
+            >
               <Image
                 className="lg:mr-6"
                 width={100}

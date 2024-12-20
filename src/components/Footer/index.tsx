@@ -33,7 +33,7 @@ const Footer = () => {
     <footer className="w-full bg-white 2xl:py-8 py-4">
       <PageContainer className="flex md:px-0 md:pl-20 justify-center md:pr-8 w-full">
         <Image
-          className={" hidden lg:block h-max"}
+          className={" hidden md:block h-max"}
           src={logoRotated}
           unoptimized
           alt="logo image"
@@ -41,7 +41,7 @@ const Footer = () => {
         />
 
         <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-8 max-w-6xl">
-          <div className="flex flex-col gap-y-4">
+          <div className="md:flex flex-col gap-y-4 hidden">
             {INFO_DATA().map(({ iconName, text, id }) => (
               <div className="flex justify-center md:justify-start" key={id}>
                 <Icon
@@ -74,6 +74,28 @@ const Footer = () => {
               </div>
             </div>
           ))}
+          <div className="flex flex-col self-center  gap-y-4 mt-4 md:hidden">
+            {INFO_DATA().map(({ iconName, text, id }) => (
+              <div
+                className="flex justify-normal sm:justify-center md:justify-start pl-8"
+                key={id}
+              >
+                <Icon
+                  name={iconName}
+                  className="mr-2 self-center"
+                  color="text-gray-dark"
+                />
+                <Text className="text-lg lg:text-base md:text-xs">{text}</Text>
+              </div>
+            ))}
+          </div>
+          <div className="flex gap-2 mt-4 md:hidden justify-center md:justify-normal">
+            {SOCIAL_NETWORK.map((el) => (
+              <a key={el.url} href={el.url} target="_blank">
+                <Image width={24} alt="social accounts" src={el.imgSrc} />
+              </a>
+            ))}
+          </div>
           <div className="flex flex-col mt-6 md:mt-0 space-y-4 lg:max-w-xl self-center md:self-start sm:max-w-[200px]">
             <Text className="font-bold mb-4 lg:text-base md:text-xs text-sm text-center md:text-start">
               {t("join-newsletter")}
@@ -93,7 +115,7 @@ const Footer = () => {
             </button>
           </div>
         </div>
-        <div className="flex flex-col gap-2 mt-2 justify-center md:justify-normal">
+        <div className="md:flex hidden flex-col gap-2 mt-2 justify-center md:justify-normal">
           {SOCIAL_NETWORK.map((el) => (
             <a key={el.url} href={el.url} target="_blank">
               <Image width={24} alt="social accounts" src={el.imgSrc} />
