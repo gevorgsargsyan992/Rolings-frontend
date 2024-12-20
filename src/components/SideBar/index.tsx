@@ -37,7 +37,7 @@ const LeftSidebar: FC = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full z-50 max-w-[120px] flex transition-width duration-300 ease-in-out ${!isAuthenticated && 'lg:hidden'}`}
+      className={`fixed top-0 left-0 h-full z-50 max-w-[120px] flex transition-width duration-300 ease-in-out ${!isAuthenticated && "lg:hidden"}`}
     >
       <div
         className={`bg-gray-800 text-white transition-all duration-300 ease-in-out transform ${
@@ -67,7 +67,7 @@ const LeftSidebar: FC = () => {
             </Link>
           ))}
           {!isAuthenticated ? (
-            <div className='flex flex-col lg:hidden'>
+            <div className="flex flex-col lg:hidden">
               <Link
                 href="/signin"
                 onClick={() => setIsOpen(false)}
@@ -106,11 +106,11 @@ const LeftSidebar: FC = () => {
       </div>
       <button
         onClick={toggleSidebar}
-        className={`flex justify-center bg-gray-800 text-white w-16 absolute left-0 h-full pt-4 ${
+        className={`flex justify-center text-white w-16 absolute left-0 pt-8 ${
           isOpen ? "hidden" : ""
         }`}
       >
-        <Icon name="menu" color="text-white" size={20} />
+        <Icon name="menu" className="text-gray-800" size={20} />
       </button>
     </div>
   );
