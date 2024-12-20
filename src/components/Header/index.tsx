@@ -61,6 +61,7 @@ const Header: FC = () => {
             <Link
               href="/"
               passHref
+              onClick={() => setActiveTab(null)}
               className={`${isAuthenticated ? "pl-12 2xl:pl-0" : "pl-12 lg:pl-0 "}`}
             >
               <Image
