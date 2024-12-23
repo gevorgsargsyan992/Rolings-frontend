@@ -82,8 +82,7 @@ const Footer = () => {
               >
                 <Icon
                   name={iconName}
-                  className="mr-2 self-center"
-                  color="text-gray-dark"
+                  className="mr-2 self-center text-gray-dark"
                 />
                 <Text className="text-lg lg:text-base md:text-xs">{text}</Text>
               </div>
