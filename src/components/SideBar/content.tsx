@@ -42,13 +42,13 @@ export const DATA = (userType: UserType) => {
       isVisible:
         userType === UserType.SUPER_ADMIN || userType === UserType.SELLER,
     },
-    {
-      link: "/questionnaire",
-      title: t("questionnaire"),
-      iconName: "forum",
-      isVisible:
-        userType === UserType.SUPER_ADMIN || userType === UserType.SELLER,
-    },
+    // {
+    //   link: "/questionnaire",
+    //   title: t("questionnaire"),
+    //   iconName: "forum",
+    //   isVisible:
+    //     userType === UserType.SUPER_ADMIN || userType === UserType.SELLER,
+    // },
     {
       title: t("offers"),
       iconName: "forum",
