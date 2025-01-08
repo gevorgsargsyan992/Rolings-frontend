@@ -37,7 +37,7 @@ const LeftSidebar: FC = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full z-50 max-w-[120px] flex transition-width duration-300 ease-in-out ${!isAuthenticated && "lg:hidden"}`}
+      className={`fixed top-0 left-0 z-50 ${isOpen ? "max-w-[120px] " : "w-0"} h-full flex transition-width duration-800 ease-in-out ${!isAuthenticated && "lg:hidden"}`}
     >
       <div
         className={`bg-gray-800 text-white transition-all duration-300 ease-in-out transform ${
