@@ -107,7 +107,7 @@ const VehicleDetail: FC = () => {
     <PageContainer className="bg-white pb-40 pt-10">
       <div className="flex flex-col relative h-full">
         <div className="mb-10">
-          <div className="mt-4 pl-0 md:pl-44 xl:pl-28 2xl:pl-0 flex flex-col self-center">
+          <div className="mt-4 pl-0 md:pl-44 xl:pl-28 2xl:pl-0 flex flex-col">
             <Text bold className="text-lg mb-4">
               Tablet Details
             </Text>
