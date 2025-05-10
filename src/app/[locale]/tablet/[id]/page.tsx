@@ -115,12 +115,26 @@ const TabletDetail: FC = () => {
       <div className="flex flex-col relative h-full">
         <div className="mb-10">
           {tablet?.id && <InfoElement name="ID" value={tablet?.id} />}
-          {tablet?.tb_uuid && <InfoElement name="UUID" value={tablet?.tb_uuid} />}
+          {tablet?.tb_uuid && (
+            <InfoElement name="UUID" value={tablet?.tb_uuid} />
+          )}
           {tablet?.createdAt && (
             <InfoElement name="Creation Time" value={tablet?.createdAt} />
           )}
           {tablet?.lastActive && (
             <InfoElement name="Last Active" value={tablet?.lastActive} />
+          )}
+          {tablet?.vehicleLicensePlate && (
+            <InfoElement
+              name="License Plate"
+              value={tablet?.vehicleLicensePlate}
+            />
+          )}
+          {tablet?.vehicleName && (
+            <InfoElement
+              name="Vehicle Name"
+              value={tablet?.vehicleName}
+            />
           )}
           {(tablet?.latitude || +tablet?.latitude === 0) && (
             <InfoElement name="LAT" value={tablet?.latitude} />
@@ -136,8 +150,7 @@ const TabletDetail: FC = () => {
                 <select
                   value={editedStatus}
                   onChange={handleStatusChange}
-                  className="ml-2 p-2 border border-gray-300 rounded-md text-gray-700 bg-white focus:outline-none focus:ring-2 transition ease-in-out duration-150"
-                >
+                  className="ml-2 p-2 border border-gray-300 rounded-md text-gray-700 bg-white focus:outline-none focus:ring-2 transition ease-in-out duration-150">
                   {Object.values(TabletStatus).map((status) => (
                     <option key={status} value={status}>
                       {status}
@@ -150,8 +163,7 @@ const TabletDetail: FC = () => {
                   <Button onClick={handleSaveStatus}>Save</Button>
                   <Button
                     type="ghost"
-                    onClick={() => setIsEditingStatus(false)}
-                  >
+                    onClick={() => setIsEditingStatus(false)}>
                     Cancel
                   </Button>
                 </div>
@@ -160,8 +172,7 @@ const TabletDetail: FC = () => {
                   type="text"
                   className="ml-2"
                   size="small"
-                  onClick={() => setIsEditingStatus(true)}
-                >
+                  onClick={() => setIsEditingStatus(true)}>
                   Edit
                 </Button>
               )}
@@ -190,15 +201,13 @@ const TabletDetail: FC = () => {
         <Button
           className="w-[160px] self-end mr-0 md:mr-24 absolute bottom-0"
           size="small"
-          onClick={() => setIsVideosModalOpen(true)}
-        >
+          onClick={() => setIsVideosModalOpen(true)}>
           Add New
         </Button>
         <Modal
           isOpen={isVideosModalOpen}
           showButtons={false}
-          onClose={onCloseVideosModal}
-        >
+          onClose={onCloseVideosModal}>
           <ModalContent />
         </Modal>
         <Modal
