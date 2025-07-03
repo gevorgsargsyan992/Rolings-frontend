@@ -13,7 +13,7 @@ export const DATA = [
   { image: bestLife, url: "https://www.bestlife.am/", height: 70 },
   { image: autolab, url: "https://www.autolab.am/", height: 14 },
   { image: loyal, url: "https://loyal.am/hy", height: 60 },
-  { image: noa, url: "https://noahsharbor.com/", height: 90 },
+  { image: noa, url: "https://noahsharbor.com/", height: 60 },
   { image: publicis, url: "https://publicis.am/", height: 60 },
   { image: skill, url: "https://skill.am/", height: 50 },
 ];
