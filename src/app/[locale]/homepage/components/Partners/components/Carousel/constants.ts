@@ -3,7 +3,7 @@ import ameria from "../../../../../../../../public/ameria.webp";
 import autolab from "../../../../../../../../public/autolab.webp";
 import skill from "../../../../../../../../public/skill.webp";
 import bestLife from "../../../../../../../../public/best-life.webp";
-import noa from "../../../../../../../../public/noah-new.webp";
+import noa from "../../../../../../../../public/noah.webp";
 import samsung from "../../../../../../../../public/samsung.webp";
 import publicis from "../../../../../../../../public/publicis.webp";
 
