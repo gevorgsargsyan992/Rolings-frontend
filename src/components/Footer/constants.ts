@@ -60,7 +60,7 @@ export const INFO_DATA = () => {
     },
     {
       id: 3,
-      text: "+374 44 410 002",
+      text: "+374 55 540 002",
       iconName: "phone",
     },
   ];
