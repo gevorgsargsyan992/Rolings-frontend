@@ -11,6 +11,7 @@ export interface TableProps<T> {
 
 interface Column<T> {
   key: keyof T;
+  width?: string;
   label: string;
   editable?: boolean;
   render?: (value: T[keyof T]) => ReactNode;

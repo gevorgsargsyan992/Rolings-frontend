@@ -20,10 +20,10 @@ export const VehicleColors = {
 };
 
 export const COLUMNS: Column[] = [
-  { key: "id", label: "ID" },
-  { key: "status", label: "Status" },
-  { key: "name", label: "Name" },
-  { key: "color", label: "Color" },
-  { key: "licensePlate", label: "Number Plate" },
-  { key: "tabletId", label: "Tablet ID" },
+  { key: "id", label: "ID", width: "5%" },
+  { key: "status", label: "Status", width: "10%" },
+  { key: "name", label: "Name", width: "25%" },
+  { key: "color", label: "Color", width: "15%" },
+  { key: "licensePlate", label: "Number Plate", width: "20%" },
+  { key: "tabletId", label: "Tablet ID", width: "7%" },
 ];
