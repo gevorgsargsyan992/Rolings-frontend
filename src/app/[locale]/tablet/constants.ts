@@ -8,14 +8,15 @@ export const TabletStatus = {
 };
 
 export const COLUMNS: Column[] = [
-  { key: "id", label: "ID" },
-  { key: "tabletStatus", label: "Status" },
-  { key: "tb_uuid", label: "UUID" },
-  { key: "videoCount", label: "Video Count" },
-  { key: "createdAt", label: "Time" },
+  { key: "tabletStatus", label: "Status", width: "10%" },
+  { key: "vehicleName", label: "Vehicle Name", width: "25%"  },
+  { key: "vehicleLicensePlate", label: "License Plate", width: "15%"  },
+  { key: "vehicleDescription", label: "Description", width: "25%"  },
+  { key: "videoCount", label: "Video Count", width: "10%"  },
+  { key: "lastActive", label: "Last Active", width: "15%"  },
 ];
 
 export const COLUMNS_VIDEO: Column[] = [
-  { key: "videoId", label: "ID" },
-  { key: "videoName", label: "Video Name" },
+  { key: "videoId", label: "ID", width: "15%" },
+  { key: "videoName", label: "Video Name", width: "15%"  },
 ];

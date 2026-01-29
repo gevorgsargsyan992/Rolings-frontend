@@ -72,49 +72,11 @@ const Tablets: FC = () => {
               url="video"
               className="overflow-x-auto whitespace-nowrap"
               isRowClickable={false}
-              // rowActions={[ //TODO: uncomment it when backend will be ready
-              //   {
-              //     label: "Edit",
-              //     onClick: (row) => onClickEdit(row),
-              //   },
-              //   {
-              //     label: "Delete",
-              //     onClick: (row) => onClickDelete(row),
-              //   },
-              // ]}
             />
-            {/*<Button*/}
-            {/*    className="w-[160px] self-end mr-0 md:mr-24 mt-16"*/}
-            {/*    size="small"*/}
-            {/*    onClick={() => setIsVideosModalOpen(true)}*/}
-            {/*>*/}
-            {/*  Add New*/}
-            {/*</Button>*/}
           </div>
         ) : (
           <NoData />
         )}
-        {/*<Modal*/}
-        {/*    isOpen={isVideosModalOpen}*/}
-        {/*    onClose={() => setIsVideosModalOpen(false)}*/}
-        {/*    onConfirm={handleAddNewVideo}*/}
-        {/*>*/}
-        {/*  <div className="flex flex-col gap-4">*/}
-        {/*    <input*/}
-        {/*        type="text"*/}
-        {/*        placeholder="Video Title"*/}
-        {/*        value={newVideoTitle}*/}
-        {/*        onChange={(e) => setNewVideoTitle(e.target.value)}*/}
-        {/*        className="border border-gray-300 rounded-lg px-4 py-2"*/}
-        {/*    />*/}
-        {/*    <input*/}
-        {/*        type="file"*/}
-        {/*        accept="video/*"*/}
-        {/*        onChange={(e) => setNewVideoFile(e.target.files?.[0] || null)}*/}
-        {/*        className="border border-gray-300 rounded-lg px-4 py-2"*/}
-        {/*    />*/}
-        {/*  </div>*/}
-        {/*</Modal>*/}
       </PageContainer>
     </ProtectedRoute>
   );

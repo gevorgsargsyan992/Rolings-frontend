@@ -4,6 +4,7 @@ export interface Column {
     key: string;
     label: string;
     link?: boolean;
+    width: string;
 }
 
 export type VideoStatusKey = keyof typeof VideoStatus; // 1 | 2

@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from "react";
 import Table from "@/components/Table";
 import useApi from "@/hooks/useApi";
 import { COLUMNS, TabletStatus } from "./constants";
-import { TabletData, TabletStatusKey } from "./types";
+import { TabletStatusKey, TabletWithAssignedVehiclesData } from "./types";
 import { TABLET } from "@/apiConstants";
 import { formattedDate } from "@/utils";
 import NoData from "@/components/NoData";
@@ -19,13 +19,17 @@ const Tablets: FC = () => {
   useEffect(() => {
     const fetchTablets = async () => {
       try {
-        const data = await get(`${TABLET}`);
+        const data = await get(`${TABLET}/tablets-with-assigned-vehicles`);
         if (data?.length) {
-          const tabletsToShow = data.map((tablet: TabletData) => ({
-            ...tablet,
-            createdAt: tablet?.createdAt && formattedDate(tablet.createdAt),
-            tabletStatus: TabletStatus[tablet.tabletStatus as TabletStatusKey],
-          }));
+          const tabletsToShow = data.map(
+            (tablet: TabletWithAssignedVehiclesData) => ({
+              ...tablet,
+              lastActive:
+                tablet?.lastActive && formattedDate(tablet.lastActive),
+              tabletStatus:
+                TabletStatus[tablet.tabletStatus as TabletStatusKey],
+            }),
+          );
           setTablets(tabletsToShow);
         }
       } catch (err) {
