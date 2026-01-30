@@ -1,4 +1,4 @@
-import { Column } from "./types";
+import { Column } from "@/types/columns";
 
 export const VehicleStatus = {
   1: "Active",
@@ -22,8 +22,9 @@ export const VehicleColors = {
 export const COLUMNS: Column[] = [
   { key: "id", label: "ID", width: "5%" },
   { key: "status", label: "Status", width: "10%" },
-  { key: "name", label: "Name", width: "25%" },
-  { key: "color", label: "Color", width: "15%" },
-  { key: "licensePlate", label: "Number Plate", width: "20%" },
-  { key: "tabletId", label: "Tablet ID", width: "7%" },
+  { key: "name", label: "Name", width: "20%" },
+  { key: "licensePlate", label: "Number Plate", width: "10%" },
+  { key: "description", label: "Description", width: "30%" },
+  { key: "color", label: "Color", width: "5%" },
+  { key: "tabletId", label: "Tablet ID", width: "5%" },
 ];

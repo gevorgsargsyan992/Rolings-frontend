@@ -1,4 +1,4 @@
-import { Column } from "./types";
+import { Column } from "@/types/columns";
 
 export const VideoStatus = {
     1: "Active",

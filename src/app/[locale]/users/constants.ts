@@ -1,4 +1,4 @@
-import { Column } from "./types";
+import { Column } from "@/types/columns";
 
 export const COLUMNS: Column[] = [
   { key: "companyName", label: "Company Name", width: "25%" },
