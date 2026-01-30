@@ -1,11 +1,5 @@
 import { TabletStatus } from "@/app/[locale]/tablet/constants";
 
-export interface Column {
-  key: string;
-  label: string;
-  width: string;
-}
-
 export type TabletStatusKey = keyof typeof TabletStatus; // 1 | 2 | 3 | 4
 
 export interface TabletData {

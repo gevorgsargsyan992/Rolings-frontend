@@ -33,6 +33,7 @@ const Vehicles: FC = () => {
     licensePlate: "",
     color: "",
     name: "",
+    description: "",
     status: "",
     tabletId: "",
   });
@@ -88,6 +89,7 @@ const Vehicles: FC = () => {
           licensePlate: originalVehicle.licensePlate || "",
           color: originalVehicle.color || "",
           name: originalVehicle.name || "",
+          description: originalVehicle.description || "",
           status: String(originalVehicle.status) || "",
           tabletId: originalVehicle.tabletId || "",
         });
@@ -117,7 +119,7 @@ const Vehicles: FC = () => {
   };
 
   const handleCreateVehicle = useCallback(async () => {
-    const { licensePlate, color, name, status, tabletId } = formData;
+    const { licensePlate, color, name, description, status, tabletId } = formData;
 
     // Validate required fields
     if (!licensePlate || !color || !name || !status) {
@@ -149,6 +151,7 @@ const Vehicles: FC = () => {
           licensePlate,
           color,
           name,
+          description,
           status: +status,
         });
 
@@ -157,6 +160,7 @@ const Vehicles: FC = () => {
         setFormData({
           licensePlate: "",
           color: "",
+          description: "",
           name: "",
           status: "",
           tabletId: "",
@@ -169,6 +173,7 @@ const Vehicles: FC = () => {
           licensePlate,
           color,
           name,
+          description,
           status: +status,
         };
 
@@ -184,6 +189,7 @@ const Vehicles: FC = () => {
             licensePlate: "",
             color: "",
             name: "",
+            description: "",
             status: "",
             tabletId: "",
           });
@@ -258,6 +264,7 @@ const Vehicles: FC = () => {
               licensePlate: "",
               color: "",
               name: "",
+              description: "",
               status: "",
               tabletId: "",
             });
@@ -291,6 +298,17 @@ const Vehicles: FC = () => {
                 placeholder="Enter name"
                 value={formData.name}
                 onChange={(e) => handleInputChange("name", e.target.value)}
+              />
+            </div>
+            <div>
+              <Text bold className="mb-2">
+                Description
+              </Text>
+              <Input
+                type="text"
+                placeholder="Enter description"
+                value={formData.description}
+                onChange={(e) => handleInputChange("description", e.target.value)}
               />
             </div>
             <div>
@@ -351,6 +369,7 @@ const Vehicles: FC = () => {
                     licensePlate: "",
                     color: "",
                     name: "",
+                    description: "",
                     status: "",
                     tabletId: "",
                   });

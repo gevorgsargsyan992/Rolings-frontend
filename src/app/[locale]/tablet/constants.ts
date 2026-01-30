@@ -1,4 +1,4 @@
-import { Column } from "./types";
+import { Column } from "@/types/columns";
 
 export const TabletStatus = {
   1: "Active",
