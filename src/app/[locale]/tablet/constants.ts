@@ -8,6 +8,7 @@ export const TabletStatus = {
 };
 
 export const COLUMNS: Column[] = [
+  { key: "id", label: "Id", width: "3%" },
   { key: "tabletStatus", label: "Status", width: "10%" },
   { key: "vehicleName", label: "Vehicle Name", width: "25%"  },
   { key: "vehicleLicensePlate", label: "License Plate", width: "15%"  },
