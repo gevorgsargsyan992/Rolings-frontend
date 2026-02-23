@@ -8,7 +8,6 @@ import { useState } from "react";
 import PageContainer from "../PageContainer";
 import Icon from "@/components/Icon";
 import { useTranslation } from "react-i18next";
-// import youtubeImg from "../../../public/youtube.webp";
 import instagramImg from "../../../public/instagram.webp";
 import facebookImg from "../../../public/facebook.webp";
 import linkedIn from "../../../public/linkedin.webp";

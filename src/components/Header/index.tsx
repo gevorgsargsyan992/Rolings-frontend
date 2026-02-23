@@ -3,7 +3,7 @@ import { FC, useCallback, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Typography from "@/components/Typography";
-import logo from "../../../public/rolings-logo.svg";
+import logo from "../../../public/rolings-logo-white.svg";
 import { DATA } from "./constants";
 import SelectLanguage from "@/components/Select/SelectLanguage";
 import { useAuth } from "@/contexts/Auth";
@@ -51,10 +51,14 @@ const Header: FC = () => {
   }, [user]);
 
   return (
-    <header className="bg-gray-100 fixed top-0 w-full z-40">
-      <PageContainer>
+    <header
+      className="fixed top-0 w-full z-40 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url(/cover-image.png)" }}
+    >
+      <div className="absolute inset-0 bg-[#0f1729]/90" aria-hidden />
+      <PageContainer className="relative z-10">
         <nav
-          className="mx-auto flex justify-between py-6 items-center px-2"
+          className="relative mx-auto flex justify-between py-6 items-center px-2"
           aria-label="Global"
         >
           <div className="flex items-center">
@@ -71,21 +75,21 @@ const Header: FC = () => {
                 alt="logo image"
               />
             </Link>
-            <div className="hidden lg:flex lg:items-center lg:gap-x-4">
-              {DATA().map((elem, index) => (
-                <Link
-                  key={elem.id}
-                  href={elem.link}
-                  passHref
-                  onClick={() => handleLinkClick(index, elem.link)}
-                  className={`text-sm font-semibold lg:text-xs xl:text-sm lg:mr-6 hover:text-blue-royal ${
-                    activeTab === index ? "text-blue-royal" : "text-charcoal"
-                  }`}
-                >
-                  {elem.name}
-                </Link>
-              ))}
-            </div>
+          </div>
+          <div className="absolute left-1/2 -translate-x-1/2 hidden lg:flex lg:items-center lg:gap-x-4">
+            {DATA().map((elem, index) => (
+              <Link
+                key={elem.id}
+                href={elem.link}
+                passHref
+                onClick={() => handleLinkClick(index, elem.link)}
+                className={`text-sm font-semibold lg:text-xs xl:text-sm lg:mr-6 hover:text-blue-400 ${
+                  activeTab === index ? "text-blue-400" : "text-white"
+                }`}
+              >
+                {elem.name}
+              </Link>
+            ))}
           </div>
           <div className="flex items-center gap-x-3">
             {!isAuthenticated ? (
@@ -93,7 +97,7 @@ const Header: FC = () => {
                 <Link
                   href="/signin"
                   passHref
-                  className="text-sm font-semibold text-black hidden lg:block hover:text-blue-royal"
+                  className="text-sm font-semibold text-white hidden lg:block hover:text-blue-400"
                 >
                   {t("signin")}
                 </Link>
@@ -135,7 +139,7 @@ const Header: FC = () => {
                 </Button>
               </div>
             )}
-            <div className="border-l h-8 hidden lg:block" />
+            <div className="border-l border-white/30 h-8 hidden lg:block" />
             <SelectLanguage />
           </div>
         </nav>
