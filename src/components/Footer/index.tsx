@@ -38,7 +38,6 @@ const Footer = () => {
           alt="logo image"
           width={30}
         />
-
         <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-8 max-w-6xl">
           <div className="md:flex flex-col gap-y-4 hidden">
             {INFO_DATA().map(({ iconName, text, id }) => (
