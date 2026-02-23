@@ -8,7 +8,6 @@ import { useState } from "react";
 import PageContainer from "../PageContainer";
 import Icon from "@/components/Icon";
 import { useTranslation } from "react-i18next";
-// import youtubeImg from "../../../public/youtube.webp";
 import instagramImg from "../../../public/instagram.webp";
 import facebookImg from "../../../public/facebook.webp";
 import linkedIn from "../../../public/linkedin.webp";
@@ -39,7 +38,6 @@ const Footer = () => {
           alt="logo image"
           width={30}
         />
-
         <div className="flex md:flex-row w-full flex-col justify-center md:justify-between lg:gap-6 mx-8 max-w-6xl">
           <div className="md:flex flex-col gap-y-4 hidden">
             {INFO_DATA().map(({ iconName, text, id }) => (

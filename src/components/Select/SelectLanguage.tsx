@@ -59,7 +59,7 @@ const LanguageChanger: FC<LanguageChangerProps> = ({
       >
         <Text
           className={`font-semibold mr-1 ${titleClassName}`}
-          color="text-black"
+          color="text-white"
         >
           {languageToShow}
         </Text>

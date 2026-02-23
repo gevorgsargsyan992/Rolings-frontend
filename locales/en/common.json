@@ -1,6 +1,6 @@
 {
   "aboutus": "About us",
-  "address-real": "Armenia / Yerevan, Tumanyan 20",
+  "address-real": "Armenia / Yerevan, Sebastia 1",
   "advatages-our-network": "The advantages of our network",
   "advertisement": "advertisement",
   "agree-terms": "I have read and agree to the",
@@ -30,6 +30,8 @@
   "first-interactive": "First interactive",
   "forgot-password": "Forgot password ?",
   "future-your-business": "Rolings future for your business",
+  "get-started": "Get Started",
+  "watch-demo": "Watch Demo",
   "have-account": "Do you have an account ? ",
   "id": "ID",
   "in-armenia": "in Armenia",
@@ -43,7 +45,8 @@
   "new-user": "New user ?",
   "next": "Next",
   "offers": "Offers",
-  "our-benefits":"Our benefits","partners": "Partners",
+  "our-benefits": "Our benefits",
+  "partners": "Partners",
   "password": "Password",
   "password-must-contain": "Password must be at least 6 characters, with one uppercase letter, one lowercase letter, and one symbol.",
   "personal-page": "Personal Page",
@@ -84,5 +87,13 @@
   "benefit-1": "High accessibility level: Our screens are installed in taxis that are used by tens of thousands of people every day.",
   "benefit-2": "Innovative technology: Our screens provide high-quality images and limitless advertising opportunities.",
   "benefit-3": "Advertisements are displayed 24/7, ensuring maximum visibility.",
-  "benefit-4": "Our system allows advertisers to provide targeted displays based on taxi routes and zones."
+  "benefit-4": "Our system allows advertisers to provide targeted displays based on taxi routes and zones.",
+  "why-choose-us": "Why Choose Us",
+  "advantages-subtitle": "Discover why leading brands trust Rolings for their interactive advertising campaigns in Armenia.",
+  "personal-page-desc": "Upload your videos and attach them to the cars in the list.",
+  "monitoring-desc": "Track performance metrics.",
+  "choice-desc": "Choose the package that suits you best for more targeted advertising.",
+  "surveys-desc": "Engage passengers with interactive questionnaires and collect feedback.",
+  "database-desc": "Access to a wide selection of high-class cars and number of passengers.",
+  "availability-desc": "Your advertisements run continuously, ensuring maximum visibility."
 }
