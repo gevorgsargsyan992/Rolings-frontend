@@ -56,7 +56,7 @@ const Hero: FC = () => {
   ring-1 ring-white/40
   shadow-[0_0_25px_rgba(255,255,255,0.45)]">
                 <Image
-                  src="/hero-main.png"
+                  src="/hero-main-2.jpg"
                   alt="Interactive taxi advertising"
                   fill
                   className="object-cover object-center"
