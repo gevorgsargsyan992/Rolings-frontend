@@ -4,7 +4,7 @@ import Table from "@/components/Table";
 import useApi from "@/hooks/useApi";
 import { COLUMNS, VideoStatus } from "./constants";
 import { VideosData, VideoStatusKey } from "./types";
-import { VIDEOS } from "@/apiConstants";
+import { VIDEOS, TABLET } from "@/apiConstants";
 import { formattedDate } from "@/utils";
 import NoData from "@/components/NoData";
 import PageContainer from "@/components/PageContainer";
@@ -35,7 +35,14 @@ const Videos: FC = () => {
   const [createForm, setCreateForm] = useState({ name: "", file: null as File | null });
   const [editForm, setEditForm] = useState({ name: "", status: "" });
 
-  const { get, post, patch, _delete, loading } = useApi<any>();
+  const [isAssignModalOpen, setIsAssignModalOpen] = useState(false);
+  const [assignVideo, setAssignVideo] = useState<any>(null);
+  const [tablets, setTablets] = useState<any[]>([]);
+  const [selectedTabletIds, setSelectedTabletIds] = useState<string[]>([]);
+  const [assignLoading, setAssignLoading] = useState(false);
+  const [tabletsLoading, setTabletsLoading] = useState(false);
+
+  const { get, post, patch, put, _delete, loading } = useApi<any>();
 
   const fetchVideos = useCallback(async () => {
     try {
@@ -161,6 +168,56 @@ const Videos: FC = () => {
     }
   }, [selectedRow, _delete, fetchVideos]);
 
+  const fetchTablets = useCallback(async () => {
+    setTabletsLoading(true);
+    try {
+      const data = await get(`${TABLET}`);
+      setTablets(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error("Error fetching tablets:", err);
+    } finally {
+      setTabletsLoading(false);
+    }
+  }, [get]);
+
+  const openAssignModal = useCallback(
+    async (row: any) => {
+      const original = originalVideos.find((v: any) => v.id === row.id);
+      if (original) {
+        setAssignVideo(original);
+        setSelectedTabletIds([]);
+        setIsAssignModalOpen(true);
+        await fetchTablets();
+      }
+    },
+    [originalVideos, fetchTablets],
+  );
+
+  const toggleTablet = useCallback((tabletId: string) => {
+    setSelectedTabletIds((prev) =>
+      prev.includes(tabletId) ? prev.filter((id) => id !== tabletId) : [...prev, tabletId],
+    );
+  }, []);
+
+  const handleAssignToTablets = useCallback(async () => {
+    if (!assignVideo?.id) return;
+    setAssignLoading(true);
+    try {
+      const tabletIds = selectedTabletIds.map((id) => +id);
+      const response = (await put(`${VIDEOS}/${assignVideo.id}`, { tabletIds })) as any;
+      if (response?.success !== false) {
+        setIsAssignModalOpen(false);
+        setAssignVideo(null);
+        setSelectedTabletIds([]);
+        await fetchVideos();
+      }
+    } catch (err) {
+      console.error("Error assigning video to tablets:", err);
+    } finally {
+      setAssignLoading(false);
+    }
+  }, [assignVideo, selectedTabletIds, put, fetchVideos]);
+
   return (
     <ProtectedRoute allowedRoles={[UserType.SUPER_ADMIN]}>
       <PageContainer className="bg-white pb-40 pt-10">
@@ -178,6 +235,7 @@ const Videos: FC = () => {
             isRowClickable={false}
             rowActions={[
               { label: "Edit", onClick: openEdit },
+              { label: "Assign to tablets", onClick: openAssignModal },
               { label: "Delete", onClick: onClickDelete },
             ]}
           />
@@ -290,6 +348,72 @@ const Videos: FC = () => {
             </Button>
             <Button onClick={handleEditVideo} loading={createLoading}>
               Update
+            </Button>
+          </div>
+        </div>
+      </Modal>
+
+      {/* Assign to tablets Modal */}
+      <Modal
+        isOpen={isAssignModalOpen}
+        onClose={() => {
+          setIsAssignModalOpen(false);
+          setAssignVideo(null);
+          setSelectedTabletIds([]);
+        }}
+        showButtons={false}
+      >
+        <div className="flex flex-col gap-4 px-5 py-4 min-w-[320px] max-h-[70vh]">
+          <Text bold className="text-xl">
+            Assign video to tablets
+          </Text>
+          {assignVideo && (
+            <Text className="text-sm text-gray-600">
+              Video: {assignVideo.name}
+            </Text>
+          )}
+          {tabletsLoading ? (
+            <Text className="text-sm text-gray-500">Loading tablets...</Text>
+          ) : tablets.length === 0 ? (
+            <Text className="text-sm text-gray-500">No tablets available.</Text>
+          ) : (
+            <div className="flex flex-col gap-2 overflow-y-auto max-h-[40vh] border border-gray-200 rounded-md p-3">
+              {tablets.map((tablet: any) => (
+                <label
+                  key={tablet.id}
+                  className="flex items-center gap-2 cursor-pointer hover:bg-gray-50 p-2 rounded"
+                >
+                  <input
+                    type="checkbox"
+                    checked={selectedTabletIds.includes(String(tablet.id))}
+                    onChange={() => toggleTablet(String(tablet.id))}
+                    className="rounded border-gray-300"
+                  />
+                  <Text className="text-sm">
+                    Tablet {tablet.id}
+                    {tablet.videoCount ? ` (${tablet.videoCount})` : ""}
+                  </Text>
+                </label>
+              ))}
+            </div>
+          )}
+          <div className="flex gap-4 justify-end pt-2 border-t border-gray-300">
+            <Button
+              type="ghost"
+              onClick={() => {
+                setIsAssignModalOpen(false);
+                setAssignVideo(null);
+                setSelectedTabletIds([]);
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              onClick={handleAssignToTablets}
+              loading={assignLoading}
+              disable={tabletsLoading || tablets.length === 0}
+            >
+              Save
             </Button>
           </div>
         </div>
