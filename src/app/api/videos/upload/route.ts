@@ -3,14 +3,12 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
 const MAX_SIZE_MB = 20;
 const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
-const BUCKET = process.env.S3_VIDEO_BUCKET || "rolings-videos";
-const REGION = process.env.AWS_REGION || "us-east-2";
+const BUCKET = "rolings-videos";
+const REGION = "us-east-2";
 
 function getS3Client() {
-  const accessKeyId = process.env.AWS_ACCESS_KEY_ID || "AKIATL46FUHXD4LDLQXK";
-  const secretAccessKey =
-    process.env.AWS_SECRET_ACCESS_KEY ||
-    "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";
+  const accessKeyId = "AKIATL46FUHXD4LDLQXK";
+  const secretAccessKey = "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";
   if (!accessKeyId || !secretAccessKey) {
     throw new Error("AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY must be set");
   }
@@ -65,7 +63,7 @@ export async function POST(request: NextRequest) {
       }),
     );
 
-    const url = `https://${BUCKET}.s3.${REGION}.amazonaws.com/${encodeURIComponent(key)}`;
+    const url = `https://${BUCKET}.s3.amazonaws.com/${encodeURIComponent(key)}`;
     return NextResponse.json({ success: true, url, key });
   } catch (err: any) {
     console.error("Upload error:", err);
