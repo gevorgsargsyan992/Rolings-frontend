@@ -235,7 +235,7 @@ const Videos: FC = () => {
             isRowClickable={false}
             rowActions={[
               { label: "Edit", onClick: openEdit },
-              { label: "Assign to tablets", onClick: openAssignModal },
+              { label: "Assign", onClick: openAssignModal },
               { label: "Delete", onClick: onClickDelete },
             ]}
           />
