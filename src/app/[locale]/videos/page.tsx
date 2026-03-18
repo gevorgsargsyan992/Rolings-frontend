@@ -173,8 +173,10 @@ const Videos: FC = () => {
     try {
       const data = await get(`${TABLET}`);
       setTablets(Array.isArray(data) ? data : []);
+      return Array.isArray(data) ? data : [];
     } catch (err) {
       console.error("Error fetching tablets:", err);
+      return [];
     } finally {
       setTabletsLoading(false);
     }
@@ -187,7 +189,18 @@ const Videos: FC = () => {
         setAssignVideo(original);
         setSelectedTabletIds([]);
         setIsAssignModalOpen(true);
-        await fetchTablets();
+        const list = await fetchTablets();
+        const videoId = original?.id;
+        if (videoId != null) {
+          const preselected = list
+            .filter((t: any) => {
+              const ids = t?.videoIds;
+              if (!Array.isArray(ids)) return false;
+              return ids.map(String).includes(String(videoId));
+            })
+            .map((t: any) => String(t.id));
+          setSelectedTabletIds(preselected);
+        }
       }
     },
     [originalVideos, fetchTablets],
