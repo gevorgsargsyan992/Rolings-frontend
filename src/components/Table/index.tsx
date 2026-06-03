@@ -13,12 +13,17 @@ const Table: FC<TableProps<any>> = ({
   isRowClickable = true,
   url = "",
   rowActions = [],
+  onRowClick,
 }) => {
   const router = useRouter();
   const [editRowId, setEditRowId] = useState<number | null>(null);
 
   const handleRowClick = (row: any) => {
     if (editRowId !== null) return;
+    if (onRowClick) {
+      onRowClick(row);
+      return;
+    }
     router.push(`/${url}/${row.id}`);
   };
 
@@ -48,7 +53,10 @@ const Table: FC<TableProps<any>> = ({
                 editRowId === row.id ? "bg-gray-100" : "hover:bg-gray-100"
               }`}>
               {columns.map((column) => (
-                <td className="border-b px-4 py-2" key={column.key as string} style={{ width: column.width }}>
+                <td
+                  className="border-b px-4 py-2"
+                  key={column.key as string}
+                  style={{ width: column.width }}>
                   {column?.link ? (
                     <a
                       href={row?.url}

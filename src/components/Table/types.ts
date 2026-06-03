@@ -7,6 +7,7 @@ export interface TableProps<T> {
   url?: string;
   isRowClickable?: boolean;
   rowActions?: TableAction<T>[];
+  onRowClick?: (row: T) => void;
 }
 
 interface Column<T> {

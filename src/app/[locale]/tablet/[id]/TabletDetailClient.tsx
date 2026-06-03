@@ -1,4 +1,5 @@
 "use client";
+
 import { useParams } from "next/navigation";
 import React, { FC, useEffect, useState, useCallback } from "react";
 import Typography from "@/components/Typography";
@@ -18,23 +19,33 @@ import PageContainer from "@/components/PageContainer";
 
 const { Text } = Typography;
 
-const TabletDetail: FC = () => {
+interface TabletDetailClientProps {
+  onBack?: () => void;
+  tabletId?: string;
+}
+
+const TabletDetailClient: FC<TabletDetailClientProps> = ({
+  onBack,
+  tabletId,
+}) => {
   const [tablet, setTablet] = useState<any>({});
   const [isEditingStatus, setIsEditingStatus] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isVideosModalOpen, setIsVideosModalOpen] = useState(false);
   const [editedStatus, setEditedStatus] = useState<string>(
-    tablet?.tablet || ""
+    tablet?.tablet || "",
   );
   const [selectedRow, setSelectedRow] = useState<any>(null);
-  const { id } = useParams();
-  const { loading, error, patch, get, _delete } = useApi<any>();
-
-  useEffect(() => {
-    fetchTablets();
-  }, []);
+  const params = useParams();
+  const idParam = params?.id;
+  const id = tabletId || (Array.isArray(idParam) ? idParam[0] : idParam);
+  const { loading, patch, get, _delete } = useApi<any>();
 
   const fetchTablets = useCallback(async () => {
+    if (!id) {
+      return;
+    }
+
     try {
       const tabletData = await get(`${TABLET}/${id}`);
       if (tabletData) {
@@ -52,13 +63,17 @@ const TabletDetail: FC = () => {
         };
         setTablet({ ...tabletsToShow });
         setEditedStatus(
-          TabletStatus[tabletData.tabletStatus as TabletStatusKey]
+          TabletStatus[tabletData.tabletStatus as TabletStatusKey],
         );
       }
     } catch (err) {
       console.error("Error fetching tablets:", err);
     }
-  }, []);
+  }, [get, id]);
+
+  useEffect(() => {
+    fetchTablets();
+  }, [fetchTablets]);
 
   const handleStatusChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setEditedStatus(event.target.value);
@@ -68,7 +83,7 @@ const TabletDetail: FC = () => {
     try {
       const updatedStatusKey = Object.keys(TabletStatus).find(
         (key) =>
-          TabletStatus[key as unknown as TabletStatusKey] === editedStatus
+          TabletStatus[key as unknown as TabletStatusKey] === editedStatus,
       );
 
       await patch(`${TABLET}/${id}`, {
@@ -108,11 +123,18 @@ const TabletDetail: FC = () => {
   const onCloseVideosModal = useCallback(() => {
     setIsVideosModalOpen(false);
     fetchTablets();
-  }, []);
+  }, [fetchTablets]);
 
   return (
     <PageContainer className="bg-white pb-40 pt-10">
       <div className="flex flex-col relative h-full">
+        {onBack && (
+          <div className="mb-6">
+            <Button type="ghost" onClick={onBack}>
+              Back to Tablets
+            </Button>
+          </div>
+        )}
         <div className="mb-10">
           {tablet?.id && <InfoElement name="ID" value={tablet?.id} />}
           {tablet?.tb_uuid && (
@@ -131,10 +153,7 @@ const TabletDetail: FC = () => {
             />
           )}
           {tablet?.vehicleName && (
-            <InfoElement
-              name="Vehicle Name"
-              value={tablet?.vehicleName}
-            />
+            <InfoElement name="Vehicle Name" value={tablet?.vehicleName} />
           )}
           {(tablet?.latitude || +tablet?.latitude === 0) && (
             <InfoElement name="LAT" value={tablet?.latitude} />
@@ -221,4 +240,4 @@ const TabletDetail: FC = () => {
   );
 };
 
-export default TabletDetail;
+export default TabletDetailClient;
