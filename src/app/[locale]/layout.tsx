@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import Layout from "@/components/Layout";
 import { AuthProvider } from "@/providers/Auth";
 import TranslationsProvider from "@/TranslationsProvider";
-import i18nConfig from "../../../i18nConfig";
 import "./globals.css";
 import "../../../public/styles/icomoon.css";
 import initTranslations from "../../../i18n";
@@ -18,36 +17,28 @@ export const metadata: Metadata = {
 
 const i18nNamespaces = ["common"];
 
-export function generateStaticParams() {
-  return i18nConfig.locales.map((locale) => ({ locale }));
-}
-
 export default async function RootLayout({
   children,
-  params: { locale },
+    params : { locale }
 }: Readonly<{
   children: ReactNode;
   params: {
     locale: string;
   };
 }>) {
-  const { resources } = await initTranslations(
-    locale,
-    i18nNamespaces,
-    undefined,
-    undefined,
-  );
+  const { resources } = await initTranslations(locale, i18nNamespaces, undefined, undefined);
   return (
     <html lang="en">
       <body className={inter.className}>
-        <TranslationsProvider
+      <TranslationsProvider
           resources={resources}
           namespaces={i18nNamespaces}
-          locale={locale}>
-          <AuthProvider>
-            <Layout>{children}</Layout>
-          </AuthProvider>
-        </TranslationsProvider>
+          locale={locale}
+      >
+        <AuthProvider>
+          <Layout>{children}</Layout>
+        </AuthProvider>
+      </TranslationsProvider>
       </body>
     </html>
   );

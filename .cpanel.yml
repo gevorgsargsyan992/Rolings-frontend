@@ -1,8 +1,4 @@
 ---
 deployment:
   tasks:
-    - npm install
-    - npm run build
-    - export DEPLOYPATH=/home/craxdevljkrj/public_html/Rollings-frontend
-    - /bin/rm -rf $DEPLOYPATH/*
-    - /bin/cp -R out/* $DEPLOYPATH
+    - echo "Deployment completed"
