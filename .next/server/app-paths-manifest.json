@@ -1,0 +1,20 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/api/videos/upload/route": "app/api/videos/upload/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/[locale]/contact/page": "app/[locale]/contact/page.js",
+  "/[locale]/aboutus/page": "app/[locale]/aboutus/page.js",
+  "/[locale]/blog/page": "app/[locale]/blog/page.js",
+  "/[locale]/offers/page": "app/[locale]/offers/page.js",
+  "/[locale]/email-stats/page": "app/[locale]/email-stats/page.js",
+  "/[locale]/page": "app/[locale]/page.js",
+  "/[locale]/questionnaire/page": "app/[locale]/questionnaire/page.js",
+  "/[locale]/registration/page": "app/[locale]/registration/page.js",
+  "/[locale]/monitoring/page": "app/[locale]/monitoring/page.js",
+  "/[locale]/users/page": "app/[locale]/users/page.js",
+  "/[locale]/signin/page": "app/[locale]/signin/page.js",
+  "/[locale]/tablet/page": "app/[locale]/tablet/page.js",
+  "/[locale]/vehicle/page": "app/[locale]/vehicle/page.js",
+  "/[locale]/videos/page": "app/[locale]/videos/page.js",
+  "/[locale]/tablet/[id]/page": "app/[locale]/tablet/[id]/page.js"
+}
