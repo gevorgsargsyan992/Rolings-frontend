@@ -353,9 +353,10 @@ const TabletDetail: FC = () => {
                 <div className="flex justify-end mt-4">
                   <Button
                     size="small"
+                    disable={true}
                     onClick={onSavePriorities}
                     loading={isSavingPriority}>
-                    Save Priority
+                    Save video Priority
                   </Button>
                 </div>
               )}
